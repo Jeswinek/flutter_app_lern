@@ -95,7 +95,7 @@ class _loginUserState extends State<loginUser> {
                       padding: EdgeInsets.only(bottom: 20, top: 60),
                       child: Container(
                           padding: EdgeInsets.only(left: 20, right: 20),
-                          child: TextField(
+                          child: TextFormField(
                           //  onSubmitted: (value)=> _email = value,,
                             // controller: controller,
                             // obscureText: obsecure,
