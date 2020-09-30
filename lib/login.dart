@@ -95,12 +95,12 @@ class _loginUserState extends State<loginUser> {
                       padding: EdgeInsets.only(bottom: 20, top: 60),
                       child: Container(
                           padding: EdgeInsets.only(left: 20, right: 20),
-                          child: TextFormField(
+                          child: TextField(
                           //  onSubmitted: (value)=> _email = value,,
                             // controller: controller,
                             // obscureText: obsecure,
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 30,
                             ),
                             decoration: InputDecoration(
                               hintStyle: TextStyle(
