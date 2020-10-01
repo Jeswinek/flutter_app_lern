@@ -75,7 +75,7 @@ class _signUpState extends State<signUp> {
                                 Positioned(
                                   child: Container(
                                     child: Text(
-                                      'SignuP',
+                                      'SignUp',
                                       style: TextStyle(
                                         fontSize: 44,
                                         fontWeight: FontWeight.bold,
