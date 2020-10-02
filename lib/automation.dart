@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'register.dart';
+import 'Switches.dart';
 
 class automation extends StatefulWidget {
   @override
@@ -81,10 +82,6 @@ class _automationState extends State<automation> {
         color: Colors.greenAccent[400],
         child: InkWell(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => signUp()),
-            );
           },
           child: Column(
             children: <Widget>[
@@ -160,7 +157,7 @@ class _automationState extends State<automation> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => signUp()),
+              MaterialPageRoute(builder: (context) =>Switches(),),
             );
           },
           child: Column(
