@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_lern/automation.dart';
 
 class loginUser extends StatefulWidget {
   @override
@@ -100,7 +101,7 @@ class _loginUserState extends State<loginUser> {
                             // controller: controller,
                             // obscureText: obsecure,
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 30,
                             ),
                             decoration: InputDecoration(
                               hintStyle: TextStyle(
@@ -138,7 +139,9 @@ class _loginUserState extends State<loginUser> {
                         padding: EdgeInsets.only(left: 20, right: 20),
                         child: TextField(
                           // controller: controller,
-                           obscureText: true,
+                           obscureText: false,
+                          //ijfifurtupo
+                          //hiohohohoihoihoiho
                           style: TextStyle(
                             fontSize: 20,
                           ),
@@ -191,8 +194,8 @@ class _loginUserState extends State<loginUser> {
                         padding: EdgeInsets.all(8.0),
                         onPressed: () {
 
-                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                          //     loginUser()),);
+                           Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                           automation()),);
                         },
                         child: Text(
                           'LOGIN',
