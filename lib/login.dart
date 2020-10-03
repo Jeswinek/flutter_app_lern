@@ -101,7 +101,7 @@ class _loginUserState extends State<loginUser> {
                             // controller: controller,
                             // obscureText: obsecure,
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 30,
                             ),
                             decoration: InputDecoration(
                               hintStyle: TextStyle(
@@ -139,7 +139,9 @@ class _loginUserState extends State<loginUser> {
                         padding: EdgeInsets.only(left: 20, right: 20),
                         child: TextField(
                           // controller: controller,
-                           obscureText: true,
+                           obscureText: false,
+                          //ijfifurtupo
+                          //hiohohohoihoihoiho
                           style: TextStyle(
                             fontSize: 20,
                           ),
