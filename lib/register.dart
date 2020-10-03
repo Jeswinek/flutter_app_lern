@@ -12,7 +12,7 @@ class _signUpState extends State<signUp> {
       home: Scaffold(body:
       Container(child:
       Stack(children:[
-        Container( color: Colors.red,
+        Container( color: Colors.green,
         ),
         Padding(
           padding: EdgeInsets.only(top: 90, left: 10, right: 10),
@@ -75,7 +75,7 @@ class _signUpState extends State<signUp> {
                                 Positioned(
                                   child: Container(
                                     child: Text(
-                                      'SignUp',
+                                      'SignuP',
                                       style: TextStyle(
                                         fontSize: 44,
                                         fontWeight: FontWeight.bold,
