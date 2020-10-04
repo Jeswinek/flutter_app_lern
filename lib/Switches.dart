@@ -17,27 +17,27 @@ class _SwitchesState extends State<Switches> {
   int _currentIndex = 0;
   int _currentIndexOne = 0;
   int _currentIndexTwo = 0;
-  int _currentIndexl1 = 0;
-  int _currentIndexlt1 = 0;
-  int _currentIndexl2 = 0;
-  int _currentIndexlt2 = 0;
-  int _currentIndexl3 = 0;
-  int _currentIndexlt3 = 0;
+  int _currentIndexl1 = 2;
+  int _currentIndexlt1 = 3;
+  int _currentIndexl2 = 2;
+  int _currentIndexlt2 = 3;
+  int _currentIndexl3 = 2;
+  int _currentIndexlt3 = 3;
 
   bool switchControl = false;
   var textHolder = 'Switch is OFF';
   var Switch_one = 'ON';
   var Switch_Two = 'ON';
   var Switch_Three = 'ON';
-  var l1= 'ON';
-  var l2= 'ON';
-  var l3= 'ON';
-  bool Switch_one_control = false;
-  bool Switch_Two_control = false;
-  bool Switch_Three_control = false;
-  bool lb1 = true;
-  bool lb2 = true;
-  bool lb3 = true;
+  var l1 = 'ON';
+  var l2 = 'ON';
+  var l3 = 'ON';
+  bool Switch_one_control = true;
+  bool Switch_Two_control = true;
+  bool Switch_Three_control = true;
+  bool lb1 = false;
+  bool lb2 = false;
+  bool lb3 = false;
   bool init = true;
 
   void toggleSwitch(bool value) {
@@ -117,22 +117,22 @@ class _SwitchesState extends State<Switches> {
     }
   }
 
-  void Initialize(){
-    if(init == true){
-      setState(() {
-      r2l1();
-      r2l2();
-      r2l3();
-      init == false;
-    }
-    );
-    }
-    else{
-      setState(() {
-        init == false;
-      });
-    }
-  }
+  // void Initialize(){
+  //   if(init == true){
+  //     setState(() {
+  //     r2l1();
+  //     r2l2();
+  //     r2l3();
+  //     init == false;
+  //   }
+  //   );
+  //   }
+  //   else{
+  //     setState(() {
+  //       init == false;
+  //     });
+  //   }
+  // }
   void SwitchOne() {
     if (Switch_one_control == false) {
       setState(() {
@@ -155,10 +155,10 @@ class _SwitchesState extends State<Switches> {
   }
 
   void r2l1() {
-    if (lb1== false) {
+    if (lb1 == false) {
       setState(() {
         lb1 = true;
-        l1= 'ON';
+        l1 = 'ON';
         _currentIndexl1 = 3;
         _currentIndexlt1 = 4;
       });
@@ -168,9 +168,9 @@ class _SwitchesState extends State<Switches> {
     } else {
       setState(() {
         lb1 = false;
-        l1= 'OFF';
+        l1 = 'OFF';
         _currentIndexl1 = 2;
-        _currentIndexlt1= 3;
+        _currentIndexlt1 = 3;
       });
       print('OFF');
       // Put your code here which you want to execute on Switch OFF event.
@@ -181,7 +181,7 @@ class _SwitchesState extends State<Switches> {
     if (lb2 == false) {
       setState(() {
         lb2 = true;
-        l2= 'ON';
+        l2 = 'ON';
         _currentIndexlt2 = 4;
         _currentIndexl2 = 3;
       });
@@ -191,9 +191,9 @@ class _SwitchesState extends State<Switches> {
     } else {
       setState(() {
         lb2 = false;
-        l2= 'OFF';
+        l2 = 'OFF';
         _currentIndexl2 = 2;
-        _currentIndexlt2= 3;
+        _currentIndexlt2 = 3;
       });
       print('OFF');
       // Put your code here which you want to execute on Switch OFF event.
@@ -204,7 +204,7 @@ class _SwitchesState extends State<Switches> {
     if (lb3 == false) {
       setState(() {
         lb3 = true;
-        l3= 'ON';
+        l3 = 'ON';
         _currentIndexlt3 = 4;
         _currentIndexl3 = 3;
       });
@@ -214,15 +214,14 @@ class _SwitchesState extends State<Switches> {
     } else {
       setState(() {
         lb3 = false;
-        l3= 'OFF';
+        l3 = 'OFF';
         _currentIndexl3 = 2;
-        _currentIndexlt3= 3;
+        _currentIndexlt3 = 3;
       });
       print('OFF');
       // Put your code here which you want to execute on Switch OFF event.
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -285,9 +284,9 @@ class _SwitchesState extends State<Switches> {
                             child: Switch(
                               onChanged: toggleSwitch,
                               value: switchControl,
-                              activeColor: Colors.blue,
-                              activeTrackColor: Colors.green,
-                              inactiveThumbColor: Colors.white,
+                              activeColor: Colors.green[800],
+                              activeTrackColor: Colors.grey,
+                              inactiveThumbColor: Colors.red,
                               inactiveTrackColor: Colors.grey,
                             )),
                         Text(
@@ -318,7 +317,7 @@ class _SwitchesState extends State<Switches> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 10, bottom: 10, top: 5,right: 10),
+              padding: EdgeInsets.only(left: 10, bottom: 10, top: 5, right: 10),
               child: Container(
                 child: Text(
                   'Room1',
@@ -335,244 +334,290 @@ class _SwitchesState extends State<Switches> {
                     width: 2,
                   ),
                 ),
-              width: MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width,
               ),
             ),
             Container(
               decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                border: Border.all(
-                  color: Colors.black,
-                  width: 2,
-                )
-              ),
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2,
+                  )),
               width: MediaQuery.of(context).size.width,
-              child:
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 10, left: 25.0, right: 0.0,bottom: 10),
-                  child: GestureDetector(
-                    onTap: () => SwitchOne(),
-                    child: ClipOval(
-                      child:Padding(child: Container(
-                        //color: _colors[_currentIndex],
-                        height: 90.0, // height of the button
-                        width: 90.0, // width of the button
-                        child: Center(child: Text('$Switch_one')),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 2,
+              height: 137.5,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: 10, left: 25.0, right: 0.0, bottom: 10),
+                    child: GestureDetector(
+                      onTap: () => SwitchOne(),
+                      child: ClipOval(
+                        child: Padding(
+                          child: Container(
+                            //color: _colors[_currentIndex],
+                            height: 90.0, // height of the button
+                            width: 90.0, // width of the button
+                            child: Center(
+                                child: Text(
+                              '$Switch_one',
+                              style: TextStyle(fontSize: 24),
+                            )),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.black,
+                                width: 2,
+                              ),
+                              shape: BoxShape.circle,
+                              color: _colors[_currentIndex],
+                            ),
                           ),
-                          shape: BoxShape.circle,
-                          color: _colors[_currentIndex],
+                          padding: EdgeInsets.only(left: 10, right: 10),
                         ),
                       ),
-                      padding: EdgeInsets.only(left: 10,right: 10),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: 10, bottom: 10, left: 25.0, right: 0.0),
+                    child: GestureDetector(
+                      onTap: () => SwitchTwo(),
+                      child: ClipOval(
+                        child: Container(
+                          color: _colors[_currentIndexOne],
+                          height: 90.0, // height of the button
+                          width: 90.0, // width of the button
+                          child: Center(
+                              child: Text(
+                            '$Switch_Two',
+                            style: TextStyle(fontSize: 24),
+                          )),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10,bottom: 10, left: 25.0, right: 0.0),
-                  child: GestureDetector(
-                    onTap: () => SwitchTwo(),
-                    child: ClipOval(
-                      child: Container(
-                        color: _colors[_currentIndexOne],
-                        height: 90.0, // height of the button
-                        width: 90.0, // width of the button
-                        child: Center(child: Text('$Switch_Two')),
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: 10, left: 25.0, bottom: 10, right: 0.0),
+                    child: GestureDetector(
+                      onTap: () => SwitchThree(),
+                      child: ClipOval(
+                        child: Container(
+                          color: _colors[_currentIndexTwo],
+                          height: 90.0, // hei
+                          // ght of the button
+                          width: 90.0, // width of the button
+                          child: Center(
+                              child: Text(
+                            '$Switch_Three',
+                            style: TextStyle(fontSize: 24),
+                          )),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10, left: 25.0,bottom: 10, right: 0.0),
-                  child: GestureDetector(
-                    onTap: () => SwitchThree(),
-                    child: ClipOval(
-                      child: Container(
-                        color: _colors[_currentIndexTwo],
-                        height: 90.0, // hei
-                        // ght of the button
-                        width: 90.0, // width of the button
-                        child: Center(child: Text('$Switch_Three')),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-            ),],
+          ],
         ),
       ),
     );
   }
+
   Widget Room2() {
     return Container(
-      width: MediaQuery.of(context).size.width-20,
-      decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
-            color: Colors.blueGrey[900],
-        border: (Border.all(color: Colors.grey, width: 2.0)),
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-      ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: 20.0),
-              child: Text('Room 2',
-                style: TextStyle(fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Colors.white),
-              ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                margin: EdgeInsets.only(bottom: 15.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  border: Border.all(color: Colors.grey,width: 2.0),
-                ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 4,left: 10),
-                    child: Text('Light 1',style: TextStyle(color: Colors.white,
-                        fontSize: 12,
-                        letterSpacing: 2.0),),
+        width: MediaQuery.of(context).size.width - 20,
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: Colors.blueGrey[900],
+          border: (Border.all(color: Colors.grey, width: 2.0)),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20.0),
+                  child: Text(
+                    'Room 2',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.white),
                   ),
-                  GestureDetector(
-                    onTap: () => r2l1(),
-                    child: ClipOval(
-                      child:Padding(child: Container(
-                        //color: _colors[_currentIndex],
-                        height: 90.0, // height of the button
-                        width: 90.0, // width of the button
-                        child: Center(child: Text('$l1',
-                        style: TextStyle(fontSize: 24,
-                        color: _colors[_currentIndexlt1],),)),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.tealAccent,
-                            width: 2,
-                          ),
-                          shape: BoxShape.circle,
-                         color: _colors[_currentIndexl1],
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(bottom: 15.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Colors.grey[900],
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    border: Border.all(color: Colors.grey, width: 2.0),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4, left: 10),
+                        child: Text(
+                          'Light 1',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              letterSpacing: 2.0),
                         ),
                       ),
-                        padding: EdgeInsets.only(top: 10, bottom: 10),
-                      ),
-                    ),
-                  ),
-                 ],
-                  ),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 15.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  border: Border.all(color: Colors.grey,width: 2.0),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4,top: 4),
-                      child: Text('Tubelight',style: TextStyle(color: Colors.white,
-                        fontSize: 12,
-                      letterSpacing: 2.0),),
-                    ),
-                    GestureDetector(
-                      onTap: () => r2l2(),
-                      child: ClipOval(
-                        child:Padding(child: Container(
-                          //color: _colors[_currentIndex],
-                          height: 90.0, // height of the button
-                          width: 90.0, // width of the button
-                          child: Center(child: Text('$l2',
-                            style: TextStyle(fontSize: 24,
-                              color: _colors[_currentIndexlt2],),)),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.tealAccent,
-                              width: 2,
+                      GestureDetector(
+                        onTap: () => r2l1(),
+                        child: ClipOval(
+                          child: Padding(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.tealAccent,
+                                  width: 2,
+                                ),
+                                shape: BoxShape.circle,
+                                color: _colors[_currentIndexl1],
+                              ),
+                              //color: _colors[_currentIndex],
+                              height: 90.0, // height of the button
+                              width: 90.0, // width of the button
+                              child: Center(
+                                  child: Text(
+                                '$l1',
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  color: _colors[_currentIndexlt1],
+                                ),
+                              )),
                             ),
-                            shape: BoxShape.circle,
-                            color: _colors[_currentIndexl2],
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
                           ),
                         ),
-                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 15.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Colors.grey[900],
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    border: Border.all(color: Colors.grey, width: 2.0),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, top: 4),
+                        child: Text(
+                          'Tubelight',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              letterSpacing: 2.0),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(bottom: 15.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  border: Border.all(color: Colors.grey,width: 2.0),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 4,left: 10),
-                      child: Text('Fan',style: TextStyle(color: Colors.white,
-                          fontSize: 12,
-                          letterSpacing: 2.0),),
-                    ),
-                    GestureDetector(
-                      onTap: () => r2l3(),
-                      child: ClipOval(
-                        child:Padding(child: Container(
-                          //color: _colors[_currentIndex],
-                          height: 90.0, // height of the button
-                          width: 90.0, // width of the button
-                          child: Center(child: Text('$l3',
-                            style: TextStyle(fontSize: 24,
-                              color: _colors[_currentIndexlt3],),)),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.tealAccent,
-                              width: 2,
+                      GestureDetector(
+                        onTap: () => r2l2(),
+                        child: ClipOval(
+                          child: Padding(
+                            child: Container(
+                              //color: _colors[_currentIndex],
+                              height: 90.0, // height of the button
+                              width: 90.0, // width of the button
+                              child: Center(
+                                  child: Text(
+                                '$l2',
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  color: _colors[_currentIndexlt2],
+                                ),
+                              )),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.tealAccent,
+                                  width: 2,
+                                ),
+                                shape: BoxShape.circle,
+                                color: _colors[_currentIndexl2],
+                              ),
                             ),
-                            shape: BoxShape.circle,
-                            color: _colors[_currentIndexl3],
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
                           ),
                         ),
-                          padding: EdgeInsets.only(top: 10, bottom: 10),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 15.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Colors.grey[900],
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    border: Border.all(color: Colors.grey, width: 2.0),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4, left: 10),
+                        child: Text(
+                          'Fan',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              letterSpacing: 2.0),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              )
-                ],
-              ),
-    ],
-    )
-    );
-
+                      GestureDetector(
+                        onTap: () => r2l3(),
+                        child: ClipOval(
+                          child: Padding(
+                            child: Container(
+                              //color: _colors[_currentIndex],
+                              height: 90.0, // height of the button
+                              width: 90.0, // width of the button
+                              child: Center(
+                                  child: Text(
+                                '$l3',
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  color: _colors[_currentIndexlt3],
+                                ),
+                              )),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.tealAccent,
+                                  width: 2,
+                                ),
+                                shape: BoxShape.circle,
+                                color: _colors[_currentIndexl3],
+                              ),
+                            ),
+                            padding: EdgeInsets.only(top: 10, bottom: 10),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ],
+        ));
   }
-
 }
