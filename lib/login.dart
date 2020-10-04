@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_lern/automation.dart';
 
 class loginUser extends StatefulWidget {
   @override
@@ -7,9 +6,11 @@ class loginUser extends StatefulWidget {
 }
 
 class _loginUserState extends State<loginUser> {
-  // final _formKey = GlobalKey<FormState>();
-  // String _password;
-  // String _email;
+  final _formKey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  String _email;
+  String _password;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(title: 'kslfkl',
@@ -94,54 +95,77 @@ class _loginUserState extends State<loginUser> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(bottom: 20, top: 60),
-                      child: Container(
-                          padding: EdgeInsets.only(left: 20, right: 20),
-                          child: TextField(
-                          //  onSubmitted: (value)=> _email = value,,
-                            // controller: controller,
-                            // obscureText: obsecure,
-                            style: TextStyle(
-                              fontSize: 30,
-                            ),
-                            decoration: InputDecoration(
-                              hintStyle: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
-                              hintText:'Username',
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide(
-                                  color: Theme.of(context).primaryColor,
-                                  width: 2,
+                      child:
+                      Form(
+                        key: _formKey,
+                        child:
+                      Column(
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(left: 20, right: 20,bottom: 20),
+                              child:
+                              TextFormField(
+                                validator: (val) {
+                                  if (val.length==0)
+                                    return "please enter valid email";
+                                  else if (!val.contains("@"))
+                                    return "please enter valid email";
+                                  else
+                                    return null;
+                                },
+                                onSaved: (val)=>_email=val,
+                              //  onSubmitted: (value)=> _email = value,,
+                                // controller: controller,
+                                // obscureText: obsecure,
+                                style: TextStyle(
+                                  fontSize: 20,
                                 ),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide(
-                                  color: Theme.of(context).primaryColor,
-                                  width: 3,
-                                ),
-                              ),
-                              prefixIcon: Padding(
-                                child: IconTheme(
-                                  data: IconThemeData(color: Theme.of(context).primaryColor),
-                                  child: Icon(Icons.account_circle, size: 30,),
-                                ),
-                                padding: EdgeInsets.only(left: 30, right: 10),
-                              ),
-                             ),
-                          ),),
-                    ),
+                                decoration: InputDecoration(
+                                  hintStyle: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                  ),
+                                  hintText:'Email',
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                    borderSide: BorderSide(
+                                      color: Theme.of(context).primaryColor,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                    borderSide: BorderSide(
+                                      color: Theme.of(context).primaryColor,
+                                      width: 3,
+                                    ),
+                                  ),
+                                  prefixIcon: Padding(
+                                    child: IconTheme(
+                                      data: IconThemeData(color: Theme.of(context).primaryColor),
+                                      child: Icon(Icons.alternate_email, size: 30,),
+                                    ),
+                                    padding: EdgeInsets.only(left: 30, right: 10),
+                                  ),
+                                 ),
+                              ),),
+
+
                     Padding(
                       padding: EdgeInsets.only(bottom: 20,),
                       child: Container(
                         padding: EdgeInsets.only(left: 20, right: 20),
-                        child: TextField(
-                          // controller: controller,
-                           obscureText: false,
-                          //ijfifurtupo
-                          //hiohohohoihoihoiho
+                        child: TextFormField(
+                          obscureText: true,
+                          validator: (val){
+                            if (val.length == 0)
+                              return "Please enter password";
+                            else if (val.length <= 5)
+                              return "Your password should be more then 6 char long";
+                            else
+                              return null;
+                          },
+                          onSaved: (val)=>_password=val,
                           style: TextStyle(
                             fontSize: 20,
                           ),
@@ -173,8 +197,13 @@ class _loginUserState extends State<loginUser> {
                               padding: EdgeInsets.only(left: 30, right: 10),
                             ),
                           ),
-                        ),),
+                        ),
+                      ),
+                      ),
+                  ],
                     ),
+                ),
+                ),
                     SizedBox(
                       height: 10,
                     ),
@@ -193,9 +222,12 @@ class _loginUserState extends State<loginUser> {
                         textColor: Colors.white,
                         padding: EdgeInsets.all(8.0),
                         onPressed: () {
-
-                           Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                           automation()),);
+                         if (_formKey.currentState.validate()) {
+                            _formKey.currentState.save();
+                            _scaffoldKey.currentState.showSnackBar(new SnackBar(
+                              content: new Text("Your email: $_email and Password: $_password"),
+                            ));
+                          }
                         },
                         child: Text(
                           'LOGIN',
