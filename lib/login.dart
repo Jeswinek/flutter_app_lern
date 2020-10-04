@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
+import 'Switches.dart';
 
 class loginUser extends StatefulWidget {
   @override
@@ -223,7 +225,11 @@ class _loginUserState extends State<loginUser> {
                         padding: EdgeInsets.all(8.0),
                         onPressed: () {
                          if (_formKey.currentState.validate()) {
-                            _formKey.currentState.save();
+                           Navigator.push(
+                             context,
+                             MaterialPageRoute(builder: (context) =>Switches(),),
+                           );
+                           _formKey.currentState.save();
                             _scaffoldKey.currentState.showSnackBar(new SnackBar(
                               content: new Text("Your email: $_email and Password: $_password"),
                             ));

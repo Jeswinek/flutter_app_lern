@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     Color primary = Theme.of(context).primaryColor;
     Color stst = Colors.red;
-    return Column(
+    return ListView(
       children: [
         Container(
           padding: EdgeInsets.all(10),
