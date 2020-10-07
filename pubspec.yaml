@@ -50,7 +50,8 @@ flutter:
   assets:
     - image/Login.jpg
     - image/intruder.jpg
-
+    - image/logo.jpg
+    - image/Logoo.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
