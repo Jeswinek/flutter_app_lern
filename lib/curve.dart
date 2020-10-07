@@ -3,9 +3,9 @@ import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 import 'dart:math';
 
-const CURVE_HEIGHT = 300.0;
-const AVATAR_RADIUS = CURVE_HEIGHT * 0.25;
-const AVATAR_DIAMETER = AVATAR_RADIUS * 2;
+// const CURVE_HEIGHT = 300.0;
+// const AVATAR_RADIUS = CURVE_HEIGHT * 0.25;
+// const AVATAR_DIAMETER = AVATAR_RADIUS * 2;
 
 void main() => runApp(new MyApp());
 
