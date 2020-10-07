@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Home.dart';
 import 'package:flutter/services.dart';
+import 'curve.dart';
 
 void main()=> runApp(MyApp());
 
@@ -12,21 +13,25 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         //canvasColor: Colors.transparent,
         primaryColor: Color(0xFF80E1D1),
-        hintColor: Color(0xFFC0F0E8),
-      ),
-      home: Scaffold(
+        hintColor: Color(0xFFC0F0E8),),
+        home: Scaffold(
         body: Center(
           child: Container(
         constraints: BoxConstraints.expand(),
     decoration: BoxDecoration(
-    image: DecorationImage(
-    image: AssetImage('image/Login.jpg'),
-    fit: BoxFit.cover)
+    // image: DecorationImage(
+    // image: AssetImage('image/Logoo.jpg'),
+    // fit: BoxFit.cover)
     ),
-          child: Home(),
-        ),
-      ),
-      ),
+      child:
+      Stack(children:[ CurvedShape(),
+        Home(),
+    ]
+    ),
+    ),
+    ),
+    ),
     );
+
   }
 }
