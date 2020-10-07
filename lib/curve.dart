@@ -27,6 +27,7 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
+
 //
 class _MyHomePageState extends State<MyHomePage> {
   @override
@@ -53,104 +54,123 @@ class _MyHomePageState extends State<MyHomePage> {
           //     //   ),
           //     // ),
           // ),
-      ],
-          ),
-
-
+        ],
+      ),
     );
-
-   }
+  }
 }
 
 class CurvedShape extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      // height: CURVE_HEIGHT,
-      child:Stack(
-          alignment: Alignment.center,
-          children: [ CustomPaint(
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-            ),
-          painter: HeaderCurvedContainer(),
+      child: Stack(alignment: Alignment.center, children: [
+        CustomPaint(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
           ),
-            Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
+          painter: HeaderCurvedContainer(),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width / 4, top: 60),
+              child: Row(
+                children: [
+                  Text(
+                    'SMART',
+                    style: TextStyle(
+                      fontSize: 35.0,
+                      letterSpacing: 1.5,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+                mainAxisAlignment: MainAxisAlignment.start,
+              ),
+            ),
+            Padding(
+              // padding: const EdgeInsets.fromLTRB(100, 80, 100,20),
+              child: Row(
+                children: [
+                  Text(
+                    'ENERGY',
+                    style: TextStyle(
+                      fontSize: 35.0,
+                      letterSpacing: 1.5,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+                mainAxisAlignment: MainAxisAlignment.start,
+              ),
+              padding:
+                  EdgeInsets.only(left: MediaQuery.of(context).size.width / 3),
+            ),
+            Stack(
               children: [
                 Container(
-                  height: 150,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [Padding(
-                      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width/4),
-                      child:
-                      Text('Smart Energy',
-                      style:TextStyle(
-                        fontSize: 35.0,
-                        letterSpacing: 1.5,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      ),),
-                    ],
-                  ),
-                ),
-                    Container(
-
-                     width: MediaQuery.of(context).size.width / 2.4,
-                     height: MediaQuery.of(context).size.width / 2.4,
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                      color: Colors.white,
-                    ),
-
-                child:
-
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children:[
-                Container(
-                  width: MediaQuery.of(context).size.width / 2.8,
-                  height: MediaQuery.of(context).size.width / 2.8,
-                  //padding: const EdgeInsets.only(left: 50),
+                  width: MediaQuery.of(context).size.width / 2.3,
+                  height: MediaQuery.of(context).size.width / 2.3,
+                  //padding: const EdgeInsets.only(top:),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                     // color: Colors.white,
-                    image: DecorationImage(
-                      image: AssetImage('image/Logoo.png'),
-                      fit: BoxFit.cover,
-                    ),
+                    color: Colors.white,
+                    // image: image(),
+                    // DecorationImage(
+                    //   image: AssetImage('image/Logoo.png'),
+                    //   fit: BoxFit.cover,
+                    // ),
                   ),
-                // child: Image.asset('image/logo.jpg'),
                 ),
-                    ],),
-                ),],
+                Padding(
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 2.7,
+                      height: MediaQuery.of(context).size.width / 2.7,
+                      padding: const EdgeInsets.all(50),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                        image: DecorationImage(
+                          image: AssetImage('image/Logoo.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    padding: EdgeInsets.fromLTRB(13, 10, 8, 10)),
+              ],
             ),
-    ],
-      ),
+          ],
+        ),
+      ]),
     );
+  }
+
+  Widget image() {
+    var assetsImage = new AssetImage('assets/explore.png');
+    var image = new Image(image: assetsImage, width: 48.0, height: 48.0);
+    return new Container(child: image);
   }
 }
 
- class HeaderCurvedContainer extends CustomPainter {
-@override
-   void paint(Canvas canvas, Size size) {
-     Paint paint = Paint()..color = Colors.lightGreen;
-     Path path = Path()
-       ..relativeLineTo(0, 150)
-       ..quadraticBezierTo(size.width / 2, 250.0, size.width, 150)
-       ..relativeLineTo(0, -150)
+class HeaderCurvedContainer extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()..color = Colors.lightGreen;
+    Path path = Path()
+      ..relativeLineTo(0, 200)
+      ..quadraticBezierTo(size.width / 2.3, 300.0, size.width, 160)
+      ..relativeLineTo(0, -180)
+      ..close();
 
-       ..close();
+    canvas.drawPath(path, paint);
+  }
 
-     canvas.drawPath(path, paint);
-   }
-
-   @override
-   bool shouldRepaint(CustomPainter oldDelegate) => false;
- }
-
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
+}
