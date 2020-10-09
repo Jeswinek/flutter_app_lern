@@ -16,11 +16,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     Color primary = Theme.of(context).primaryColor;
     Color stst = Colors.red;
-    return Column(
+    return ListView(
       children: [
         Container(
-          padding: EdgeInsets.all(10),
-          child: logo(),
+          padding: EdgeInsets.only(top:250,left:10,right:10),
+          //child: logo(),
         ),
         Padding(
           child: Container(
@@ -75,53 +75,67 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget logo() {
-    return Padding(
-      padding: EdgeInsets.only(
-          top: MediaQuery.of(context).size.height * 0.03, right: 40),
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: 220,
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              child: Container(
-                alignment: Alignment.centerLeft,
-                height: 162,
-                child: Align(
-                  child: Text(
-                    "Smart",
-                    style: TextStyle(
-                      fontSize: 45,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              child: Align(
-                child: Container(
-                  padding: EdgeInsets.only(top: 40, left: 65),
-                  width: 190,
-                  child: Text(
-                    "HOME",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                alignment: Alignment.center,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  // Widget logo() {
+  //   return Padding(
+  //     padding: EdgeInsets.only(
+  //         top: MediaQuery.of(context).size.height * 0.03, right: 40),
+  //     child: Container(
+  //     //   width: MediaQuery.of(context).size.width,
+  //     //   height: 220,
+  //     //   child: Stack(
+  //     //     children: <Widget>[
+  //     //       Positioned(
+  //     //         child: Container(
+  //     //           alignment: Alignment.centerLeft,
+  //     //           height: 162,
+  //     //           child: Align(
+  //     //             child: Text(
+  //     //               "Smart",
+  //     //               style: TextStyle(
+  //     //                 fontSize: 45,
+  //     //                 fontWeight: FontWeight.bold,
+  //     //                 color: Colors.green,
+  //     //               ),
+  //     //             ),
+  //     //           ),
+  //     //         ),
+  //     //       ),
+  //     //       Positioned(
+  //     //         child: Align(
+  //     //           child: Container(
+  //     //             padding: EdgeInsets.only(top: 40, left: 65),
+  //     //             width: 190,
+  //     //             child: Text(
+  //     //               "HOME",
+  //     //               style: TextStyle(
+  //     //                 fontSize: 40,
+  //     //                 fontWeight: FontWeight.bold,
+  //     //                 color: Colors.white,
+  //     //               ),
+  //     //             ),
+  //     //           ),
+  //     //           alignment: Alignment.center,
+  //     //         ),
+  //     //       ),
+  //     //     ],
+  //     //   ),
+  //     // ),
+  //
+  //   width: MediaQuery.of(context).size.width / 2.5,
+  //   height: MediaQuery.of(context).size.width / 2.5,
+  //   padding: const EdgeInsets.only(top: 50),
+  //   decoration: BoxDecoration(
+  //   shape: BoxShape.circle,
+  //   color: Colors.white,
+  //   // image: DecorationImage(
+  //   //   image: AssetImage('image/Logoo.jpg'),
+  //   //   fit: BoxFit.cover,
+  //   // ),
+  //   ),
+  //       // child: logoo(),
+  //     ),
+  //   );
+  // }
 
   Widget button(String text, Color fillColor, Color textColor,
       Color borderColor, double size,) {
@@ -144,4 +158,18 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-}
+  }
+
+// class logoo extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     AssetImage logoImage = AssetImage('image/Logoo.jpg');
+//     Image image = Image(image: logoImage,width: 50,height: 50);
+//     return Container(
+//       child: image,
+//     );
+
+    // return Container();
+
+
+
