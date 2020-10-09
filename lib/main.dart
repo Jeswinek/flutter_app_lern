@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_lern/graph.dart';
 import 'Home.dart';
 import 'package:flutter/services.dart';
 import 'curve.dart';
-//import 'energy.dart';
-import 'baseHome.dart';
 
 void main()=> runApp(MyApp());
 
@@ -25,11 +24,11 @@ class MyApp extends StatelessWidget {
     // image: AssetImage('image/Logoo.jpg'),
     // fit: BoxFit.cover)
     ),
-      child:Homescreen(),
-    //   Stack(children:[ CurvedShape(),
-    //     Home(),
-    // ]
-    // ),
+      child:
+      Stack(children:[ CurvedShape(),
+        HomePage(),
+    ]
+    ),
     ),
     ),
     ),
