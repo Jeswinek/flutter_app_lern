@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_lern/graph.dart';
 import 'Home.dart';
 import 'package:flutter/services.dart';
 import 'curve.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
     ),
       child:
       Stack(children:[ CurvedShape(),
-        Home(),
+        HomePage(),
     ]
     ),
     ),
