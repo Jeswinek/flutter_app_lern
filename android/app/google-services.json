@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "195891898395",
+    "firebase_url": "https://energy-meter-project-c13ac.firebaseio.com",
+    "project_id": "energy-meter-project-c13ac",
+    "storage_bucket": "energy-meter-project-c13ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195891898395:android:26712fa90bfd9bdf5030be",
+        "android_client_info": {
+          "package_name": "com.example.flutter_app_lern"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195891898395-hga43lrn1sknh8tgaa6quhkebujnlopb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_app_lern",
+            "certificate_hash": "24e9937bc02048e18e4a6c7bcb36d81cd6f9f7e2"
+          }
+        },
+        {
+          "client_id": "195891898395-oehik61ig75crpf0q96dp13msfn5m73n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC43tHx6BDk2REQW9UYI9s_XLdBvDBJMrM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195891898395-oehik61ig75crpf0q96dp13msfn5m73n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
