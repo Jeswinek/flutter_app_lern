@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_lern/energy.dart';
 import 'Home.dart';
 import 'package:flutter/services.dart';
 import 'curve.dart';
+import 'energy.dart';
 
 void main()=> runApp(MyApp());
 
@@ -23,11 +25,11 @@ class MyApp extends StatelessWidget {
     // image: AssetImage('image/Logoo.jpg'),
     // fit: BoxFit.cover)
     ),
-      child:
-      Stack(children:[ CurvedShape(),
-        Home(),
-    ]
-    ),
+      child:energy(),
+    //   Stack(children:[ CurvedShape(),
+    //     Home(),
+    // ]
+    // ),
     ),
     ),
     ),

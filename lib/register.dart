@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_app_lern/automation.dart';
 
 class signUp extends StatefulWidget {
   @override
@@ -228,8 +229,8 @@ class _signUpState extends State<signUp> {
                               padding: EdgeInsets.all(8.0),
                               onPressed: () {
 
-                                // Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                                //     loginUser()),);
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                                    automation()),);
                               },
                               child: Text(
                                 'Create New',
