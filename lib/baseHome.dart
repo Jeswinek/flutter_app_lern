@@ -39,16 +39,15 @@ class _HomescreenState extends State<Homescreen> {
                       children: <Widget>[
                         CircleAvatar(
                           radius: 32,
-                          backgroundImage: NetworkImage(
-                              'https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fb%2Fb4%2FKeerthy_Suresh_at_Mahanati_Success_Meet_image_2.png&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FKeerthy_Suresh&tbnid=qKZ5JX-McSLeLM&vet=12ahUKEwioltTrq6fsAhWMFHIKHXS3Cd0QMygAegUIARCuAQ..i&docid=6JwNKJn9H1piEM&w=716&h=874&q=keerthy%20suresh&ved=2ahUKEwioltTrq6fsAhWMFHIKHXS3Cd0QMygAegUIARCuAQ'),
-                        ),
+                          backgroundImage:AssetImage('image/Logoo.png'
+                                             ),),
                         SizedBox(width: 16),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text('iog97tg8'),
-                            Text('huijyuifu'),
+                            Text('KEERTHY M S'),
+                            Text('Choondal'),
                           ],
                         ),
                       ],
