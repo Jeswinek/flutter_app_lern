@@ -23,19 +23,37 @@ class _menuState extends State<menu> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
-              child: Text(
-                'Advanced Menu',
-                style: TextStyle(color: Colors.white, fontSize: 25),
+             DrawerHeader(
+          child: Container(
+            height: 64,
+            child: Row(
+              children: <Widget>[
+              CircleAvatar(
+              radius: 32,
+              backgroundImage:AssetImage('image/Logoo.png'
               ),
+            ),
+            SizedBox(width: 16),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('KEERTHY M S'),
+                Text('Choondal'),
+              ],
+            ),
+            ],
+          ),
+        ),
+               // child: Text(
+               //   'Advanced Menu',
+               //   style: TextStyle(color: Colors.white, fontSize: 25),
+               // ),
               decoration: BoxDecoration(
 
                 color: Colors.blueGrey,
               ),
             ),
-
-
-
 
             ListTile(
               leading: Icon(Icons.person_outline),
@@ -273,7 +291,7 @@ class _energyState extends State<energy> {
                             Padding(
                                 padding: const EdgeInsets.all(3.0),
                                 child: FlatButton.icon(
-                                  icon: Icon(Icons.view_compact_outlined),
+                                  icon: Icon(Icons.calendar_today),
                                   label: Text(
                                     "calendar",
                                     style: TextStyle(fontSize: 15),
