@@ -8,6 +8,10 @@ import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
 import 'package:url_launcher/url_launcher.dart';
 import 'graph.dart';
+<<<<<<< HEAD
+=======
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+>>>>>>> origin/master
 
 class menu extends StatefulWidget {
   @override
@@ -24,19 +28,50 @@ class _menuState extends State<menu> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
+<<<<<<< HEAD
               child: Text(
                 'Advanced Menu',
                 style: TextStyle(color: Colors.white, fontSize: 25),
               ),
+=======
+              child: Container(
+                height: 64,
+                child: Row(
+                  children: <Widget>[
+                    CircleAvatar(
+                      radius: 32,
+                      backgroundImage:AssetImage('image/Logoo.png'
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text('KEERTHY M S'),
+                        Text('Choondal'),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              // child: Text(
+              //   'Advanced Menu',
+              //   style: TextStyle(color: Colors.white, fontSize: 25),
+              // ),
+>>>>>>> origin/master
               decoration: BoxDecoration(
 
                 color: Colors.blueGrey,
               ),
             ),
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> origin/master
             ListTile(
               leading: Icon(Icons.person_outline),
               title: Text('User'),
@@ -214,7 +249,11 @@ class _energyState extends State<energy> {
                             height: 65.0, // hei
                             // ght of the button
                             width: 55.0, // width of the button
+<<<<<<< HEAD
                             child: Center(child: Text('data')),
+=======
+                            child: Center(child: Text('data',)),
+>>>>>>> origin/master
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: Colors.black,
@@ -232,6 +271,7 @@ class _energyState extends State<energy> {
                 ),
               ),
 
+<<<<<<< HEAD
               Container(
                // child: ,
                 margin: EdgeInsets.all(30),
@@ -251,11 +291,61 @@ class _energyState extends State<energy> {
                         offset: Offset(1, 8))],
                 ),
               ),
+=======
+                Container(
+                  margin: EdgeInsets.all(1),
+                  padding: EdgeInsets.all(8),
+                  height: 83,
+                  width: 438,
+                  alignment: Alignment.bottomRight,
+
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                  Card(
+
+                  color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.black, width: 2.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: FlatButton.icon(
+                                icon: Icon(Icons.show_chart,size: 48,),
+                                label: Text(
+                                  "Graphical Representation",
+                                  style: TextStyle(fontSize: 17),
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => HomePage()),
+                                  );
+                                },
+                              )
+                          ),
+                        ]
+                    ),
+                  ),
+                  ],
+
+              ),
+                ),
+>>>>>>> origin/master
               Container(
                 margin: EdgeInsets.all(0),
                 padding: EdgeInsets.all(0),
                 height: 83,
+<<<<<<< HEAD
                 width: 180,
+=======
+                width: 250,
+>>>>>>> origin/master
                 alignment: Alignment.center,
 
                 child: Column(
@@ -268,15 +358,26 @@ class _energyState extends State<energy> {
                         borderRadius: BorderRadius.circular(0.0),
                       ),
                       child: Column(
+<<<<<<< HEAD
                           crossAxisAlignment: CrossAxisAlignment.center,
+=======
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+>>>>>>> origin/master
                           children: <Widget>[
                             Padding(
                                 padding: const EdgeInsets.all(3.0),
                                 child: FlatButton.icon(
+<<<<<<< HEAD
                                   icon: Icon(Icons.view_compact_outlined),
                                   label: Text(
                                     "calendar",
                                     style: TextStyle(fontSize: 15),
+=======
+                                  icon: Icon(Icons.calendar_today),
+                                  label: Text(
+                                    "calendar",
+                                    style: TextStyle(fontSize: 25),
+>>>>>>> origin/master
                                   ),
                                   onPressed: () => launch(""),
                                 )
