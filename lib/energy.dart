@@ -8,6 +8,7 @@ import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
 import 'package:url_launcher/url_launcher.dart';
 import 'graph.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class menu extends StatefulWidget {
   @override
@@ -24,18 +25,36 @@ class _menuState extends State<menu> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text(
-                'Advanced Menu',
-                style: TextStyle(color: Colors.white, fontSize: 25),
+              child: Container(
+                height: 64,
+                child: Row(
+                  children: <Widget>[
+                    CircleAvatar(
+                      radius: 32,
+                      backgroundImage:AssetImage('image/Logoo.png'
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text('KEERTHY M S'),
+                        Text('Choondal'),
+                      ],
+                    ),
+                  ],
+                ),
               ),
+              // child: Text(
+              //   'Advanced Menu',
+              //   style: TextStyle(color: Colors.white, fontSize: 25),
+              // ),
               decoration: BoxDecoration(
 
                 color: Colors.blueGrey,
               ),
             ),
-
-
-
 
             ListTile(
               leading: Icon(Icons.person_outline),
@@ -214,7 +233,7 @@ class _energyState extends State<energy> {
                             height: 65.0, // hei
                             // ght of the button
                             width: 55.0, // width of the button
-                            child: Center(child: Text('data')),
+                            child: Center(child: Text('data',)),
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: Colors.black,
@@ -232,30 +251,55 @@ class _energyState extends State<energy> {
                 ),
               ),
 
-              Container(
-               // child: ,
-                margin: EdgeInsets.all(30),
-                padding: EdgeInsets.all(1000),
-                height: 207,
-                width: 450,
-                decoration: new BoxDecoration(
-                  color: Colors.white60,
-                  border: Border.all(
-                      color: Colors.black, // set border color
-                      width: 3.0), // set border width
-                  borderRadius: BorderRadius.all(
-                      Radius.circular(15.0)), // set rounded corner radius
-                  boxShadow: [
-                    BoxShadow(blurRadius: 20,
-                        color: Colors.white30,
-                        offset: Offset(1, 8))],
-                ),
+                Container(
+                  margin: EdgeInsets.all(1),
+                  padding: EdgeInsets.all(8),
+                  height: 83,
+                  width: 438,
+                  alignment: Alignment.bottomRight,
+
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                  Card(
+
+                  color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Colors.black, width: 2.0),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: FlatButton.icon(
+                                icon: Icon(Icons.show_chart,size: 48,),
+                                label: Text(
+                                  "Graphical Representation",
+                                  style: TextStyle(fontSize: 17),
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => HomePage()),
+                                  );
+                                },
+                              )
+                          ),
+                        ]
+                    ),
+                  ),
+                  ],
+
               ),
+                ),
               Container(
                 margin: EdgeInsets.all(0),
                 padding: EdgeInsets.all(0),
                 height: 83,
-                width: 180,
+                width: 250,
                 alignment: Alignment.center,
 
                 child: Column(
@@ -268,15 +312,15 @@ class _energyState extends State<energy> {
                         borderRadius: BorderRadius.circular(0.0),
                       ),
                       child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
                             Padding(
                                 padding: const EdgeInsets.all(3.0),
                                 child: FlatButton.icon(
-                                  icon: Icon(Icons.view_compact_outlined),
+                                  icon: Icon(Icons.calendar_today),
                                   label: Text(
                                     "calendar",
-                                    style: TextStyle(fontSize: 15),
+                                    style: TextStyle(fontSize: 25),
                                   ),
                                   onPressed: () => launch(""),
                                 )

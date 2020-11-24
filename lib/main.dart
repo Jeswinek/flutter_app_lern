@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_lern/graph.dart';
+import 'package:flutter_app_lern/energy.dart';
+import 'package:flutter_app_lern/register.dart';
 import 'Home.dart';
 import 'package:flutter/services.dart';
 import 'curve.dart';
-
+import 'baseHome.dart';
+import 'graph.dart';
 void main()=> runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
     ),
       child:
       Stack(children:[ CurvedShape(),
-        HomePage(),
+        Homescreen(),
     ]
     ),
     ),
