@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
-<<<<<<< HEAD
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-=======
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
->>>>>>> origin/master
+//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomePage extends StatefulWidget {
   final Widget child;
 
@@ -46,11 +43,7 @@ class _HomePageState extends State<HomePage> {
 
     var linesalesdata = [
       new Sales(0, 45),
-<<<<<<< HEAD
-      new Sales(1, 175),
-=======
       new Sales(1, 5),
->>>>>>> origin/master
       new Sales(2, 55),
       new Sales(3, 60),
       new Sales(4, 61),
@@ -125,11 +118,7 @@ class _HomePageState extends State<HomePage> {
     _seriesLineData.add(
       charts.Series(
         colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xff990099)),
-<<<<<<< HEAD
         id: 'Air Pollution',
-=======
-        id: 'Air Pollutibjhikluhbnon',
->>>>>>> origin/master
         data: linesalesdata,
         domainFn: (Sales sales, _) => sales.yearval,
         measureFn: (Sales sales, _) => sales.salesval,
@@ -177,22 +166,8 @@ class _HomePageState extends State<HomePage> {
             bottom: TabBar(
               indicatorColor: Color(0xff9962D0),
               tabs: [
-                Tab(
-<<<<<<< HEAD
-                  icon: Icon(FontAwesomeIcons.solidChartBar),
-                ),
-                Tab(icon: Icon(FontAwesomeIcons.chartPie)),
-                Tab(icon: Icon(FontAwesomeIcons.chartLine)),
-              ],
-            ),
-            title: Text('Flutter Charts'),
-          ),
-          body: TabBarView(
-            children: [
-              Padding(
-                padding: EdgeInsets.all(8.0),
-=======
-                    icon: Icon(Icons.bar_chart),
+            Tab(
+              icon: Icon(Icons.bar_chart),
                 ),
                 Tab(icon: Icon(Icons.pie_chart_outline_sharp)),
                 Tab(icon: Icon(Icons.stacked_line_chart)),
@@ -200,13 +175,11 @@ class _HomePageState extends State<HomePage> {
             ),
             title: Text('graphical speculation for users'),
           ),
-
-
           body: TabBarView(
             children: [
               Padding(
                 padding: EdgeInsets.all(20.0),
->>>>>>> origin/master
+
                 child: Container(
                   child: Center(
                     child: Column(
@@ -228,22 +201,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Padding(
-<<<<<<< HEAD
-                padding: EdgeInsets.all(8.0),
-=======
-                padding: EdgeInsets.all(20.0),
->>>>>>> origin/master
+                  padding: EdgeInsets.all(20.0),
                 child: Container(
                   child: Center(
                     child: Column(
                       children: <Widget>[
                         Text(
                           'Time spent on daily tasks',style: TextStyle(fontSize: 24.0,fontWeight: FontWeight.bold),),
-<<<<<<< HEAD
-                        SizedBox(height: 10.0,),
-=======
                         SizedBox(height: 5.0,),
->>>>>>> origin/master
                         Expanded(
                           child: charts.PieChart(
                               _seriesPieData,
@@ -262,11 +227,7 @@ class _HomePageState extends State<HomePage> {
                                 )
                               ],
                               defaultRenderer: new charts.ArcRendererConfig(
-<<<<<<< HEAD
-                                  arcWidth: 100,
-=======
                                   arcWidth: 40,
->>>>>>> origin/master
                                   arcRendererDecorators: [
                                     new charts.ArcLabelDecorator(
                                         labelPosition: charts.ArcLabelPosition.inside)
@@ -278,38 +239,19 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Padding(
-<<<<<<< HEAD
-                padding: EdgeInsets.all(8.0),
-=======
                 padding: EdgeInsets.all(3.0),
->>>>>>> origin/master
                 child: Container(
                   child: Center(
                     child: Column(
                       children: <Widget>[
                         Text(
-<<<<<<< HEAD
-                          'consumption of units and its price',style: TextStyle(fontSize: 24.0,fontWeight: FontWeight.bold),),
-=======
                           'consumption of units and its price',style: TextStyle(fontSize: 40.0,fontWeight: FontWeight.bold),),
->>>>>>> origin/master
                         Expanded(
                           child: charts.LineChart(
                               _seriesLineData,
                               defaultRenderer: new charts.LineRendererConfig(
                                   includeArea: true, stacked: true),
                               animate: true,
-<<<<<<< HEAD
-                              animationDuration: Duration(seconds: 5),
-                              behaviors: [
-                                new charts.ChartTitle('months',
-                                    behaviorPosition: charts.BehaviorPosition.bottom,
-                                    titleOutsideJustification:charts.OutsideJustification.middleDrawArea),
-                                new charts.ChartTitle('price',
-                                    titleOutsideJustification: charts.OutsideJustification.middleDrawArea),
-
-                             //   new charts.ChartTitle('s',
-=======
                               animationDuration: Duration(seconds: 1),
                               behaviors: [
                                 new charts.ChartTitle('months',
@@ -317,9 +259,7 @@ class _HomePageState extends State<HomePage> {
                                     titleOutsideJustification:charts.OutsideJustification.end),
                                 new charts.ChartTitle('price',
                                     titleOutsideJustification: charts.OutsideJustification.start),
-
                                new charts.ChartTitle('line graph'),
->>>>>>> origin/master
                                //   behaviorPosition: charts.BehaviorPosition.end,
                                  // titleOutsideJustification:charts.OutsideJustification.middleDrawArea,
                                 //)
