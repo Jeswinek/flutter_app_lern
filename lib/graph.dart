@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomePage extends StatefulWidget {
   final Widget child;
 
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
 
     var linesalesdata = [
       new Sales(0, 45),
-      new Sales(1, 175),
+      new Sales(1, 5),
       new Sales(2, 55),
       new Sales(3, 60),
       new Sales(4, 61),
@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
     _seriesLineData.add(
       charts.Series(
         colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xff990099)),
-        id: 'Air Pollution',
+        id: 'Air Pollutibjhikluhbnon',
         data: linesalesdata,
         domainFn: (Sales sales, _) => sales.yearval,
         measureFn: (Sales sales, _) => sales.salesval,
@@ -166,18 +166,20 @@ class _HomePageState extends State<HomePage> {
               indicatorColor: Color(0xff9962D0),
               tabs: [
                 Tab(
-                  icon: Icon(FontAwesomeIcons.solidChartBar),
+                    icon: Icon(Icons.bar_chart),
                 ),
-                Tab(icon: Icon(FontAwesomeIcons.chartPie)),
-                Tab(icon: Icon(FontAwesomeIcons.chartLine)),
+                Tab(icon: Icon(Icons.pie_chart_outline_sharp)),
+                Tab(icon: Icon(Icons.stacked_line_chart)),
               ],
             ),
-            title: Text('Flutter Charts'),
+            title: Text('graphical speculation for users'),
           ),
+
+
           body: TabBarView(
             children: [
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(20.0),
                 child: Container(
                   child: Center(
                     child: Column(
@@ -199,14 +201,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(20.0),
                 child: Container(
                   child: Center(
                     child: Column(
                       children: <Widget>[
                         Text(
                           'Time spent on daily tasks',style: TextStyle(fontSize: 24.0,fontWeight: FontWeight.bold),),
-                        SizedBox(height: 10.0,),
+                        SizedBox(height: 5.0,),
                         Expanded(
                           child: charts.PieChart(
                               _seriesPieData,
@@ -225,7 +227,7 @@ class _HomePageState extends State<HomePage> {
                                 )
                               ],
                               defaultRenderer: new charts.ArcRendererConfig(
-                                  arcWidth: 100,
+                                  arcWidth: 40,
                                   arcRendererDecorators: [
                                     new charts.ArcLabelDecorator(
                                         labelPosition: charts.ArcLabelPosition.inside)
@@ -237,28 +239,28 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(3.0),
                 child: Container(
                   child: Center(
                     child: Column(
                       children: <Widget>[
                         Text(
-                          'consumption of units and its price',style: TextStyle(fontSize: 24.0,fontWeight: FontWeight.bold),),
+                          'consumption of units and its price',style: TextStyle(fontSize: 40.0,fontWeight: FontWeight.bold),),
                         Expanded(
                           child: charts.LineChart(
                               _seriesLineData,
                               defaultRenderer: new charts.LineRendererConfig(
                                   includeArea: true, stacked: true),
                               animate: true,
-                              animationDuration: Duration(seconds: 5),
+                              animationDuration: Duration(seconds: 1),
                               behaviors: [
                                 new charts.ChartTitle('months',
-                                    behaviorPosition: charts.BehaviorPosition.bottom,
-                                    titleOutsideJustification:charts.OutsideJustification.middleDrawArea),
+                                    behaviorPosition: charts.BehaviorPosition.inside,
+                                    titleOutsideJustification:charts.OutsideJustification.end),
                                 new charts.ChartTitle('price',
-                                    titleOutsideJustification: charts.OutsideJustification.middleDrawArea),
+                                    titleOutsideJustification: charts.OutsideJustification.start),
 
-                             //   new charts.ChartTitle('s',
+                               new charts.ChartTitle('line graph'),
                                //   behaviorPosition: charts.BehaviorPosition.end,
                                  // titleOutsideJustification:charts.OutsideJustification.middleDrawArea,
                                 //)
