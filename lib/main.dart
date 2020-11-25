@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     ),
       child:
       Stack(children:[ CurvedShape(),
-        Homescreen(),
+        menu(),
     ]
     ),
     ),

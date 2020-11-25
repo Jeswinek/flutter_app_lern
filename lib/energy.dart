@@ -8,7 +8,6 @@ import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
 import 'package:url_launcher/url_launcher.dart';
 import 'graph.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class menu extends StatefulWidget {
   @override
