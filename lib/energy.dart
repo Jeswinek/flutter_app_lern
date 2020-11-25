@@ -8,7 +8,6 @@ import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
 import 'package:url_launcher/url_launcher.dart';
 import 'graph.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class menu extends StatefulWidget {
   @override
@@ -25,7 +24,7 @@ class _menuState extends State<menu> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Container(
+             child: Container(
                 height: 64,
                 child: Row(
                   children: <Widget>[
@@ -46,16 +45,11 @@ class _menuState extends State<menu> {
                   ],
                 ),
               ),
-              // child: Text(
-              //   'Advanced Menu',
-              //   style: TextStyle(color: Colors.white, fontSize: 25),
-              // ),
               decoration: BoxDecoration(
 
                 color: Colors.blueGrey,
               ),
             ),
-
             ListTile(
               leading: Icon(Icons.person_outline),
               title: Text('User'),
@@ -229,11 +223,10 @@ class _energyState extends State<energy> {
                         },
                         child: ClipOval(
                           child: Container(
-
                             height: 65.0, // hei
                             // ght of the button
                             width: 55.0, // width of the button
-                            child: Center(child: Text('data',)),
+                            child: Center(child: Text('data')),
                             decoration: BoxDecoration(
                               border: Border.all(
                                 color: Colors.black,
@@ -250,19 +243,16 @@ class _energyState extends State<energy> {
                   ],
                 ),
               ),
-
                 Container(
                   margin: EdgeInsets.all(1),
                   padding: EdgeInsets.all(8),
                   height: 83,
                   width: 438,
                   alignment: Alignment.bottomRight,
-
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                   Card(
-
                   color: Colors.white,
                     shape: RoundedRectangleBorder(
                       side: BorderSide(color: Colors.black, width: 2.0),
@@ -321,7 +311,7 @@ class _energyState extends State<energy> {
                                   label: Text(
                                     "calendar",
                                     style: TextStyle(fontSize: 25),
-                                  ),
+                                    ),
                                   onPressed: () => launch(""),
                                 )
                             ),
