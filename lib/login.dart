@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_app_lern/register.dart';
+import 'package:flutter_app_lern/signUp.dart';
 import 'Switches.dart';
 
+
 class loginUser extends StatefulWidget {
+  static const routeName = '/login';
   @override
   _loginUserState createState() => _loginUserState();
 }
@@ -27,6 +31,7 @@ class _loginUserState extends State<loginUser> {
     try {
       final User user = (await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _email, password: _password)).user;
+      Navigator.of(context).pushReplacementNamed(SignupScreen.routeName);
 //  var userr = FirebaseAuth.instance.currentUser;
       print('Signed in:');
       print(user.uid);
@@ -140,17 +145,16 @@ class _loginUserState extends State<loginUser> {
                               child:
                               TextFormField(
                                 validator: (val) {
-                                  if (val.length==0)
-                                    return "please enter valid email";
+                                  if (val.isEmpty)
+                                    return "email can't be empty";
                                   else if (!val.contains("@"))
                                     return "please enter valid email";
                                   else
                                     return null;
                                 },
                                 onSaved: (val)=>_email=val,
-                              //  onSubmitted: (value)=> _email = value,,
-                                // controller: controller,
-                                // obscureText: obsecure,
+                     //          onSubmitted: (value)=> _email = value,,
+                                 //obscureText: true,
                                 style: TextStyle(
                                   fontSize: 20,
                                 ),
@@ -192,10 +196,10 @@ class _loginUserState extends State<loginUser> {
                         child: TextFormField(
                           obscureText: true,
                           validator: (val){
-                            if (val.length == 0)
-                              return "Please enter password";
+                            if (val.isEmpty )
+                             return "Please enter password";
                             else if (val.length <= 5)
-                              return "Your password should be more then 6 char long";
+                              return "Your password should be more than 6 characters";
                             else
                               return null;
                           },
@@ -203,8 +207,7 @@ class _loginUserState extends State<loginUser> {
                           style: TextStyle(
                             fontSize: 20,
                           ),
-                          decoration: InputDecoration(
-                            hintStyle: TextStyle(
+                          decoration: InputDecoration(hintStyle: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
                             ),

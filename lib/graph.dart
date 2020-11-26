@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomePage extends StatefulWidget {
   final Widget child;
 
@@ -117,7 +118,7 @@ class _HomePageState extends State<HomePage> {
     _seriesLineData.add(
       charts.Series(
         colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xff990099)),
-        id: 'Air Pollutibjhikluhbnon',
+        id: 'Air Pollution',
         data: linesalesdata,
         domainFn: (Sales sales, _) => sales.yearval,
         measureFn: (Sales sales, _) => sales.salesval,
@@ -165,8 +166,8 @@ class _HomePageState extends State<HomePage> {
             bottom: TabBar(
               indicatorColor: Color(0xff9962D0),
               tabs: [
-                Tab(
-                    icon: Icon(Icons.bar_chart),
+            Tab(
+              icon: Icon(Icons.bar_chart),
                 ),
                 Tab(icon: Icon(Icons.pie_chart_outline_sharp)),
                 Tab(icon: Icon(Icons.stacked_line_chart)),
@@ -174,12 +175,11 @@ class _HomePageState extends State<HomePage> {
             ),
             title: Text('graphical speculation for users'),
           ),
-
-
           body: TabBarView(
             children: [
               Padding(
                 padding: EdgeInsets.all(20.0),
+
                 child: Container(
                   child: Center(
                     child: Column(
@@ -201,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(20.0),
                 child: Container(
                   child: Center(
                     child: Column(
@@ -259,7 +259,6 @@ class _HomePageState extends State<HomePage> {
                                     titleOutsideJustification:charts.OutsideJustification.end),
                                 new charts.ChartTitle('price',
                                     titleOutsideJustification: charts.OutsideJustification.start),
-
                                new charts.ChartTitle('line graph'),
                                //   behaviorPosition: charts.BehaviorPosition.end,
                                  // titleOutsideJustification:charts.OutsideJustification.middleDrawArea,
