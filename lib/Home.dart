@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_lern/register.dart';
 import 'login.dart';
 import 'register.dart';
+import 'signUp.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -24,8 +25,8 @@ class _HomeState extends State<Home> {
         ),
         Padding(
           child: Container(
-            child: button('LOGIN', Colors.lightGreen, Colors.white,
-                Colors.greenAccent, 1.0,),
+            child: button('LOGIN', Colors.green, Colors.white,
+                Colors.green, 1.0,),
             width: MediaQuery.of(context).size.width,
             height: 65,
           ),

@@ -254,8 +254,8 @@ class _loginUserState extends State<loginUser> {
                       FlatButton(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),
-                            side: BorderSide(color:  Color(0xFF80E1C1), width: 2)),
-                        color:  Color(0xFF80E1D1),
+                            side: BorderSide(color:  Color(0xFF008000), width: 2)),
+                        color:  Color(0xFF008000),
                         textColor: Colors.white,
                         padding: EdgeInsets.all(8.0),
                         onPressed: () {

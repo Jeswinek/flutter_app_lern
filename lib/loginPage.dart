@@ -85,8 +85,8 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     colors: [
-                      Colors.lightGreenAccent,
-                      Colors.blue,
+                      Colors.white,
+                      Colors.white,
                     ]
                 )
             ),
@@ -154,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          color: Colors.blue,
+                          color: Colors.green,
                           textColor: Colors.white,
                         )
                       ],

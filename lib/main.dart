@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_lern/energy.dart';
 import 'package:flutter_app_lern/login.dart';
+import 'package:flutter_app_lern/loginPage.dart';
 import 'package:flutter_app_lern/register.dart';
 import 'Home.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'I will learn',
       theme: ThemeData(
         //canvasColor: Colors.transparent,
-        primaryColor: Color(0xFF80E1D1),
+        primaryColor: Color(0xFF228B22),
         hintColor: Color(0xFFC0F0E8),),
         home: Scaffold(
         body: Center(
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
     ),
       child:
       Stack(children:[ CurvedShape(),
-        SignupScreen(),
+        Home(),
       ]
     ),
     ),
