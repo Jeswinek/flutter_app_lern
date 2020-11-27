@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 //import 'package:flutter_svg/svg.dart';
 
 class Homescreen extends StatefulWidget {
+  static const routeName = '/bhome';
   @override
   _HomescreenState createState() => _HomescreenState();
 }

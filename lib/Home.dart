@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_lern/register.dart';
 import 'login.dart';
 import 'register.dart';
-import 'signUp.dart';
+import 'signuppage.dart';
+import 'loginpage.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -43,7 +44,7 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.all(8.0),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                    signUp()),);
+                    SignupScreen()),);
               },
               child: Text( 'Create New',
                 style: TextStyle(
@@ -149,7 +150,7 @@ class _HomeState extends State<Home> {
       padding: EdgeInsets.all(8.0),
       onPressed: () {
         Navigator.push(context, MaterialPageRoute(builder: (context)=>
-        loginUser()),);
+        LoginScreen()),);
       },
       child: Text(
         text,

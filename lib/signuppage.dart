@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_lern/signUp.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_app_lern/Models/authentication.dart';
+import 'models/authentication.dart';
 
-class LoginScreen extends StatefulWidget {
-  static const routeName = '/login';
+import 'home_screen.dart';
+import 'loginpage.dart';
+
+class SignupScreen extends StatefulWidget {
+  static const routeName = '/signup';
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignupScreenState createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
 
   final GlobalKey<FormState> _formKey = GlobalKey();
+  TextEditingController _passwordController = new TextEditingController();
 
   Map<String, String> _authData = {
     'email' : '',
-    'password': ''
+    'password' : ''
   };
 
   void _showErrorDialog(String msg)
@@ -46,13 +49,13 @@ class _LoginScreenState extends State<LoginScreen> {
     _formKey.currentState.save();
 
     try{
-      await Provider.of<Authentication>(context, listen: false).logIn(
+      await Provider.of<Authentication>(context, listen: false).signUp(
           _authData['email'],
           _authData['password']
       );
-      Navigator.of(context).pushReplacementNamed(SignupScreen.routeName);
+      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
 
-    } catch (error)
+    } catch(error)
     {
       var errorMessage = 'Authentication Failed. Please try again later.';
       _showErrorDialog(errorMessage);
@@ -63,18 +66,19 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: Text('Signup'),
+
         actions: <Widget>[
           FlatButton(
             child: Row(
               children: <Widget>[
-                Text('Signup'),
-                Icon(Icons.person_add)
+                Text('Login'),
+                Icon(Icons.person)
               ],
             ),
             textColor: Colors.white,
             onPressed: (){
-              Navigator.of(context).pushReplacementNamed(SignupScreen.routeName);
+              Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
             },
           )
         ],
@@ -85,8 +89,8 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     colors: [
-                      Colors.white,
-                      Colors.white,
+                      Colors.green,
+                      Colors.green,
                     ]
                 )
             ),
@@ -97,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Container(
-                height: 260,
+                height: 300,
                 width: 300,
                 padding: EdgeInsets.all(16),
                 child: Form(
@@ -127,6 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         TextFormField(
                           decoration: InputDecoration(labelText: 'Password'),
                           obscureText: true,
+                          controller: _passwordController,
                           validator: (value)
                           {
                             if(value.isEmpty || value.length<=5)
@@ -138,6 +143,24 @@ class _LoginScreenState extends State<LoginScreen> {
                           onSaved: (value)
                           {
                             _authData['password'] = value;
+                          },
+                        ),
+
+                        //Confirm Password
+                        TextFormField(
+                          decoration: InputDecoration(labelText: 'Confirm Password'),
+                          obscureText: true,
+                          validator: (value)
+                          {
+                            if(value.isEmpty || value != _passwordController.text)
+                            {
+                              return 'invalid password';
+                            }
+                            return null;
+                          },
+                          onSaved: (value)
+                          {
+
                           },
                         ),
                         SizedBox(

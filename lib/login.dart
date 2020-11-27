@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_app_lern/register.dart';
-import 'package:flutter_app_lern/signUp.dart';
+import 'package:flutter_app_lern/signuppage.dart';
 import 'Switches.dart';
 
 
