@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_app_lern/register.dart';
-import 'package:flutter_app_lern/signUp.dart';
+import 'package:flutter_app_lern/signuppage.dart';
 import 'Switches.dart';
 
 
@@ -254,8 +254,8 @@ class _loginUserState extends State<loginUser> {
                       FlatButton(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),
-                            side: BorderSide(color:  Color(0xFF80E1C1), width: 2)),
-                        color:  Color(0xFF80E1D1),
+                            side: BorderSide(color:  Color(0xFF008000), width: 2)),
+                        color:  Color(0xFF008000),
                         textColor: Colors.white,
                         padding: EdgeInsets.all(8.0),
                         onPressed: () {

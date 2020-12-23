@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_lern/signUp.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_app_lern/Models/authentication.dart';
+import 'baseHome.dart';
+import 'signuppage.dart';
+import 'home_screen.dart';
+import 'models/authentication.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/login';
@@ -50,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
           _authData['email'],
           _authData['password']
       );
-      Navigator.of(context).pushReplacementNamed(SignupScreen.routeName);
+      Navigator.of(context).pushReplacementNamed(Homescreen.routeName);
 
     } catch (error)
     {
@@ -85,8 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     colors: [
-                      Colors.lightGreenAccent,
-                      Colors.blue,
+                      Colors.green,
+                      Colors.green,
                     ]
                 )
             ),
@@ -154,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          color: Colors.blue,
+                          color: Colors.green,
                           textColor: Colors.white,
                         )
                       ],

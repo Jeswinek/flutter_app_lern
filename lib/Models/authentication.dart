@@ -1,13 +1,15 @@
 import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-//import 'http_exception.dart'
+import 'http_exception.dart';
+
 class Authentication with ChangeNotifier
 {
 
   Future<void> signUp(String email, String password) async
   {
-    const url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=Web API KeyAIzaSyC43tHx6BDk2REQW9UYI9s_XLdBvDBJMrM';
+    const url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC43tHx6BDk2REQW9UYI9s_XLdBvDBJMrM';
 
     try{
       final response = await http.post(url, body: json.encode(
@@ -21,7 +23,7 @@ class Authentication with ChangeNotifier
 //      print(responseData);
       if(responseData['error'] != null)
       {
-  //      throw HttpException(responseData['error']['message']);
+        throw HttpException(responseData['error']['message']);
       }
 
     } catch (error)
@@ -33,7 +35,7 @@ class Authentication with ChangeNotifier
 
   Future<void> logIn(String email, String password) async
   {
-    const url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[YOUR KEY]';
+    const url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC43tHx6BDk2REQW9UYI9s_XLdBvDBJMrM';
 
     try{
       final response = await http.post(url, body: json.encode(
@@ -46,7 +48,7 @@ class Authentication with ChangeNotifier
       final responseData = json.decode(response.body);
       if(responseData['error'] != null)
       {
-    //    throw HttpException(responseData['error']['message']);
+        throw HttpException(responseData['error']['message']);
       }
 //      print(responseData);
 

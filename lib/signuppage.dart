@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_app_lern/Models/authentication.dart';
-import 'login.dart';
+import 'models/authentication.dart';
+
+import 'home_screen.dart';
+import 'loginpage.dart';
 
 class SignupScreen extends StatefulWidget {
   static const routeName = '/signup';
@@ -49,9 +51,9 @@ class _SignupScreenState extends State<SignupScreen> {
     try{
       await Provider.of<Authentication>(context, listen: false).signUp(
           _authData['email'],
-        _authData['password']
-    );
-      Navigator.of(context).pushReplacementNamed(loginUser.routeName);
+          _authData['password']
+      );
+      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
 
     } catch(error)
     {
@@ -76,7 +78,7 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
             textColor: Colors.white,
             onPressed: (){
-             Navigator.of(context).pushReplacementNamed(loginUser.routeName);
+              Navigator.of(context).pushReplacementNamed(LoginScreen.routeName);
             },
           )
         ],
@@ -87,8 +89,8 @@ class _SignupScreenState extends State<SignupScreen> {
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     colors: [
-                      Colors.limeAccent,
-                      Colors.redAccent,
+                      Colors.green,
+                      Colors.green,
                     ]
                 )
             ),
@@ -175,7 +177,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          color: Colors.blue,
+                          color: Colors.green,
                           textColor: Colors.white,
                         )
                       ],
