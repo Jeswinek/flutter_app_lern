@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'register.dart';
+import 'signuppage.dart';
 import 'Switches.dart';
 
 class automation extends StatefulWidget {
@@ -46,7 +46,7 @@ class _automationState extends State<automation> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => signUp()),
+              MaterialPageRoute(builder: (context) => SignupScreen()),
             );
           },
           child: Column(

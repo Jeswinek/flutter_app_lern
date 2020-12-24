@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_lern/register.dart';
-import 'login.dart';
-import 'register.dart';
+import 'package:flutter_app_lern/signuppage.dart';
+import 'loginpage.dart';
+import 'signuppage.dart';
 import 'signuppage.dart';
 import 'loginpage.dart';
 
@@ -150,7 +150,7 @@ class _HomeState extends State<Home> {
       padding: EdgeInsets.all(8.0),
       onPressed: () {
         Navigator.push(context, MaterialPageRoute(builder: (context)=>
-        LoginScreen()),);
+            LoginScreen()),);
       },
       child: Text(
         text,
