@@ -14,23 +14,23 @@ class _automationState extends State<automation> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(backgroundColor: Colors.green[800],
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () => Navigator.pop(context),
-            ),
-            title: Text('home'),
+        appBar: AppBar(backgroundColor: Colors.green[800],
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context),
           ),
-          body: Stack(children:[
-            Container(
-    color: Colors.green[200],),
-              Column(children:[
-              _Security(),
-              _plug(),
-              _overuse(),
-      ],),
+          title: Text('home'),
+        ),
+        body: Stack(children:[
+          Container(
+            color: Colors.green[200],),
+          Column(children:[
+            _Security(),
+            _plug(),
+            _overuse(),
+          ],),
         ],),
-    ),
+      ),
     );
   }
 
@@ -105,11 +105,11 @@ class _automationState extends State<automation> {
                       padding: const EdgeInsets.only(left: 20),
                       child: Icon(Icons.alarm_add, size: 50,),
                     )
-                ],
-                ),
+                  ],
+                  ),
                   padding: EdgeInsets.only(top: 45, left: 10, bottom: 3),
+                ),
               ),
-          ),
               Padding(
                 child: Container(
                   width: MediaQuery.of(context).size.width,

@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_lern/signuppage.dart';
-import 'loginpage.dart';
-import 'signuppage.dart';
 import 'signuppage.dart';
 import 'loginpage.dart';
 
@@ -27,7 +25,7 @@ class _HomeState extends State<Home> {
         Padding(
           child: Container(
             child: button('LOGIN', Colors.green, Colors.white,
-                Colors.green, 1.0,),
+              Colors.green, 1.0,),
             width: MediaQuery.of(context).size.width,
             height: 65,
           ),
@@ -52,7 +50,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-         width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width,
             height: 60,
           ),
           padding: EdgeInsets.all(20),
@@ -73,7 +71,7 @@ class _HomeState extends State<Home> {
         //     ),
         //   ),
         // ),
-        ],
+      ],
     );
   }
 
@@ -160,7 +158,7 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-  }
+}
 
 // class logoo extends StatelessWidget {
 //   @override
@@ -171,7 +169,6 @@ class _HomeState extends State<Home> {
 //       child: image,
 //     );
 
-    // return Container();
-
+// return Container();
 
 

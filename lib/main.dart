@@ -29,24 +29,24 @@ class MyApp extends StatelessWidget {
         title: 'Energy meter,home automation,security',
         theme: ThemeData(
           primaryColor: Colors.green,
-    ),
-          home: Scaffold(
-            body: Center(
-              child: Container(
-                constraints: BoxConstraints.expand(),
-                decoration: BoxDecoration(
-                  // image: DecorationImage(
-                  // image: AssetImage('image/Logoo.jpg'),
-                  // fit: BoxFit.cover)
-                ),
-                child:
-                Stack(children:[ CurvedShape(),
-                  Home(),
-                ]
-                ),
+        ),
+        home: Scaffold(
+          body: Center(
+            child: Container(
+              constraints: BoxConstraints.expand(),
+              decoration: BoxDecoration(
+                // image: DecorationImage(
+                // image: AssetImage('image/Logoo.jpg'),
+                // fit: BoxFit.cover)
+              ),
+              child:
+              Stack(children:[ CurvedShape(),
+                Home(),
+              ]
               ),
             ),
           ),
+        ),
         //LoginScreen(),
         routes: {
           SignupScreen.routeName: (ctx)=> SignupScreen(),
