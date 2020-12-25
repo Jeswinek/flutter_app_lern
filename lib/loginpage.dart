@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_app_lern/signuppage.dart';
-import 'package:flutter_app_lern/signuppage.dart';
 import 'Switches.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'baseHome.dart';
 import 'signuppage.dart';
 import 'home_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_app_lern/signuppage.dart';
+import 'Switches.dart';
 import 'models/authentication.dart';
-
 class LoginScreen extends StatefulWidget {
   static const routeName = '/login';
   @override
@@ -68,6 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   }
   @override
+
   Widget build(BuildContext context) {
     return MaterialApp(title: 'kslfkl',
       home: Scaffold(body:

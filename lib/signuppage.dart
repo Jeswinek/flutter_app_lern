@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/authentication.dart';
-
+import 'baseHome.dart';
 import 'home_screen.dart';
 import 'loginpage.dart';
 
@@ -53,7 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
           _authData['email'],
           _authData['password']
       );
-      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+      Navigator.of(context).pushReplacementNamed(Homescreen.routeName);
 
     } catch(error)
     {
@@ -73,7 +75,7 @@ class _SignupScreenState extends State<SignupScreen> {
           padding: EdgeInsets.only(top: 90, left: 10, right: 10),
           child:
           DecoratedBox(
-            decoration: BoxDecoration(color:Colors.transparent ),
+            decoration: BoxDecoration(color: Colors.transparent),
             child: ClipRRect(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(50.0),
@@ -81,123 +83,152 @@ class _SignupScreenState extends State<SignupScreen> {
                 // topRight: Radius.circular(50.0),
               ),
               child: Container(
-                child: ListView(
-                  children: <Widget>[
-                    Container(
-                      child: Stack(
-                        children: <Widget>[
-                          Positioned(
-                            left: 10,
-                            top: 10,
-                            child: IconButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                                // _emailController.clear();
-                                // _passwordController.clear();
-                              },
-                              icon: Icon(
-                                Icons.close,
-                                size: 30.0,
-                                color: Theme.of(context).primaryColor,
+                child: Form(
+                  key: _formKey,
+                  child: ListView(
+                    children: <Widget>[
+                      Container(
+                        child: Stack(
+                          children: <Widget>[
+                            Positioned(
+                              left: 10,
+                              top: 10,
+                              child: IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                  // _emailController.clear();
+                                  // _passwordController.clear();
+                                },
+                                icon: Icon(
+                                  Icons.close,
+                                  size: 30.0,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        height: 50,
+                        width: 50,
+                      ),
+                      SingleChildScrollView(
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: 140,
+                              child: Stack(
+                                children: <Widget>[
+                                  Positioned(
+                                    child: Align(
+                                      child: Container(
+                                        width: 130,
+                                        height: 130,
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Theme.of(context).primaryColor),
+                                      ),
+                                      alignment: Alignment.center,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    child: Container(
+                                      child: Text(
+                                        'SignUp',
+                                        style: TextStyle(
+                                          fontSize: 44,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      alignment: Alignment.center,
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                          )
-                        ],
-                      ),
-                      height: 50,
-                      width: 50,
-                    ),
-                    SingleChildScrollView(
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 140,
-                            child: Stack(
-                              children: <Widget>[
-                                Positioned(
-                                  child: Align(
-                                    child: Container(
-                                      width: 130,
-                                      height: 130,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: Theme.of(context).primaryColor),
-                                    ),
-                                    alignment: Alignment.center,
+
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 20,),
+                              child: Container(
+                                padding: EdgeInsets.only(left: 20, right: 20),
+                                child: TextFormField(
+                                  keyboardType: TextInputType.emailAddress,
+                                  validator: (value)
+                                  {
+                                    if(value.isEmpty || !value.contains('@'))
+                                    {
+                                      return 'invalid email';
+                                    }
+                                    return null;
+                                  },
+                                  onSaved: (value)
+                                  {
+                                    _authData['email'] = value;
+                                  },
+                                  // controller: controller,
+                                  // obscureText: obsecure,
+                                  style: TextStyle(
+                                    fontSize: 20,
                                   ),
-                                ),
-                                Positioned(
-                                  child: Container(
-                                    child: Text(
-                                      'SignUp',
-                                      style: TextStyle(
-                                        fontSize: 44,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
+                                  decoration: InputDecoration(
+                                    hintStyle: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                    ),
+                                    hintText:'Email',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: BorderSide(
+                                        color: Theme.of(context).primaryColor,
+                                        width: 2,
                                       ),
                                     ),
-                                    alignment: Alignment.center,
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: BorderSide(
+                                        color: Theme.of(context).primaryColor,
+                                        width: 3,
+                                      ),
+                                    ),
+                                    prefixIcon: Padding(
+                                      child: IconTheme(
+                                        data: IconThemeData(color: Theme.of(context).primaryColor),
+                                        child: Icon(Icons.email, size: 30,),
+                                      ),
+                                      padding: EdgeInsets.only(left: 30, right: 10),
+                                    ),
                                   ),
-                                )
-                              ],
+                                ),),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 20,),
-                            child: Container(
-                              padding: EdgeInsets.only(left: 20, right: 20),
-
-                              child: TextFormField(
-                                keyboardType: TextInputType.emailAddress,
-                                validator: (value)
-                                {
-                                  if(value.isEmpty || !value.contains('@'))
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 20,),
+                              child: Container(
+                                padding: EdgeInsets.only(left: 20, right: 20),
+                                child: TextFormField(
+                                  controller: _passwordController,
+                                  validator: (value)
                                   {
-                                    return 'invalid email';
-                                  }
-                                  return null;
-                                },
-                                onSaved: (value)
-                                {
-                                  _authData['email'] = value;
-                                },
-                                decoration: InputDecoration(
-                                  hintText:'Email',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(
-                                      color: Theme.of(context).primaryColor,
-                                      width: 2,
-                                    ),
+                                    if(value.isEmpty || value.length<=5)
+                                    {
+                                      return 'invalid password';
+                                    }
+                                    return null;
+                                  },
+                                  onSaved: (value)
+                                  {
+                                    _authData['password'] = value;
+                                  },
+                                  // controller: controller,
+                                  obscureText: true,
+                                  style: TextStyle(
+                                    fontSize: 20,
                                   ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(
-                                      color: Theme.of(context).primaryColor,
-                                      width: 3,
+                                  decoration: InputDecoration(
+                                    hintStyle: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
                                     ),
-                                  ),
-                                  prefixIcon: Padding(
-                                    child: IconTheme(
-                                      data: IconThemeData(color: Theme.of(context).primaryColor),
-                                      child: Icon(Icons.email, size: 30,),
-                                    ),
-                                    padding: EdgeInsets.only(left: 30, right: 10),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 20,),
-                            child: Container(
-                              padding: EdgeInsets.only(left: 20, right: 20),
-                              child: TextFormField(
-                                // controller: controller,
-                                  decoration: InputDecoration(hintStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,),
                                     hintText:'Password',
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(30),
@@ -221,12 +252,17 @@ class _SignupScreenState extends State<SignupScreen> {
                                       padding: EdgeInsets.only(left: 30, right: 10),
                                     ),
                                   ),
-
+                                ),),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(bottom: 20, top: 40),
+                              child: Container(
+                                padding: EdgeInsets.only(left: 20, right: 20),
+                                child: TextFormField(
                                   obscureText: true,
-                                  controller: _passwordController,
                                   validator: (value)
                                   {
-                                    if(value.isEmpty || value.length<=5)
+                                    if(value.isEmpty || value != _passwordController.text)
                                     {
                                       return 'invalid password';
                                     }
@@ -234,103 +270,90 @@ class _SignupScreenState extends State<SignupScreen> {
                                   },
                                   onSaved: (value)
                                   {
-                                    _authData['password'] = value;
+
                                   },
+                                  // controller: controller,
+                                  // obscureText: obsecure,
                                   style: TextStyle(
                                     fontSize: 20,
-                                  )
-                              ),
+                                  ),
+                                  decoration: InputDecoration(
+                                    hintStyle: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                    ),
+                                    hintText:'confirm password',
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: BorderSide(
+                                        color: Theme.of(context).primaryColor,
+                                        width: 2,
+                                      ),
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: BorderSide(
+                                        color: Theme.of(context).primaryColor,
+                                        width: 3,
+                                      ),
+                                    ),
+                                    prefixIcon: Padding(
+                                      child: IconTheme(
+                                        data: IconThemeData(color: Theme.of(context).primaryColor),
+                                        child: Icon(Icons.lock_clock, size: 30,),
+                                      ),
+                                      padding: EdgeInsets.only(left: 30, right: 10),
+                                    ),
+                                  ),
+                                ),),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(bottom: 20,),
-                            child: Container(
-                              padding: EdgeInsets.only(left: 20, right: 20),
-                              child: TextFormField(
-                                decoration: InputDecoration(hintStyle: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,),
-                                  hintText:'Password',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(
-                                      color: Theme.of(context).primaryColor,
-                                      width: 2,
-                                    ),
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(
-                                      color: Theme.of(context).primaryColor,
-                                      width: 3,
-                                    ),
-                                  ),
-                                  prefixIcon: Padding(
-                                    child: IconTheme(
-                                      data: IconThemeData(color: Theme.of(context).primaryColor),
-                                      child: Icon(Icons.lock, size: 25,),
-                                    ),
-                                    padding: EdgeInsets.only(left: 30, right: 10),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: 20,
+                                  right: 20,
+                                  bottom: MediaQuery.of(context).viewInsets.bottom),
+                              child:
+                              Container(child:
+                              FlatButton(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    side: BorderSide(color:  Color(0xFF80E1C1), width: 2)),
+                                color:  Color(0xFF80E1D1),
+                                textColor: Colors.white,
+                                padding: EdgeInsets.all(8.0),
+                                onPressed: () {
+                                  _submit();
+                                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                                  //     loginUser()),);
+                                },
+                                child: Text(
+                                  'Create New',
+                                  style: TextStyle(
+                                    fontSize: 27.0,
                                   ),
                                 ),
-                                obscureText: true,
-                                validator: (value)
-                                {
-                                  if(value.isEmpty || value != _passwordController.text)
-                                  {
-                                    return 'invalid password';
-                                  }
-                                  return null;
-                                },
-                                onSaved: (value)
-                                {
-
-                                },
+                              ),
+                                width: MediaQuery.of(context).size.width,
+                                height: 60,
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                left: 20,
-                                right: 20,
-                                bottom: MediaQuery.of(context).viewInsets.bottom),
-                            child:
-                            Container(child:
-                            FlatButton(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  side: BorderSide(color:  Color(0xFF80E1C1), width: 2)),
-                              color:  Color(0xFF80E1D1),
-                              textColor: Colors.white,
-                              padding: EdgeInsets.all(8.0),
-                              onPressed: ()
-                              {
-                                _submit();
-                              },
-                              // Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                              //     loginUser()),);
 
-                              child: Text(
-                                'Create New',
-                                style: TextStyle(
-                                  fontSize: 27.0,
-                                ),
-                              ),
+                            SizedBox(
+                              height: 20,
                             ),
-                              width: MediaQuery.of(context).size.width,
-                              height: 60,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                        ],
+
+                          ],
+
+                        ),
+
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+
+
                 ),
                 height: MediaQuery.of(context).size.height / 0.5,
                 width: MediaQuery.of(context).size.width,
@@ -339,8 +362,10 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
           ),
         ),
-      ],),
+      ],
       ),
-      ),);
+      ),
+      ),
+    );
   }
 }
