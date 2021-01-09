@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_lern/signuppage.dart';
 import 'signuppage.dart';
 import 'loginpage.dart';
+import 'dart:async';
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
 
 class Home extends StatefulWidget {
   @override
@@ -12,7 +18,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  @override
+    @override
   Widget build(BuildContext context) {
     Color primary = Theme.of(context).primaryColor;
     Color stst = Colors.red;
