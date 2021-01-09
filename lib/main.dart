@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
               ),
               child:
               Stack(children:[ CurvedShape(),
-                Register()
+                energy()
                 // Register(),
               ]
               ),
