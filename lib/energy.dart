@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
-import'package:flutter/material.dart';
+import'values.dart';
 import 'package:flutter/painting.dart';
 import'package:flutter/widgets.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
 import 'package:url_launcher/url_launcher.dart';
 import 'graph.dart';
-
+import 'package:firebase_database/firebase_database.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 class menu extends StatefulWidget {
   @override
   _menuState createState() => _menuState();
@@ -16,6 +19,7 @@ class menu extends StatefulWidget {
 
 class _menuState extends State<menu> {
   @override
+
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
@@ -89,6 +93,74 @@ class energy extends StatefulWidget {
 }
 
 class _energyState extends State<energy> {
+  static final DateTime now=DateTime.now();
+  static final DateFormat formatter=DateFormat('yyyyMMdd');
+ // static final DateFormat formatter=DateFormat('yyyyMMdd');
+  //static final TimeFormat formatter=DateFormat('yyyyMMdd');
+  String formated=formatter.format(now);
+  final fb = FirebaseDatabase.instance.reference();
+  var retrievedName="";
+  String name = "";
+  String Times="";
+  String k="";
+  String Datte="";
+  String y="";
+  String p="";
+  var ref;
+  String costs="";
+  double unit;
+  String textHolder = 'Old Sample Text...!!!';
+
+  changeText(String j) {
+
+    setState(() {
+      textHolder = j;
+     });}
+
+  priceCalculation(){
+    unit = double.parse(retrievedName);
+    if(unit==12)
+      {unit+=10;
+      setState(() {
+        costs="$unit";
+      });
+  }}
+  samplefunction(){
+    final ref=fb.reference().child("");
+    DateTime now=DateTime.now();
+    DateFormat formatter=DateFormat('yyyyMMdd');
+    formated=formatter.format(now);
+    print(formated);
+    Datte=formated+"05";
+    ref.child(Datte).once().then((DataSnapshot data){
+      setState(() {
+
+        formated=formatter.format(now);
+        retrievedName=data.value ;
+       // cost(retrievedName);
+      });
+    });
+  }
+  samplefunction2(){
+    final ref=fb.reference().child("");
+    DateTime now=DateTime.now();
+    DateFormat formatter=DateFormat('yyyyMMdd');
+
+    formated=formatter.format(now);
+    print(formated);
+    Datte=formated+Times;
+    //  ref=fb.reference().child("");
+    formated=formatter.format(now);
+    ref.child(Datte).set(name);
+    y=name;
+    // ref.child(Datte).once().then((DataSnapshot data){
+    //   setState(() {
+    //
+    //     formated=formatter.format(now);
+    //     retrievedName=data.value ;
+    //   });
+    // });
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -136,112 +208,127 @@ class _energyState extends State<energy> {
                 ),
                 height:120,
                 width: 270,
-                child:
-                Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10, left: 5.0, right: 0.0,bottom: 10),
-                      child: GestureDetector(
-                        onTap: () => {
-                        },
-                        child: ClipOval(
-                          child:Padding(child: Container(
 
-                            height:     65.0,// height of the button
-                            width: 55.0, // width of the button
-                            child: Center(child: Text('price')),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.black,
-                                width: 2,
-                              ),
-                              shape: BoxShape.circle,
-                              color:  Colors.white70,
+            child: Text('$textHolder',
+                style: TextStyle(fontSize: 21)),
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 10, left: 5.0, right: 0.0,bottom: 10),
+                    child: GestureDetector(
+                      onTap: () => {
+                      {
+                      // setState(() {
+                      // samplefunction();
+                      // k=retrievedName;
+                      // changeText();
+                      // })
+                        samplefunction(),
+                        changeText(retrievedName),
+                      }
+                      },
+                      child: ClipOval(
+                        child:Padding(child: Container(
+
+                          height:     65.0,// height of the button
+                          width: 55.0, // width of the button
+                          child: Center(child: Text('Units')),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 2,
                             ),
+                            shape: BoxShape.circle,
+                            color:  Colors.white70,
                           ),
-                            padding: EdgeInsets.only(left: 8,right: 8),
+                        ),
+                          padding: EdgeInsets.only(left: 8,right: 8),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:0.0),
+                    child: GestureDetector(
+                      onTap: () =>
+                      {
+                        priceCalculation(),
+                      changeText(costs),
+                      }
+
+                      ,
+                      child: ClipOval(
+                        child: Container(
+                          height: 65.0, // height of the button
+                          width: 55.0, // width of the button
+                          child: Center(child: Text('cost')),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 2,
+                            ),
+                            shape: BoxShape.circle,
+                            color:  Colors.white70,
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:0.0),
-                      child: GestureDetector(
-                        onTap: () =>
-                        {
-                        },
-                        child: ClipOval(
-                          child: Container(
-                            height: 65.0, // height of the button
-                            width: 55.0, // width of the button
-                            child: Center(child: Text('numb')),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.black,
-                                width: 2,
-                              ),
-                              shape: BoxShape.circle,
-                              color:  Colors.white70,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:0.0),
+                    child: GestureDetector(
+                      onTap: () =>
+                      {
+                      },
+                      child: ClipOval(
+                        child: Container(
+
+                          height: 65.0, // hei
+                          // ght of the button
+                          width: 55.0, // width of the button
+                          child: Center(child: Text('cost')),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 2,
                             ),
+
+                            shape: BoxShape.circle,
+                            color:  Colors.white70,
                           ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:0.0),
-                      child: GestureDetector(
-                        onTap: () =>
-                        {
-                        },
-                        child: ClipOval(
-                          child: Container(
+                  ),
 
-                            height: 65.0, // hei
-                            // ght of the button
-                            width: 55.0, // width of the button
-                            child: Center(child: Text('cost')),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.black,
-                                width: 2,
-                              ),
 
-                              shape: BoxShape.circle,
-                              color:  Colors.white70,
+                  Padding(
+                    padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:0.0),
+                    child: GestureDetector(
+                      onTap: () =>
+                      {
+                      },
+                      child: ClipOval(
+                        child: Container(
+                          height: 65.0, // hei
+                          // ght of the button
+                          width: 55.0, // width of the button
+                          child: Center(child: Text('data')),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.black,
+                              width: 2,
                             ),
+
+                            shape: BoxShape.circle,
+                            color:  Colors.white70,
                           ),
                         ),
                       ),
                     ),
-
-
-                    Padding(
-                      padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:0.0),
-                      child: GestureDetector(
-                        onTap: () =>
-                        {
-                        },
-                        child: ClipOval(
-                          child: Container(
-                            height: 65.0, // hei
-                            // ght of the button
-                            width: 55.0, // width of the button
-                            child: Center(child: Text('data')),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.black,
-                                width: 2,
-                              ),
-
-                              shape: BoxShape.circle,
-                              color:  Colors.white70,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
                 Container(
                   margin: EdgeInsets.all(1),
@@ -361,6 +448,14 @@ class _energyState extends State<energy> {
             ],
           ),
         ),
+      ),
+    );
+  }
+  Widget cost(String val){
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 30, 10, 5),
+        child: Text(val),
       ),
     );
   }
