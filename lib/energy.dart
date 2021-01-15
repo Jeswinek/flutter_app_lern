@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
@@ -93,23 +95,22 @@ class energy extends StatefulWidget {
 }
 
 class _energyState extends State<energy> {
-  static final DateTime now=DateTime.now();
-  static final DateFormat formatter=DateFormat('yyyyMMdd');
- // static final DateFormat formatter=DateFormat('yyyyMMdd');
-  //static final TimeFormat formatter=DateFormat('yyyyMMdd');
-  String formated=formatter.format(now);
   final fb = FirebaseDatabase.instance.reference();
   var retrievedName="";
   String name = "";
   String Times="";
   String k="";
   String Datte="";
+  int Time;//its poornesh created time
   String y="";
   String p="";
+  String seconds="";
   var ref;
   String costs="";
   double unit;
   String textHolder = 'Old Sample Text...!!!';
+  int bal;
+  int rem;
 
   changeText(String j) {
 
@@ -128,38 +129,44 @@ class _energyState extends State<energy> {
   samplefunction(){
     final ref=fb.reference().child("");
     DateTime now=DateTime.now();
-    DateFormat formatter=DateFormat('yyyyMMdd');
-    formated=formatter.format(now);
-    print(formated);
-    Datte=formated+"05";
+    print("${now.second}:${now.microsecond}");
+    seconds="${now.second}";
+    Time = int.parse(seconds);
+    rem = Time%5;
+    bal=Time-rem;
+    Datte="${now.year}${now.month}${now.day}$bal";
+    print(Datte);
     ref.child(Datte).once().then((DataSnapshot data){
       setState(() {
-
-        formated=formatter.format(now);
         retrievedName=data.value ;
        // cost(retrievedName);
       });
     });
   }
-  samplefunction2(){
-    final ref=fb.reference().child("");
+  samplefunction2() {
+    final ref = fb.reference().child("");
     DateTime now=DateTime.now();
-    DateFormat formatter=DateFormat('yyyyMMdd');
-
-    formated=formatter.format(now);
-    print(formated);
-    Datte=formated+Times;
-    //  ref=fb.reference().child("");
-    formated=formatter.format(now);
+    print("${now.second}:${now.microsecond}");
+    seconds="${now.second}";
+    Time = int.parse(seconds);
+    rem = Time%5;
+    bal=Time-rem;
+    print(now.month);
+    Datte="yyyy:$bal";
+    //  ref=fb.reference().child("")
     ref.child(Datte).set(name);
-    y=name;
-    // ref.child(Datte).once().then((DataSnapshot data){
-    //   setState(() {
-    //
-    //     formated=formatter.format(now);
-    //     retrievedName=data.value ;
-    //   });
-    // });
+    y = name;
+  }
+  samplefunction5() {
+    DateTime now=DateTime.now();
+    print("${now.second}:${now.microsecond}");
+    seconds="${now.second}";
+    Time = int.parse(seconds);
+    rem = Time%5;
+    setState(() {
+      bal=Time-rem;
+    //  Time=Time-rem;
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -209,8 +216,9 @@ class _energyState extends State<energy> {
                 height:120,
                 width: 270,
 
-            child: Text('$textHolder',
+            child: Text('$textHolder ',
                 style: TextStyle(fontSize: 21)),
+
               ),
               Row(
                 children: [
@@ -226,6 +234,7 @@ class _energyState extends State<energy> {
                       // })
                         samplefunction(),
                         changeText(retrievedName),
+                       // samplefunction5()
                       }
                       },
                       child: ClipOval(
@@ -253,14 +262,15 @@ class _energyState extends State<energy> {
                     child: GestureDetector(
                       onTap: () =>
                       {
+                       samplefunction(),
                         priceCalculation(),
                       changeText(costs),
                       }
-
                       ,
                       child: ClipOval(
+                        // height of the button
                         child: Container(
-                          height: 65.0, // height of the button
+                          height: 65.0,
                           width: 55.0, // width of the button
                           child: Center(child: Text('cost')),
                           decoration: BoxDecoration(
@@ -293,6 +303,8 @@ class _energyState extends State<energy> {
                               color: Colors.black,
                               width: 2,
                             ),
+
+
 
                             shape: BoxShape.circle,
                             color:  Colors.white70,

@@ -22,6 +22,11 @@ class _RegisterState extends State<Register> {
   String Datte="";
   String y="";
   var ref;
+  int Time;
+  int bal;
+  int rem;
+  String seconds;
+
   samplefunction(){
     final ref=fb.reference().child("");
     DateTime now=DateTime.now();
@@ -38,16 +43,28 @@ class _RegisterState extends State<Register> {
         });
   }
   samplefunction2(){
-    final ref=fb.reference().child("");
+    final ref = fb.reference().child("");
     DateTime now=DateTime.now();
-    DateFormat formatter=DateFormat('yyyyMMdd');
-    formated=formatter.format(now);
-    print(formated);
-    Datte=formated+Times;
-  //  ref=fb.reference().child("");
-    formated=formatter.format(now);
+    print("${now.second}:${now.microsecond}");
+    seconds="${now.second}";
+    Time = int.parse(seconds);
+    rem = Time%5;
+    bal=Time-rem;
+    print(now.month);
+    Datte="${now.year}${now.month}${now.day}$Times";
+    //  ref=fb.reference().child("")
     ref.child(Datte).set(name);
-    y=name;
+    y = name;
+  //   final ref=fb.reference().child("");
+  //   DateTime now=DateTime.now();
+  //   DateFormat formatter=DateFormat('yyyyMMdd');
+  //   formated=formatter.format(now);
+  //   print(formated);
+  //   Datte=formated+Times;
+  // //  ref=fb.reference().child("");
+  //   formated=formatter.format(now);
+  //   ref.child(Datte).set(name);
+  //   y=name;
     // ref.child(Datte).once().then((DataSnapshot data){
     //   setState(() {
     //
