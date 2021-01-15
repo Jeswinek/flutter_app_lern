@@ -19,9 +19,9 @@ import 'graph.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'Home.dart';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'calendar.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
@@ -49,8 +49,9 @@ class MyApp extends StatelessWidget {
               ),
               child:
               Stack(children:[ CurvedShape(),
-                energy()
+                energy(),
                  //Register(),
+                //Calendar()
               ]
               ),
             ),

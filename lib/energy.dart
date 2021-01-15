@@ -14,6 +14,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'calendar.dart';
+
 class menu extends StatefulWidget {
   @override
   _menuState createState() => _menuState();
@@ -30,7 +32,7 @@ class _menuState extends State<menu> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-             child: Container(
+              child: Container(
                 height: 64,
                 child: Row(
                   children: <Widget>[
@@ -116,16 +118,16 @@ class _energyState extends State<energy> {
 
     setState(() {
       textHolder = j;
-     });}
+    });}
 
   priceCalculation(){
     unit = double.parse(retrievedName);
     if(unit==12)
-      {unit+=10;
-      setState(() {
-        costs="$unit";
-      });
-  }}
+    {unit+=10;
+    setState(() {
+      costs="$unit";
+    });
+    }}
   samplefunction(){
     final ref=fb.reference().child("");
     DateTime now=DateTime.now();
@@ -139,7 +141,7 @@ class _energyState extends State<energy> {
     ref.child(Datte).once().then((DataSnapshot data){
       setState(() {
         retrievedName=data.value ;
-       // cost(retrievedName);
+        // cost(retrievedName);
       });
     });
   }
@@ -165,7 +167,7 @@ class _energyState extends State<energy> {
     rem = Time%5;
     setState(() {
       bal=Time-rem;
-    //  Time=Time-rem;
+      //  Time=Time-rem;
     });
   }
   @override
@@ -216,8 +218,8 @@ class _energyState extends State<energy> {
                 height:120,
                 width: 270,
 
-            child: Text('$textHolder ',
-                style: TextStyle(fontSize: 21)),
+                child: Text('$textHolder ',
+                    style: TextStyle(fontSize: 21)),
 
               ),
               Row(
@@ -226,16 +228,16 @@ class _energyState extends State<energy> {
                     padding: EdgeInsets.only(top: 10, left: 5.0, right: 0.0,bottom: 10),
                     child: GestureDetector(
                       onTap: () => {
-                      {
-                      // setState(() {
-                      // samplefunction();
-                      // k=retrievedName;
-                      // changeText();
-                      // })
-                        samplefunction(),
-                        changeText(retrievedName),
-                       // samplefunction5()
-                      }
+                        {
+                          // setState(() {
+                          // samplefunction();
+                          // k=retrievedName;
+                          // changeText();
+                          // })
+                          samplefunction(),
+                          changeText(retrievedName),
+                          // samplefunction5()
+                        }
                       },
                       child: ClipOval(
                         child:Padding(child: Container(
@@ -262,9 +264,9 @@ class _energyState extends State<energy> {
                     child: GestureDetector(
                       onTap: () =>
                       {
-                       samplefunction(),
+                        samplefunction(),
                         priceCalculation(),
-                      changeText(costs),
+                        changeText(costs),
                       }
                       ,
                       child: ClipOval(
@@ -342,48 +344,48 @@ class _energyState extends State<energy> {
                   ),
                 ],
               ),
-                Container(
-                  margin: EdgeInsets.all(1),
-                  padding: EdgeInsets.all(8),
-                  height: 83,
-                  width: 438,
-                  alignment: Alignment.bottomRight,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                  Card(
-                  color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.black, width: 2.0),
-                      borderRadius: BorderRadius.circular(5.0),
+              Container(
+                margin: EdgeInsets.all(1),
+                padding: EdgeInsets.all(8),
+                height: 83,
+                width: 438,
+                alignment: Alignment.bottomRight,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Card(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.black, width: 2.0),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: <Widget>[
+                            Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: FlatButton.icon(
+                                  icon: Icon(Icons.show_chart,size: 48,),
+                                  label: Text(
+                                    "Graphical Representation",
+                                    style: TextStyle(fontSize: 17),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => HomePage()),
+                                    );
+                                  },
+                                )
+                            ),
+                          ]
+                      ),
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: <Widget>[
-                          Padding(
-                              padding: const EdgeInsets.all(3.0),
-                              child: FlatButton.icon(
-                                icon: Icon(Icons.show_chart,size: 48,),
-                                label: Text(
-                                  "Graphical Representation",
-                                  style: TextStyle(fontSize: 17),
-                                ),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => HomePage()),
-                                  );
-                                },
-                              )
-                          ),
-                        ]
-                    ),
-                  ),
                   ],
 
-              ),
                 ),
+              ),
               Container(
                 margin: EdgeInsets.all(0),
                 padding: EdgeInsets.all(0),
@@ -410,8 +412,13 @@ class _energyState extends State<energy> {
                                   label: Text(
                                     "calendar",
                                     style: TextStyle(fontSize: 25),
-                                    ),
-                                  onPressed: () => launch(""),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => Calendar()),
+                                    );
+                                  },
                                 )
                             ),
                           ]
