@@ -6,7 +6,7 @@ import 'Switches.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'baseHome.dart';
-import 'signuppage.dart';
+import 'page.dart';
 import 'home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';

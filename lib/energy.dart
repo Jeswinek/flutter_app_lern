@@ -1,5 +1,4 @@
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
@@ -111,7 +110,7 @@ class _energyState extends State<energy> {
   String textHolder = 'Old Sample Text...!!!';
   int bal;
   int rem;
-
+double readingUnit=15;
   changeText(String j) {
 
     setState(() {
@@ -119,11 +118,11 @@ class _energyState extends State<energy> {
      });}
 
   priceCalculation(){
-    unit = double.parse(retrievedName);
-    if(unit==12)
-      {unit+=10;
+    unit = readingUnit;
+    if(unit>=0)
+      {unit=unit+10;
       setState(() {
-        costs="$unit";
+        costs="${unit}";
       });
   }}
   samplefunction(){
@@ -263,7 +262,7 @@ class _energyState extends State<energy> {
                       onTap: () =>
                       {
                        samplefunction(),
-                        priceCalculation(),
+                     //   priceCalculation(),
                       changeText(costs),
                       }
                       ,
