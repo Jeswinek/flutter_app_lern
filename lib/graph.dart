@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-class HomePage extends StatefulWidget {
+class HomePag extends StatefulWidget {
   final Widget child;
 
-  HomePage({Key key, this.child}) : super(key: key);
+  HomePag({Key key, this.child}) : super(key: key);
 
-  _HomePageState createState() => _HomePageState();
+  _HomePagState createState() => _HomePagState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePagState extends State<HomePag> {
   List<charts.Series<Pollution, String>> _seriesData;
   List<charts.Series<Task, String>> _seriesPieData;
-  List<charts.Series<Sales, int>> _seriesLineData;
+  List<charts.Series<lineenergy, int>> _seriesLineData;
 
   _generateData() {
     var data1 = [
@@ -40,31 +40,21 @@ class _HomePageState extends State<HomePage> {
       new Task('Other', 10.3, Color(0xffdc3912)),
     ];
 
-    var linesalesdata = [
-      new Sales(0, 45),
-      new Sales(1, 175),
-      new Sales(2, 55),
-      new Sales(3, 60),
-      new Sales(4, 61),
-      new Sales(5, 70),
-    ];
+    var linesmonthlyata = [
+      new lineenergy(0, 45),
+      new lineenergy(1, 175),
+      new lineenergy(2, 55),
+      new lineenergy(3, 60),
+      ];
     var linesalesdata1 = [
-      new Sales(0, 35),
-      new Sales(1, 46),
-      new Sales(2, 45),
-      new Sales(3, 50),
-      new Sales(4, 51),
-      new Sales(5, 60),
+      new lineenergy(0, 35),
+      new lineenergy(1, 46),
+      new lineenergy(2, 45),
+      new lineenergy(3, 50),
+
     ];
 
-    var linesalesdata2 = [
-      new Sales(0, 20),
-      new Sales(1, 24),
-      new Sales(2, 25),
-      new Sales(3, 40),
-      new Sales(4, 45),
-      new Sales(5, 60),
-    ];
+
 
     _seriesData.add(
       charts.Series(
@@ -118,9 +108,9 @@ class _HomePageState extends State<HomePage> {
       charts.Series(
         colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xff990099)),
         id: 'Air Pollution',
-        data: linesalesdata,
-        domainFn: (Sales sales, _) => sales.yearval,
-        measureFn: (Sales sales, _) => sales.salesval,
+        data: linesmonthlyata,
+        domainFn: ( sales, _) => sales.yearval,
+        measureFn: (lineenergy sales, _) => sales.salesval,
       ),
     );
     _seriesLineData.add(
@@ -128,19 +118,11 @@ class _HomePageState extends State<HomePage> {
         colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xff109618)),
         id: 'Air Pollution',
         data: linesalesdata1,
-        domainFn: (Sales sales, _) => sales.yearval,
-        measureFn: (Sales sales, _) => sales.salesval,
+        domainFn: (lineenergy sales, _) => sales.yearval,
+        measureFn: (lineenergy sales, _) => sales.salesval,
       ),
     );
-    _seriesLineData.add(
-      charts.Series(
-        colorFn: (__, _) => charts.ColorUtil.fromDartColor(Color(0xffff9900)),
-        id: 'Air Pollution',
-        data: linesalesdata2,
-        domainFn: (Sales sales, _) => sales.yearval,
-        measureFn: (Sales sales, _) => sales.salesval,
-      ),
-    );
+
   }
 
   @override
@@ -149,7 +131,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _seriesData = List<charts.Series<Pollution, String>>();
     _seriesPieData = List<charts.Series<Task, String>>();
-    _seriesLineData = List<charts.Series<Sales, int>>();
+    _seriesLineData = List<charts.Series<lineenergy, int>>();
     _generateData();
   }
 
@@ -294,9 +276,9 @@ class Task {
   Task(this.task, this.taskvalue, this.colorval);
 }
 
-class Sales {
+class lineenergy {
   int yearval;
   int salesval;
 
-  Sales(this.yearval, this.salesval);
+  lineenergy(this.yearval, this.salesval);
 }

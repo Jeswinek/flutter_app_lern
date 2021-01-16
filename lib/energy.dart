@@ -8,7 +8,7 @@ import'package:flutter/widgets.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
 import 'package:url_launcher/url_launcher.dart';
-import 'graph.dart';
+import 'graphenergy.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
@@ -112,6 +112,7 @@ class _energyState extends State<energy> {
   int rem;
   double readingUnit = 0;
   double priceElectricity = 0;
+  double monthlypriceElectricity = 0;
 
   changeText(String j) {
     setState(() {
@@ -138,7 +139,25 @@ class _energyState extends State<energy> {
     });
 
   }
+monthlyprice(){
+  if (unit >=0 && unit <=50) {
+   monthlypriceElectricity = unit * 2.90;
+  }
+  else if (unit >=51 && unit<=100) {
+   monthlypriceElectricity = (50*2.90)+(unit-50)*3.70;
+  } else if (unit >= 101 && unit<=150) {
+    monthlypriceElectricity = (50*2.90)+(100*3.70)+(unit-100)* 4.80;
+  }else if (unit >= 151 && unit<=200) {
+   monthlypriceElectricity =  (50*2.90)+(100*3.70)+(150* 4.80)+(unit-150)* 6.40;
+  }else if(unit>=201) {
+   monthlypriceElectricity =  (50*2.90)+(100*3.70)+(150* 4.80)+(250*6.40)+(unit-250)*7.50;
 
+  }
+  else print("unit doesnot calculated");
+  setState(() {
+    costs ="$monthlypriceElectricity";
+  });
+}
   samplefunction(){
     final ref=fb.reference().child("");
     DateTime now=DateTime.now();
@@ -156,6 +175,7 @@ class _energyState extends State<energy> {
       });
     });
   }
+
   samplefunction2() {
     final ref = fb.reference().child("");
     DateTime now=DateTime.now();
@@ -236,7 +256,7 @@ class _energyState extends State<energy> {
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: 10, left: 5.0, right: 0.0,bottom: 10),
+                    padding: EdgeInsets.only(top: 10, left: 30.0, right: 30.0,bottom: 10),
                     child: GestureDetector(
                       onTap: () => {
                         {
@@ -271,11 +291,11 @@ class _energyState extends State<energy> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:0.0),
+                    padding: EdgeInsets.only(top:10,bottom: 10, left: 0, right:30.0),
                     child: GestureDetector(
                       onTap: () =>
                       {
-                        samplefunction(),
+                        //samplefunction(),
                         priceCalculation(),
                         changeText(costs),
                       }
@@ -299,7 +319,7 @@ class _energyState extends State<energy> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:0.0),
+                    padding: EdgeInsets.only(top:10,bottom: 10, left: 6, right:30.0),
                     child: GestureDetector(
                       onTap: () =>
                       {
@@ -329,10 +349,12 @@ class _energyState extends State<energy> {
 
 
                   Padding(
-                    padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:0.0),
+                    padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:40.0),
                     child: GestureDetector(
                       onTap: () =>
                       {
+                        monthlyprice(),
+                        changeText(costs),
                       },
                       child: ClipOval(
                         child: Container(
