@@ -95,36 +95,47 @@ class energy extends StatefulWidget {
 
 class _energyState extends State<energy> {
   final fb = FirebaseDatabase.instance.reference();
-  var retrievedName="";
+  var retrievedName = "";
   String name = "";
-  String Times="";
-  String k="";
-  String Datte="";
-  int Time;//its poornesh created time
-  String y="";
-  String p="";
-  String seconds="";
+  String Times = "";
+  String k = "";
+  String Datte = "";
+  int Time; //its poornesh created time
+  String y = "";
+  String p = "";
+  String seconds = "";
   var ref;
-  String costs="";
+  String costs = "";
   double unit;
   String textHolder = 'Old Sample Text...!!!';
   int bal;
   int rem;
-double readingUnit=15;
-  changeText(String j) {
+  double readingUnit = 0;
+  double priceElectricity = 0;
 
+  changeText(String j) {
     setState(() {
       textHolder = j;
-     });}
+    });
+  }
 
-  priceCalculation(){
-    unit = readingUnit;
-    if(unit>=0)
-      {unit=unit+10;
-      setState(() {
-        costs="${unit}";
-      });
-  }}
+  priceCalculation() {
+    if (unit >=0 && unit <=50) {
+      priceElectricity = unit * 2.90;
+    }
+    else if (unit >=51 && unit<=100) {
+      priceElectricity = unit * 3.70;
+    } else if (unit >= 101 && unit<=150) {
+      priceElectricity = unit * 4.80;
+    }else if (unit >= 151 && unit<=200) {
+      priceElectricity = unit * 6.40;
+    }
+    setState(() {
+      costs ="$priceElectricity";
+    });
+
+  }
+
   samplefunction(){
     final ref=fb.reference().child("");
     DateTime now=DateTime.now();
