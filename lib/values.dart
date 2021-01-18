@@ -51,7 +51,10 @@ class _RegisterState extends State<Register> {
     rem = Time%5;
     bal=Time-rem;
     print(now.month);
-    Datte="${now.year}${now.month}${now.day}$Times";
+    if(now.month>=9){
+    Datte="${now.year}${now.month}${now.day}$Times";}
+    else{
+      Datte="${now.year}0${now.month}${now.day}$Times";}
     //  ref=fb.reference().child("")
     ref.child(Datte).set(name);
     y = name;

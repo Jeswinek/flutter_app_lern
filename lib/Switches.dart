@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class Switches extends StatefulWidget {
   @override
@@ -7,6 +8,7 @@ class Switches extends StatefulWidget {
 }
 
 class _SwitchesState extends State<Switches> {
+  final fb = FirebaseDatabase.instance.reference();
   List<Color> _colors = [
     Colors.lightGreen[700],
     Colors.lightGreen[900],
@@ -70,6 +72,7 @@ class _SwitchesState extends State<Switches> {
         r2l3();
       });
       print('Switch is OFF');
+
       // Put your code here which you want to execute on Switch OFF event.
     }
   }
@@ -78,20 +81,27 @@ class _SwitchesState extends State<Switches> {
     if (Switch_Two_control == false) {
       setState(() {
         Switch_Two_control = true;
-        Switch_Two = 'ON';
+        Switch_Two = 'on';
         _currentIndexOne = 1;
       });
-      print('ON');
+      print('on');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Fan2").set(Switch_Two);
+      }
       // Put your code here which you want to execute on Switch ON event.
 
     } else {
       setState(() {
         Switch_Two_control = false;
-        Switch_Two = 'OFF';
+        Switch_Two = 'off';
         _currentIndexOne = 0;
       });
-      print('OFF');
-      // Put your code here which you want to execute on Switch OFF event.
+      print('off');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Fan2").set(Switch_Two);
+      }// Put your code here which you want to execute on Switch OFF event.
     }
   }
 
@@ -99,19 +109,27 @@ class _SwitchesState extends State<Switches> {
     if (Switch_Three_control == false) {
       setState(() {
         Switch_Three_control = true;
-        Switch_Three = 'ON';
+        Switch_Three = 'on';
         _currentIndexTwo = 1;
       });
-      print('ON');
+      print('on');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Fan3").set(Switch_Three);
+      }
       // Put your code here which you want to execute on Switch ON event.
 
     } else {
       setState(() {
         Switch_Three_control = false;
-        Switch_Three = 'OFF';
+        Switch_Three = 'off';
         _currentIndexTwo = 0;
       });
-      print('OFF');
+      print('off');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Fan3").set(Switch_Three);
+      }
       // Put your code here which you want to execute on Switch OFF event.
 
     }
@@ -137,19 +155,27 @@ class _SwitchesState extends State<Switches> {
     if (Switch_one_control == false) {
       setState(() {
         Switch_one_control = true;
-        Switch_one = 'ON';
+        Switch_one = 'on';
         _currentIndex = 1;
       });
-      print('ON');
+      print('on');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Fan1").set(Switch_one);
+      }
       // Put your code here which you want to execute on Switch ON event.
 
     } else {
       setState(() {
         Switch_one_control = false;
-        Switch_one = 'OFF';
+        Switch_one = 'off';
         _currentIndex = 2;
       });
-      print('OFF');
+      print('off');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Fan1").set(Switch_one);
+      }
       // Put your code here which you want to execute on Switch OFF event.
     }
   }
@@ -158,21 +184,29 @@ class _SwitchesState extends State<Switches> {
     if (lb1 == false) {
       setState(() {
         lb1 = true;
-        l1 = 'ON';
+        l1 = 'on';
         _currentIndexl1 = 3;
         _currentIndexlt1 = 4;
       });
-      print('ON');
+      print('on');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Light1").set(l1);
+      }
       // Put your code here which you want to execute on Switch ON event.
 
     } else {
       setState(() {
         lb1 = false;
-        l1 = 'OFF';
+        l1 = 'off';
         _currentIndexl1 = 2;
         _currentIndexlt1 = 3;
       });
-      print('OFF');
+      print('off');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Light1").set(l1);
+      }
       // Put your code here which you want to execute on Switch OFF event.
     }
   }
@@ -181,21 +215,29 @@ class _SwitchesState extends State<Switches> {
     if (lb2 == false) {
       setState(() {
         lb2 = true;
-        l2 = 'ON';
+        l2 = 'on';
         _currentIndexlt2 = 4;
         _currentIndexl2 = 3;
       });
-      print('ON');
+      print('on');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Light2").set(l2);
+      }
       // Put your code here which you want to execute on Switch ON event.
 
     } else {
       setState(() {
         lb2 = false;
-        l2 = 'OFF';
+        l2 = 'off';
         _currentIndexl2 = 2;
         _currentIndexlt2 = 3;
       });
-      print('OFF');
+      print('off');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Light2").set(l2);
+      }
       // Put your code here which you want to execute on Switch OFF event.
     }
   }
@@ -204,27 +246,38 @@ class _SwitchesState extends State<Switches> {
     if (lb3 == false) {
       setState(() {
         lb3 = true;
-        l3 = 'ON';
+        l3 = 'on';
         _currentIndexlt3 = 4;
         _currentIndexl3 = 3;
       });
-      print('ON');
+      print('on');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Light3").set(l3);
+      }
       // Put your code here which you want to execute on Switch ON event.
 
     } else {
       setState(() {
         lb3 = false;
-        l3 = 'OFF';
+        l3 = 'off';
         _currentIndexl3 = 2;
         _currentIndexlt3 = 3;
       });
-      print('OFF');
+      print('off');
+      final ref=fb.reference().child("Automation");
+      {
+        ref.child("Light3").set(l3);
+      }
+
+
       // Put your code here which you want to execute on Switch OFF event.
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final ref=fb.reference().child("Automation");
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -236,6 +289,7 @@ class _SwitchesState extends State<Switches> {
               MasterSwitch(),
               Room1(),
               Room2(),
+
             ],
           ),
         ),
@@ -274,7 +328,7 @@ class _SwitchesState extends State<Switches> {
                           fontFamily: "Broadway",
                         ),
                       ),
-                      padding: EdgeInsets.only(top: 8, right: 50),
+                      padding: EdgeInsets.only(top: 8, right: 20),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -303,12 +357,13 @@ class _SwitchesState extends State<Switches> {
         ),
       ),
     );
+
   }
 
   Widget Room1() {
     return Container(
       margin: EdgeInsets.all(10),
-      height: 200,
+      height: 230,
       child: Card(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8.0))),
@@ -320,7 +375,7 @@ class _SwitchesState extends State<Switches> {
               padding: EdgeInsets.only(left: 10, bottom: 10, top: 5, right: 10),
               child: Container(
                 child: Text(
-                  'Room1',
+                  'hall',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
@@ -351,9 +406,12 @@ class _SwitchesState extends State<Switches> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                        top: 10, left: 25.0, right: 0.0, bottom: 10),
+                        top: 9, left: 10.0, right: 0.0, bottom: 0),
                     child: GestureDetector(
-                      onTap: () => SwitchOne(),
+                      onTap: () =>
+                        SwitchOne(),
+                      //  ushafan();
+
                       child: ClipOval(
                         child: Padding(
                           child: Container(
@@ -381,7 +439,7 @@ class _SwitchesState extends State<Switches> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                        top: 10, bottom: 10, left: 25.0, right: 0.0),
+                        top: 9, bottom: 0, left: 10.0, right: 0.0),
                     child: GestureDetector(
                       onTap: () => SwitchTwo(),
                       child: ClipOval(
@@ -400,7 +458,7 @@ class _SwitchesState extends State<Switches> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                        top: 10, left: 25.0, bottom: 10, right: 0.0),
+                        top: 9, left: 10.0, bottom: 0, right: 0.0),
                     child: GestureDetector(
                       onTap: () => SwitchThree(),
                       child: ClipOval(

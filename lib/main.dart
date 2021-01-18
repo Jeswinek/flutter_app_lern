@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_lern/Switches.dart';
 import 'package:provider/provider.dart';
 import 'values.dart';
 //import 'package:flutter_app_lern/value.dart';
@@ -49,9 +50,10 @@ class MyApp extends StatelessWidget {
               ),
               child:
               Stack(children:[ CurvedShape(),
-                energy(),
-                 //Register(),
+                //energy(),
+                // Register(),
                 //Calendar()
+                Switches()
               ]
               ),
             ),

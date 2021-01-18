@@ -8,7 +8,7 @@ import'package:flutter/widgets.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
 import 'package:url_launcher/url_launcher.dart';
-import 'graphenergy.dart';
+import 'graph.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
@@ -96,6 +96,7 @@ class energy extends StatefulWidget {
 class _energyState extends State<energy> {
   final fb = FirebaseDatabase.instance.reference();
   var retrievedName = "";
+  double units;
   String name = "";
   String Times = "";
   String k = "";
@@ -140,6 +141,7 @@ class _energyState extends State<energy> {
 
   }
   monthlyprice(){
+
     if (unit >=0 && unit <=50) {
       monthlypriceElectricity = unit * 2.90;
     }
@@ -153,7 +155,7 @@ class _energyState extends State<energy> {
       monthlypriceElectricity =  (50*2.90)+(100*3.70)+(150* 4.80)+(250*6.40)+(unit-250)*7.50;
 
     }
-    else print("unit doesnot calculated");
+    else print("unit doesnot calculated" );
     setState(() {
       costs ="$monthlypriceElectricity";
     });
@@ -166,14 +168,26 @@ class _energyState extends State<energy> {
     Time = int.parse(seconds);
     rem = Time%5;
     bal=Time-rem;
+    if(now.month>=10){
     Datte="${now.year}${now.month}${now.day}$bal";
     print(Datte);
     ref.child(Datte).once().then((DataSnapshot data){
       setState(() {
-        retrievedName=data.value ;
+        retrievedName = data.value;
+      });
         // cost(retrievedName);
       });
-    });
+    }else
+      {
+        Datte="${now.year}0${now.month}${now.day}$bal";
+        print(Datte);
+        ref.child(Datte).once().then((DataSnapshot data){
+          setState(() {
+            retrievedName = data.value;
+          });
+          // cost(retrievedName);
+        });
+      }
   }
 
   samplefunction2() {
@@ -291,7 +305,7 @@ class _energyState extends State<energy> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top:10,bottom: 10, left: 0, right:30.0),
+                    padding: EdgeInsets.only(top:10,bottom: 10, left: 0, right:2.0),
                     child: GestureDetector(
                       onTap: () =>
                       {
@@ -349,7 +363,7 @@ class _energyState extends State<energy> {
 
 
                   Padding(
-                    padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:40.0),
+                    padding: EdgeInsets.only(top:10,bottom: 10, left: 5, right:20.0),
                     child: GestureDetector(
                       onTap: () =>
                       {
