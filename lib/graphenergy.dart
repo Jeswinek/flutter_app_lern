@@ -48,7 +48,7 @@ class _HomePageGraphState extends State<HomePageGraph> {
   }
   @override
   void initState() {
-    // TODO: implement initState
+
     super.initState();
     _seriesLineData = List<charts.Series<graphlinear, int>>();
     _generateData();
