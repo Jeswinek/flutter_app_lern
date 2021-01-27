@@ -8,8 +8,8 @@ import'package:flutter/widgets.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
 import 'package:url_launcher/url_launcher.dart';
-import 'graphenergy.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'graph.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
@@ -407,7 +407,7 @@ monthlyprice(){
                                   onPressed: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => HomePage()),
+                                      MaterialPageRoute(builder: (context) => HomePag()),
                                     );
                                   },
                                 )
