@@ -1,8 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_lern/register.dart';
-import 'login.dart';
-import 'register.dart';
+import 'package:flutter_app_lern/signuppage.dart';
+import 'signuppage.dart';
+import 'loginpage.dart';
+import 'dart:async';
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
 
 class Home extends StatefulWidget {
   @override
@@ -12,20 +18,20 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  @override
+    @override
   Widget build(BuildContext context) {
     Color primary = Theme.of(context).primaryColor;
     Color stst = Colors.red;
-    return Column(
+    return ListView(
       children: [
         Container(
-          padding: EdgeInsets.all(10),
-          child: logo(),
+          padding: EdgeInsets.only(top:250,left:10,right:10),
+          //child: logo(),
         ),
         Padding(
           child: Container(
-            child: button('LOGIN', Colors.lightGreen, Colors.white,
-                Colors.greenAccent, 1.0,),
+            child: button('LOGIN', Colors.green, Colors.white,
+              Colors.green, 1.0,),
             width: MediaQuery.of(context).size.width,
             height: 65,
           ),
@@ -42,7 +48,7 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.all(8.0),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                    signUp()),);
+                    SignupScreen()),);
               },
               child: Text( 'Create New',
                 style: TextStyle(
@@ -50,7 +56,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-         width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width,
             height: 60,
           ),
           padding: EdgeInsets.all(20),
@@ -71,57 +77,71 @@ class _HomeState extends State<Home> {
         //     ),
         //   ),
         // ),
-        ],
+      ],
     );
   }
 
-  Widget logo() {
-    return Padding(
-      padding: EdgeInsets.only(
-          top: MediaQuery.of(context).size.height * 0.03, right: 40),
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: 220,
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              child: Container(
-                alignment: Alignment.centerLeft,
-                height: 162,
-                child: Align(
-                  child: Text(
-                    "Smart",
-                    style: TextStyle(
-                      fontSize: 45,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              child: Align(
-                child: Container(
-                  padding: EdgeInsets.only(top: 40, left: 65),
-                  width: 190,
-                  child: Text(
-                    "HOME",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                alignment: Alignment.center,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  // Widget logo() {
+  //   return Padding(
+  //     padding: EdgeInsets.only(
+  //         top: MediaQuery.of(context).size.height * 0.03, right: 40),
+  //     child: Container(
+  //     //   width: MediaQuery.of(context).size.width,
+  //     //   height: 220,
+  //     //   child: Stack(
+  //     //     children: <Widget>[
+  //     //       Positioned(
+  //     //         child: Container(
+  //     //           alignment: Alignment.centerLeft,
+  //     //           height: 162,
+  //     //           child: Align(
+  //     //             child: Text(
+  //     //               "Smart",
+  //     //               style: TextStyle(
+  //     //                 fontSize: 45,
+  //     //                 fontWeight: FontWeight.bold,
+  //     //                 color: Colors.green,
+  //     //               ),
+  //     //             ),
+  //     //           ),
+  //     //         ),
+  //     //       ),
+  //     //       Positioned(
+  //     //         child: Align(
+  //     //           child: Container(
+  //     //             padding: EdgeInsets.only(top: 40, left: 65),
+  //     //             width: 190,
+  //     //             child: Text(
+  //     //               "HOME",
+  //     //               style: TextStyle(
+  //     //                 fontSize: 40,
+  //     //                 fontWeight: FontWeight.bold,
+  //     //                 color: Colors.white,
+  //     //               ),
+  //     //             ),
+  //     //           ),
+  //     //           alignment: Alignment.center,
+  //     //         ),
+  //     //       ),
+  //     //     ],
+  //     //   ),
+  //     // ),
+  //
+  //   width: MediaQuery.of(context).size.width / 2.5,
+  //   height: MediaQuery.of(context).size.width / 2.5,
+  //   padding: const EdgeInsets.only(top: 50),
+  //   decoration: BoxDecoration(
+  //   shape: BoxShape.circle,
+  //   color: Colors.white,
+  //   // image: DecorationImage(
+  //   //   image: AssetImage('image/Logoo.jpg'),
+  //   //   fit: BoxFit.cover,
+  //   // ),
+  //   ),
+  //       // child: logoo(),
+  //     ),
+  //   );
+  // }
 
   Widget button(String text, Color fillColor, Color textColor,
       Color borderColor, double size,) {
@@ -134,7 +154,7 @@ class _HomeState extends State<Home> {
       padding: EdgeInsets.all(8.0),
       onPressed: () {
         Navigator.push(context, MaterialPageRoute(builder: (context)=>
-        loginUser()),);
+            LoginScreen()),);
       },
       child: Text(
         text,
@@ -145,3 +165,16 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+// class logoo extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     AssetImage logoImage = AssetImage('image/Logoo.jpg');
+//     Image image = Image(image: logoImage,width: 50,height: 50);
+//     return Container(
+//       child: image,
+//     );
+
+// return Container();
+
+
