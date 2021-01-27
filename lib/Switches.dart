@@ -16,6 +16,7 @@ class _SwitchesState extends State<Switches> {
     Colors.tealAccent,
     Colors.black,
   ];
+
   int _currentIndex = 0;
   int _currentIndexOne = 0;
   int _currentIndexTwo = 0;
@@ -147,10 +148,10 @@ class _SwitchesState extends State<Switches> {
   //   }
   //   else{
   //     setState(() {
-  //       init == false;
+  //       i}
+  //   // }nit == false;
   //     });
-  //   }
-  // }
+  //
   void SwitchOne() {
     if (Switch_one_control == false) {
       setState(() {

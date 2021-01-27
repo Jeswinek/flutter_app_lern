@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_lern/Switches.dart';
+import 'package:flutter_app_lern/graphenergy.dart';
 import 'package:provider/provider.dart';
 import 'values.dart';
 //import 'package:flutter_app_lern/value.dart';
@@ -26,6 +27,7 @@ import 'calendar.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -50,10 +52,11 @@ class MyApp extends StatelessWidget {
               ),
               child:
               Stack(children:[ CurvedShape(),
-                //energy(),
+               //HomePageGraph(),
+                energy(),
                 // Register(),
                 //Calendar()
-                Switches()
+                //Switches()
               ]
               ),
             ),

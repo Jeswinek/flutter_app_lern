@@ -8,7 +8,7 @@ import'package:flutter/widgets.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:charts_flutter/flutter.dart'as charts;
 import 'package:url_launcher/url_launcher.dart';
-import 'graph.dart';
+import 'package:flutter_app_lern/graphenergy.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
@@ -114,12 +114,46 @@ class _energyState extends State<energy> {
   double readingUnit = 0;
   double priceElectricity = 0;
   double monthlypriceElectricity = 0;
-
+  int retrieve;
+  int values;
+  int key= 2021011707;
   changeText(String j) {
     setState(() {
       textHolder = j;
     });
   }
+  retrieveval()
+  {
+     final rep=fb.reference().child("energy-meter-project-c13ac").child("$key");
+      DateTime now=DateTime.now();
+      print("${now.second}:${now.microsecond}");
+      seconds="${now.second}";
+      Time = int.parse(seconds);
+      rem = Time%5;
+      bal=Time-rem;
+      if(now.month>=10){
+        Datte="${now.year}${now.month}${now.day}$bal";
+        print(Datte);
+        ref.child(Datte).once().then((DataSnapshot data){
+          setState(() {
+            retrieve= data.value;
+                       print(values);
+            retrieve = data.value;
+            print (Text("$retrieve"));
+          });
+              });
+            }else
+  {
+  Datte="${now.year}0${now.month}${now.day}$bal";
+  print(Datte);
+  rep.child(Datte).once().then((DataSnapshot data){
+  setState(() {
+  retrieve = data.value;
+  });
+  // cost(retrievedName);
+  });
+  }
+}
 
   priceCalculation() {
     if (unit >=0 && unit <=50) {
@@ -140,6 +174,7 @@ class _energyState extends State<energy> {
     });
 
   }
+
   monthlyprice(){
 
     if (unit >=0 && unit <=50) {
@@ -161,21 +196,21 @@ class _energyState extends State<energy> {
     });
   }
   samplefunction(){
-    final ref=fb.reference().child("");
-    DateTime now=DateTime.now();
-    print("${now.second}:${now.microsecond}");
-    seconds="${now.second}";
-    Time = int.parse(seconds);
-    rem = Time%5;
-    bal=Time-rem;
-    if(now.month>=10){
-    Datte="${now.year}${now.month}${now.day}$bal";
-    print(Datte);
-    ref.child(Datte).once().then((DataSnapshot data){
-      setState(() {
-        retrievedName = data.value;
-      });
-        // cost(retrievedName);
+      final ref=fb.reference().child("");
+      DateTime now=DateTime.now();
+      print("${now.second}:${now.microsecond}");
+      seconds="${now.second}";
+      Time = int.parse(seconds);
+      rem = Time%5;
+      bal=Time-rem;
+      if(now.month>=10){
+        Datte="${now.year}${now.month}${now.day}$bal";
+        print(Datte);
+        ref.child(Datte).once().then((DataSnapshot data){
+          setState(() {
+            retrievedName = data.value;
+          });
+          // cost(retrievedName);
       });
     }else
       {
@@ -191,15 +226,16 @@ class _energyState extends State<energy> {
   }
 
   samplefunction2() {
-    final ref = fb.reference().child("");
+
+    final ref = fb.reference().child("energy-meter-project-c13ac").child("$Datte");
     DateTime now=DateTime.now();
-    print("${now.second}:${now.microsecond}");
+     print("${now.second}:${now.microsecond}");
     seconds="${now.second}";
-    Time = int.parse(seconds);
+    Time =int.parse(seconds);
     rem = Time%5;
     bal=Time-rem;
     print(now.month);
-    Datte="yyyy:$bal";
+    Datte="yyyy:$bal";String D=Datte;
     //  ref=fb.reference().child("")
     ref.child(Datte).set(name);
     y = name;
@@ -337,6 +373,8 @@ class _energyState extends State<energy> {
                     child: GestureDetector(
                       onTap: () =>
                       {
+                    retrieveval(),
+                        changeText("$Datte"),
                       },
                       child: ClipOval(
                         child: Container(
@@ -421,7 +459,7 @@ class _energyState extends State<energy> {
                                   onPressed: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => HomePage()),
+                                      MaterialPageRoute(builder: (context) => HomePageGraph()),
                                     );
                                   },
                                 )

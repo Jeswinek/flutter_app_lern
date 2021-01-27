@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
         measureFn: (Sales sales, _) => sales.salesval,
       ),
     );
-  }
+ }
 
   @override
   void initState() {
