@@ -1,3 +1,4 @@
+import 'package:flutter_app_lern/datepick.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_lern/Switches.dart';
 import 'package:flutter_app_lern/graphenergy.dart';
@@ -24,6 +25,7 @@ import 'Home.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'calendar.dart';
+import 'package:flutter_app_lern/newgraph.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
@@ -51,9 +53,13 @@ class MyApp extends StatelessWidget {
                 // fit: BoxFit.cover)
               ),
               child:
-              Stack(children:[ CurvedShape(),
+              Stack(children:[
+                //DatePickerDemo()
+                MyHome()
+                //energy()
+                //CurvedShape(),
                //HomePageGraph(),
-                energy(),
+
                 // Register(),
                 //Calendar()
                 //Switches()
@@ -74,3 +80,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
