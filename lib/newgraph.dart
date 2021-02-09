@@ -4,8 +4,8 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:flutter_app_lern/energy.dart';
 import 'energy.dart';
 import 'package:firebase_database/firebase_database.dart';
-
 import 'package:flutter_app_lern/datepick.dart';
+import 'package:flutter_number_picker/flutter_number_picker.dart';
 class MyHome extends StatefulWidget {
 // ignore: prefer_const_constructors_in_immutable
   MyHome({Key key}) : super(key: key);
@@ -40,7 +40,23 @@ class MyHomeState extends State<MyHome> {
   int values;
   int key = 2021011707;
   double units ;
+  int dayusr =1;
+  int monthusr=02;
+  int yearusr=2021;
 
+  String usrDate = "";
+  TextStyle valueTextStyle=TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 20,
+  );
+  TextStyle textTextStyle=TextStyle(
+
+    fontSize: 16,
+  );
+  TextStyle buttonTextStyle=TextStyle(
+    color: Colors.white,
+    fontSize: 16,
+  );
   samplefunction() {
     final ref = fb.reference().child("");
     DateTime now = DateTime.now();
@@ -48,12 +64,11 @@ class MyHomeState extends State<MyHome> {
     seconds = "${now.second}";
     Time = int.parse(seconds);
     rem = Time % 5;
-    bal =
-    10;
+    bal = 10;
     //Time - rem;
 
     if (now.month >= 10) {
-      Datte = "${now.year}${now.month}${now.day}$bal";
+      Datte = "${now.year}${monthusr}${dayusr}$bal";
       //print(Datte);
       ref.child(Datte).once().then((DataSnapshot data) {
         setState(() {
@@ -63,7 +78,7 @@ class MyHomeState extends State<MyHome> {
         // cost(retrievedName);
       });
     } else {
-      Datte = "${now.year}0${now.month}${now.day}$bal";
+      Datte = "${now.year}0${monthusr}${dayusr}$bal";
       //print(Datte);
       ref.child(Datte).once().then((DataSnapshot data) {
         setState(() {
@@ -72,12 +87,9 @@ class MyHomeState extends State<MyHome> {
 
         // cost(retrievedName);
       });
+
     }
   }
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -88,12 +100,75 @@ class MyHomeState extends State<MyHome> {
           backgroundColor: Colors.blue,
         ),
         body: Container(
-            height: 1000,
-            width: 500,
+
+
+           // height: 1000,
+            //width: 500,
 
             child: Column(
 
-              children: [
+
+                children: [
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+                CustomNumberPicker(
+                  shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                    side: new BorderSide(width: 3.0,color: Colors.blue),),
+                  initialValue: 1, maxValue: 0031, minValue: 1, step: 1,
+                  onValue: (value)
+                  {dayusr = value;
+                  print( "$dayusr");},
+                ),
+                CustomNumberPicker(
+                  shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                    side: new BorderSide(width: 3.0,color: Colors.blue),),
+                  initialValue: 02, maxValue: 02, minValue: 02, step: 1,
+                  onValue: (value)
+                  {monthusr = value;
+                  print( "$monthusr");},
+                ),
+                CustomNumberPicker(
+                shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                  side: new BorderSide(width: 3.0,color: Colors.blue),),
+                initialValue: 2021, maxValue: 2021, minValue: 2020, step: 1,
+                onValue: (value)
+                {yearusr = value;
+                print( "$yearusr");},
+                ),
+                ]
+                ),
+                Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                 children: [
+                   CustomNumberPicker(
+                     shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                       side: new BorderSide(width: 3.0,color: Colors.red),),
+                     initialValue: 1, maxValue: 0031, minValue: 1, step: 1,
+                     onValue: (value)
+                   {dayusr = value;
+                     print( "$dayusr");},
+              ),
+                     CustomNumberPicker(
+                 shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                   side: new BorderSide(width: 3.0,color: Colors.red),),
+              initialValue: 02, maxValue: 02, minValue: 02, step: 1,
+                 onValue: (value)
+               {monthusr = value;
+              print( "$monthusr");},
+             ),
+                   CustomNumberPicker(
+                 shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                   side: new BorderSide(width: 3.0,color: Colors.red),),
+                  initialValue: 2021, maxValue: 2021, minValue: 2020, step: 1,
+              onValue: (value)
+                {yearusr = value;
+                    print( "$yearusr");},
+                ),
+               ]
+              ),
+
+
 
                SfCartesianChart(
 
@@ -103,9 +178,9 @@ class MyHomeState extends State<MyHome> {
           // Chart title
           //title: ChartTitle(text: 'comparison between two months'),
           // Enable legend
-          legend: Legend(isVisible: true),
+          legend: Legend(isVisible: false),
           // Enable tooltip
-          tooltipBehavior: TooltipBehavior(enable: true),
+          tooltipBehavior: TooltipBehavior(enable: false),
           series: <ChartSeries<unitz, String>>
           [
 
@@ -113,13 +188,14 @@ class MyHomeState extends State<MyHome> {
               name: 'previous month',
                 opacity: 0.4,
                 borderColor: Colors.blue,
-                borderWidth: 2,
+                borderWidth: 4,
                 dataSource: <unitz>[
-                   //samplefunction(),
+                  unitz('start', 0),
                   unitz('week 1',int.parse(retrievedNam)),
                   unitz('week 2', 150),
                   unitz('week 3', 200),
-                  unitz('week 4', 78),
+                  unitz('week 4', 200),
+                  unitz('end', 0),
                 ],
 
 
@@ -132,12 +208,14 @@ class MyHomeState extends State<MyHome> {
               name:'current month',
                 opacity: 0.3,
                 borderColor: Colors.red,
-                borderWidth: 2,
+                borderWidth: 4,
                 dataSource: <unitz>[
-                  unitz('week 1', 0),
-                  unitz('week 2', 170),
-                  unitz('week 3', 240),
-                  unitz('week 4', 56),
+                  unitz('start', 0),
+                  unitz('week 1', 10),
+                  unitz('week 2', 50),
+                  unitz('week 3', 100),
+                  unitz('week 4', 60),
+                  unitz('end', 0),
                 ],
 
 
@@ -150,7 +228,9 @@ class MyHomeState extends State<MyHome> {
           ],
       ),
 
-                Container(),
+
+        Container(),
+/*
 
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -175,7 +255,9 @@ class MyHomeState extends State<MyHome> {
                 ),
         ],
     )
-        ]
+*/
+              ]
+
     )
         )
       );
