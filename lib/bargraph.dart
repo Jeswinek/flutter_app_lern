@@ -8,17 +8,17 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter_app_lern/datepick.dart';
 import 'package:flutter_number_picker/flutter_number_picker.dart';
 import 'package:flutter_app_lern/graph.dart';
-import 'package:flutter_app_lern/bargraph.dart';
-class MyHome extends StatefulWidget {
-  static const routeName = '/linegraph';
+import 'package:flutter_app_lern/newgraph.dart';
+class MyHomer extends StatefulWidget {
+  static const routeName = '/bargraph';
 // ignore: prefer_const_constructors_in_immutable
-  MyHome({Key key}) : super(key: key);
+  MyHomer({Key key}) : super(key: key);
 
   @override
-  MyHomeState createState() => MyHomeState();
+  MyHomerState createState() => MyHomerState();
 }
 
-class MyHomeState extends State<MyHome> {
+class MyHomerState extends State<MyHomer> {
   final fb = FirebaseDatabase.instance.reference();
 
   String retrievedNam="5";
@@ -79,7 +79,7 @@ class MyHomeState extends State<MyHome> {
   samplefunction() {
     final ref = fb.reference().child("");
     DateTime now = DateTime.now();
-   // print("${now.second}:${now.microsecond}");
+    // print("${now.second}:${now.microsecond}");
     seconds = "${now.second}";
     Time = int.parse(seconds);
     rem = Time % 5;
@@ -122,7 +122,7 @@ class MyHomeState extends State<MyHome> {
 
       }
       );
-          }else {
+    }else {
       Datte = "${yearusr}0${monthusr}${dayusr}$bal";
       //print(Datte);
       ref.child(Datte).once().then((DataSnapshot data) {
@@ -151,7 +151,7 @@ class MyHomeState extends State<MyHome> {
           });
         }
         );
-         });
+      });
 
     }
   }
@@ -246,13 +246,13 @@ class MyHomeState extends State<MyHome> {
             FlatButton(
               child: Row(
                 children: <Widget>[
-                  Text('Bargraph'),
-                  Icon(Icons.bar_chart)
+                  Text('Linegraph'),
+                  Icon(Icons.stacked_line_chart_sharp)
                 ],
               ),
               textColor: Colors.white,
               onPressed: (){
-                Navigator.of(context).pushReplacementNamed(MyHomer.routeName);
+                Navigator.of(context).pushReplacementNamed(MyHome.routeName);
               },
             )
           ],
@@ -261,143 +261,123 @@ class MyHomeState extends State<MyHome> {
         body: Container(
 
 
-           // height: 1000,
-            //width: 500,
+          // height: 1000,
+          //width: 500,
 
             child: Column(
 
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-                CustomNumberPicker(
-                  shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                    side: new BorderSide(width: 3.0,color: Colors.blue),),
-                  initialValue: 1, maxValue: 0031, minValue: 1, step: 1,
-                  onValue: (value)
-                  {dayusr = value;
-                  print( "$dayusr");},
-                ),
-                CustomNumberPicker(
-                  shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                    side: new BorderSide(width: 3.0,color: Colors.blue),),
-                  initialValue: 02, maxValue: 02, minValue: 02, step: 1,
-                  onValue: (value)
-                  {monthusr = value;
-                  print( "$monthusr");},
-                ),
-                CustomNumberPicker(
-                shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                  side: new BorderSide(width: 3.0,color: Colors.blue),),
-                initialValue: 2021, maxValue: 2021, minValue: 2020, step: 1,
-                onValue: (value)
-                {yearusr = value;
-                print( "$yearusr");},
-                ),
-                ]
-                ),
-                Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                 children: [
-                   CustomNumberPicker(
-                     shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                       side: new BorderSide(width: 3.0,color: Colors.red),),
-                     initialValue: 1, maxValue: 0031, minValue: 1, step: 1,
-                     onValue: (value)
-                   {dayusr = value;
-                     print( "$dayusr");},
-              ),
-                     CustomNumberPicker(
-                 shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                   side: new BorderSide(width: 3.0,color: Colors.red),),
-              initialValue: 02, maxValue: 02, minValue: 02, step: 1,
-                 onValue: (value) {
-                   if (value == 1) {
-                     value = 12;
-                     monthusr = value;
-                     print("$monthusr");
-                   } else {
-                     monthusr = value;
-                     print("$monthusr");
-                   }
-                 }),
-                   CustomNumberPicker(
-                 shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                   side: new BorderSide(width: 3.0,color: Colors.red),),
-                  initialValue: 2021, maxValue: 2021, minValue: 2020, step: 1,
-              onValue: (value)
-                {yearusr = value;
-                    print( "$yearusr");},
-                ),
-               ]
-              ),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        CustomNumberPicker(
+                          shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                            side: new BorderSide(width: 3.0,color: Colors.blue),),
+                          initialValue: 1, maxValue: 0031, minValue: 1, step: 1,
+                          onValue: (value)
+                          {dayusr = value;
+                          print( "$dayusr");},
+                        ),
+                        CustomNumberPicker(
+                          shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                            side: new BorderSide(width: 3.0,color: Colors.blue),),
+                          initialValue: 02, maxValue: 02, minValue: 02, step: 1,
+                          onValue: (value)
+                          {monthusr = value;
+                          print( "$monthusr");},
+                        ),
+                        CustomNumberPicker(
+                          shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                            side: new BorderSide(width: 3.0,color: Colors.blue),),
+                          initialValue: 2021, maxValue: 2021, minValue: 2020, step: 1,
+                          onValue: (value)
+                          {yearusr = value;
+                          print( "$yearusr");},
+                        ),
+                      ]
+                  ),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        CustomNumberPicker(
+                          shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                            side: new BorderSide(width: 3.0,color: Colors.red),),
+                          initialValue: 1, maxValue: 0031, minValue: 1, step: 1,
+                          onValue: (value)
+                          {dayusr = value;
+                          print( "$dayusr");},
+                        ),
+                        CustomNumberPicker(
+                            shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                              side: new BorderSide(width: 3.0,color: Colors.red),),
+                            initialValue: 02, maxValue: 02, minValue: 02, step: 1,
+                            onValue: (value) {
+                              if (value == 1) {
+                                value = 12;
+                                monthusr = value;
+                                print("$monthusr");
+                              } else {
+                                monthusr = value;
+                                print("$monthusr");
+                              }
+                            }),
+                        CustomNumberPicker(
+                          shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                            side: new BorderSide(width: 3.0,color: Colors.red),),
+                          initialValue: 2021, maxValue: 2021, minValue: 2020, step: 1,
+                          onValue: (value)
+                          {yearusr = value;
+                          print( "$yearusr");},
+                        ),
+                      ]
+                  ),
                   Container(
-                  height: 500,
-                  width: 350,
-            child: SfCartesianChart(
-                   plotAreaBorderWidth: 4,
-                   plotAreaBorderColor: Colors.grey,
+                    height: 500,
+                    width: 350,
+                    child: SfCartesianChart(
+                      plotAreaBorderWidth: 4,
+                      plotAreaBorderColor: Colors.grey,
 
-          primaryXAxis: CategoryAxis(),
-          title: samplefunction(),
-              primaryYAxis: samplefunction2(),
+                      primaryXAxis: CategoryAxis(),
+                      title: samplefunction(),
+                      primaryYAxis: samplefunction2(),
 
-          // Chart title
-          //title: ChartTitle(text: 'comparison between two months'),
+                      // Chart title
+                      //title: ChartTitle(text: 'comparison between two months'),
 
-          legend: Legend(isVisible: true),
-          // Enable tooltip
-          tooltipBehavior: TooltipBehavior(enable: false),
-          series: <ChartSeries<unitz, String>>
-          [
+                      legend: Legend(isVisible: true),
+                      // Enable tooltip
+                      tooltipBehavior: TooltipBehavior(enable: false),
+                      series: <ChartSeries<unitz, String>>
+                      [
 
-            AreaSeries<unitz, String>(
-              name: 'previous month',
-                opacity: 0.4,
-                borderColor: Colors.blue,
-                borderWidth: 4,
-                dataSource: <unitz>[
-                  unitz('start', 0),
-                  unitz('week 1', int.parse(retrievedNam)),
-                  unitz('week 2', int.parse(retrievedNam2)),
-                  unitz('week 3', int.parse(retrievedNam3)),
-                  unitz('week 4', int.parse(retrievedNam3)),
-                  unitz('end', 0),
-                ],
+                        ColumnSeries<unitz, String>(
+                            name: 'months',
+                            opacity: 0.4,
+                            borderColor: Colors.blue,
+                            borderWidth: 4,
+                            dataSource: <unitz>[
 
+                              unitz('jan', int.parse(retrievedNam)),
+                              unitz('feb', int.parse(retrievedNam2)),
+                              unitz('mar', int.parse(retrievedNam3)),
+                              unitz('apr', int.parse(retrievedNam3)),
 
-                xValueMapper: (unitz dataz, _) => dataz.monthz,
-                yValueMapper: (unitz dataz, _) => dataz.valuez,
-                // Enable data label
-                dataLabelSettings: DataLabelSettings(isVisible: true)
-            ),
-            AreaSeries<unitz, String>(
-              name:'current month',
-                opacity: 0.3,
-                borderColor: Colors.red,
-                borderWidth: 4,
-                dataSource: <unitz>[
-                  unitz('start', 0),
-                  unitz('week 1', int.parse(retrievedNama)),
-                  unitz('week 2', int.parse(retrievedNamb)),
-                  unitz('week 3', int.parse(retrievedNamc)),
-                  unitz('week 4', int.parse(retrievedNamd)),
-                  unitz('end', 0),
-                ],
+                            ],
 
 
-                xValueMapper: (unitz dataz, _) => dataz.monthz,
-                yValueMapper: (unitz dataz, _) => dataz.valuez,
-                // Enable data label
-                dataLabelSettings: DataLabelSettings(isVisible: true)
-            ),
+                            xValueMapper: (unitz dataz, _) => dataz.monthz,
+                            yValueMapper: (unitz dataz, _) => dataz.valuez,
+                            // Enable data label
+                            dataLabelSettings: DataLabelSettings(isVisible: true)
+                        ),
 
-          ],
-      ),
+                      ],
+                    ),
                   )
                 ]
-                  )
+            )
         )
     );
   }

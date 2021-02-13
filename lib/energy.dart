@@ -99,7 +99,7 @@ class _menuState extends State<menu> {
 }
 
 class energy extends StatefulWidget {
-
+  static const routeName = '/energy';
 
   @override
   _energyState createState() => _energyState();
@@ -281,7 +281,7 @@ class _energyState extends State<energy> {
         drawer: menu(),
         appBar: GradientAppBar(
           backgroundColorStart: Colors.cyan,
-          backgroundColorEnd: Colors.lightGreenAccent,
+          backgroundColorEnd: Colors.greenAccent,
           centerTitle: true,
           title: Text('Energy Meter',
               style: TextStyle(fontSize: 26,
@@ -311,13 +311,14 @@ class _energyState extends State<energy> {
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   colors: [
-                    Colors.white,
-                    Colors.lightGreenAccent,
-                    Colors.lightGreenAccent,
-                    Colors.white,
+                   // Colors.white,
+                    Colors.greenAccent,
+                    Colors.greenAccent,
+                  //  Colors.white,
+                    Colors.greenAccent,
                     Colors.cyan,
+                   // Colors.white,
                     Colors.cyan,
-                    Colors.white,
                     Colors.cyan
                   ])),
           child: Column(
@@ -335,15 +336,18 @@ class _energyState extends State<energy> {
                 height: 120,
                 width: 270,
 
-                child: Text('$textHolder ',
-                    style: TextStyle(fontSize: 21)),
+                child: Center(
+                  child: Text('$textHolder ',
+                      style: TextStyle(fontSize: 21)),
+                ),
 
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: 10, left: 30.0, right: 30.0, bottom: 10),
+                   padding: EdgeInsets.only(),
+                      // top: 10, left: 30.0, right: 30.0, bottom: 10),
                     child: GestureDetector(
                       onTap: () =>
                       {
@@ -379,8 +383,8 @@ class _energyState extends State<energy> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: 10, bottom: 10, left: 0, right: 2.0),
+                    padding: EdgeInsets.only(),
+                       // top: 10, bottom: 10, left: 0, right: 2.0),
                     child: GestureDetector(
                       onTap: () =>
                       {
@@ -408,8 +412,8 @@ class _energyState extends State<energy> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: 10, bottom: 10, left: 6, right: 30.0),
+                    padding: EdgeInsets.only(),
+                       // top: 10, bottom: 10, left: 6, right: 30.0),
                     child: GestureDetector(
                       onTap: () =>
                       {
@@ -440,8 +444,8 @@ class _energyState extends State<energy> {
 
 
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: 10, bottom: 10, left: 5, right: 20.0),
+                    padding: EdgeInsets.only(),
+                        //top: 10, bottom: 10, left: 5, right: 20.0),
                     child: GestureDetector(
                       onTap: () =>
                       {

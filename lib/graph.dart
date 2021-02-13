@@ -6,6 +6,7 @@ import 'package:firebase_database/firebase_database.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomePage extends StatefulWidget {
+  static const routeName = '/graph';
   final Widget child;
 
   HomePage({Key key, this.child}) : super(key: key);

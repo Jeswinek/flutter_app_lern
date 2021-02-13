@@ -26,6 +26,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'calendar.dart';
 import 'package:flutter_app_lern/newgraph.dart';
+import 'package:flutter_app_lern/bargraph.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
@@ -55,10 +56,11 @@ class MyApp extends StatelessWidget {
               child:
               Stack(children:[
                 //DatePickerDemo()
-                MyHome()
-                //energy()
+               // MyHome()
+               // MyHomer()
+                energy()
                 //CurvedShape(),
-               //HomePageGraph(),
+               //HomePage(),
 
                 // Register(),
                 //Calendar()
@@ -74,6 +76,9 @@ class MyApp extends StatelessWidget {
           LoginScreen.routeName: (ctx)=> LoginScreen(),
           HomeScreen.routeName: (ctx)=> HomeScreen(),
           Homescreen.routeName: (ctx)=> Homescreen(),
+          energy.routeName: (ctx)=> energy(),
+          MyHome.routeName: (ctx)=> MyHome(),
+          MyHomer.routeName: (ctx)=> MyHomer(),
 
         },
       ),
