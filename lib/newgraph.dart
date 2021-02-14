@@ -360,9 +360,9 @@ class MyHomeState extends State<MyHome> {
                 dataSource: <unitz>[
                   unitz('start', 0),
                   unitz('week 1', int.parse(retrievedNam)),
-                  unitz('week 2', int.parse(retrievedNam2)),
-                  unitz('week 3', int.parse(retrievedNam3)),
-                  unitz('week 4', int.parse(retrievedNam3)),
+                  unitz('week 2', int.parse(retrievedNam2)-int.parse(retrievedNam)),
+                  unitz('week 3', int.parse(retrievedNam3)-int.parse(retrievedNam2)),
+                  unitz('week 4', int.parse(retrievedNam4)-int.parse(retrievedNam3)),
                   unitz('end', 0),
                 ],
 
@@ -380,9 +380,9 @@ class MyHomeState extends State<MyHome> {
                 dataSource: <unitz>[
                   unitz('start', 0),
                   unitz('week 1', int.parse(retrievedNama)),
-                  unitz('week 2', int.parse(retrievedNamb)),
-                  unitz('week 3', int.parse(retrievedNamc)),
-                  unitz('week 4', int.parse(retrievedNamd)),
+                  unitz('week 2', int.parse(retrievedNamb)-int.parse(retrievedNama)),
+                  unitz('week 3', int.parse(retrievedNamc)-int.parse(retrievedNamb)),
+                  unitz('week 4', int.parse(retrievedNamd)-int.parse(retrievedNamc)),
                   unitz('end', 0),
                 ],
 
