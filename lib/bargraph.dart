@@ -354,8 +354,9 @@ class MyHomerState extends State<MyHomer> {
 
                         ColumnSeries<unitz, String>(
                             name: 'months',
-                            opacity: 0.4,
-                            borderColor: Colors.blue,
+                            
+                            opacity: 1,
+                            borderColor: Colors.green,
                             borderWidth: 4,
                             dataSource: <unitz>[
 
