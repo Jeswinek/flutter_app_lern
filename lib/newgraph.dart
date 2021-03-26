@@ -29,7 +29,7 @@ class MyHomeState extends State<MyHome> {
   String retrievedNamb="5";
   String retrievedNamc="5";
   String retrievedNamd="5";
-  String Datte = "";
+  String Datte1 = "";
   String Datte2 = "";
   String Datte3 = "";
   String Datte4 = "";
@@ -60,7 +60,8 @@ class MyHomeState extends State<MyHome> {
   int key = 2021011707;
   double units ;
   int dayusr =1;
-  int monthusr=02;
+  int monthusr1 = 01;
+  int monthusr2 =02;
   int yearusr=2021;
 
   String usrDate = "";
@@ -83,74 +84,31 @@ class MyHomeState extends State<MyHome> {
     seconds = "${now.second}";
     Time = int.parse(seconds);
     rem = Time % 5;
-    bal = 10;
+    bal = 55;
     //Time - rem;
 
-    if (monthusr >= 10) {
-      Datte = "${yearusr}${monthusr}${dayusr}$bal";
-      Datte2 = "${yearusr}${monthusr}${dayusr+1}$bal";
-      Datte3 = "${yearusr}${monthusr}${dayusr+2}$bal";
-      Datte4 = "${yearusr}${monthusr}${dayusr+3}$bal";
-      //print(Datte);
-      ref.child(Datte).once().then((DataSnapshot data) {
-        setState(() {
-          retrievedNam = data.value;
+    if (monthusr1 >= 10) {
+      Datte1 = "${yearusr}${monthusr1}${dayusr+7}$bal";
+      Datte2 = "${yearusr}${monthusr1}${dayusr+14}$bal";
+      Datte3 = "${yearusr}${monthusr1}${dayusr+21}$bal";
+      Datte4 = "${yearusr}${monthusr1}${dayusr+28}$bal";
 
-        });// cost(retrievedName);
-      });
-      ref.child(Datte2).once().then((DataSnapshot data) {
-        setState(() {
-          retrievedNam2 = data.value;
+      ref.child(Datte1).once().then((DataSnapshot data) {setState(() {retrievedNam = data.value;});});
+      ref.child(Datte2).once().then((DataSnapshot data) {setState(() {retrievedNam2 = data.value;});});
+      ref.child(Datte3).once().then((DataSnapshot data) {setState(() {retrievedNam3 = data.value;});});
+      ref.child(Datte4).once().then((DataSnapshot data) {setState(() {retrievedNam4 = data.value;});});
+    }
+    else
+      {
+      Datte1 = "${yearusr}0${monthusr1}${dayusr+7}$bal";
+      Datte2 = "${yearusr}0${monthusr1}${dayusr+14}$bal";
+      Datte3 = "${yearusr}0${monthusr1}${dayusr+21}$bal";
+      Datte4 = "${yearusr}0${monthusr1}${dayusr+28}$bal";
 
-        });
-
-      }
-      );
-      ref.child(Datte3).once().then((DataSnapshot data) {
-        setState(() {
-          retrievedNam3 = data.value;
-
-        });
-
-      }
-      );
-      ref.child(Datte4).once().then((DataSnapshot data) {
-        setState(() {
-          retrievedNam4 = data.value;
-
-        });
-
-      }
-      );
-          }else {
-      Datte = "${yearusr}0${monthusr}${dayusr}$bal";
-      //print(Datte);
-      ref.child(Datte).once().then((DataSnapshot data) {
-        setState(() {
-          retrievedNam = data.value;
-        });
-        ref.child(Datte2).once().then((DataSnapshot data) {
-          setState(() {
-            retrievedNam2 = data.value;
-
-          });
-
-        }
-        );
-        ref.child(Datte3).once().then((DataSnapshot data) {
-          setState(() {
-            retrievedNam3 = data.value;
-
-          });
-
-        }
-        );
-        ref.child(Datte4).once().then((DataSnapshot data) {
-          setState(() {
-            retrievedNam4 = data.value;
-          });
-        }
-        );
+      ref.child(Datte1).once().then((DataSnapshot data) {setState(() {retrievedNam = data.value;});
+        ref.child(Datte2).once().then((DataSnapshot data) {setState(() {retrievedNam2 = data.value;});});
+        ref.child(Datte3).once().then((DataSnapshot data) {setState(() {retrievedNam3 = data.value;});});
+        ref.child(Datte4).once().then((DataSnapshot data) {setState(() {retrievedNam4 = data.value;});});
          });
 
     }
@@ -162,74 +120,32 @@ class MyHomeState extends State<MyHome> {
     seconds = "${now.second}";
     Time = int.parse(seconds);
     rem = Time % 5;
-    bal = 10;
+    bal = 55;
     //Time - rem;
 
-    if (monthusr >= 10) {
-      Dattea = "${yearusr}${monthusr}${dayusr}$bal";
-      Datteb = "${yearusr}${monthusr}${dayusr+1}$bal";
-      Dattec = "${yearusr}${monthusr}${dayusr+2}$bal";
-      Datted = "${yearusr}${monthusr}${dayusr+3}$bal";
-      //print(Datte);
-      ref.child(Dattea).once().then((DataSnapshot data) {
-        setState(() {
-          retrievedNama = data.value;
+    if (monthusr2 >= 10) {
 
-        });// cost(retrievedName);
-      });
-      ref.child(Datteb).once().then((DataSnapshot data) {
-        setState(() {
-          retrievedNamb = data.value;
+      Dattea = "${yearusr}${monthusr2}${dayusr+7}$bal";
+      Datteb = "${yearusr}${monthusr2}${dayusr+14}$bal";
+      Dattec = "${yearusr}${monthusr2}${dayusr+21}$bal";
+      Datted = "${yearusr}${monthusr2}${dayusr+28}$bal";
 
-        });
+      ref.child(Dattea).once().then((DataSnapshot data) {setState(() {retrievedNama = data.value;});});
+      ref.child(Datteb).once().then((DataSnapshot data) {setState(() {retrievedNamb = data.value;});});
+      ref.child(Dattec).once().then((DataSnapshot data) {setState(() {retrievedNamc = data.value;});});
+      ref.child(Datted).once().then((DataSnapshot data) {setState(() {retrievedNamd = data.value;});});
+    }
+    else
+      {
+      Dattea = "${yearusr}0${monthusr2}${dayusr+7}$bal";
+      Datteb = "${yearusr}0${monthusr2}${dayusr+14}$bal";
+      Dattec = "${yearusr}0${monthusr2}${dayusr+21}$bal";
+      Datted = "${yearusr}0${monthusr2}${dayusr+28}$bal";
 
-      }
-      );
-      ref.child(Dattec).once().then((DataSnapshot data) {
-        setState(() {
-          retrievedNamc = data.value;
-
-        });
-
-      }
-      );
-      ref.child(Datted).once().then((DataSnapshot data) {
-        setState(() {
-          retrievedNamd = data.value;
-
-        });
-
-      }
-      );
-    }else {
-      Datte = "${yearusr}0${monthusr}${dayusr}$bal";
-      //print(Datte);
-      ref.child(Dattea).once().then((DataSnapshot data) {
-        setState(() {
-          retrievedNama = data.value;
-        });
-        ref.child(Datteb).once().then((DataSnapshot data) {
-          setState(() {
-            retrievedNamb = data.value;
-
-          });
-
-        }
-        );
-        ref.child(Dattec).once().then((DataSnapshot data) {
-          setState(() {
-            retrievedNamc = data.value;
-
-          });
-
-        }
-        );
-        ref.child(Datted).once().then((DataSnapshot data) {
-          setState(() {
-            retrievedNamd = data.value;
-          });
-        }
-        );
+      ref.child(Dattea).once().then((DataSnapshot data) {setState(() {retrievedNama = data.value;});
+        ref.child(Datteb).once().then((DataSnapshot data) {setState(() {retrievedNamb = data.value;});});
+        ref.child(Dattec).once().then((DataSnapshot data) {setState(() {retrievedNamc = data.value;});});
+        ref.child(Datted).once().then((DataSnapshot data) {setState(() {retrievedNamd = data.value;});});
       });
 
     }
@@ -241,7 +157,6 @@ class MyHomeState extends State<MyHome> {
         appBar: AppBar(
           title: const Text('Graph'),
           backgroundColor: Colors.transparent,
-
           actions: <Widget>[
             FlatButton(
               child: Row(
@@ -271,21 +186,21 @@ class MyHomeState extends State<MyHome> {
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-                CustomNumberPicker(
+               /* CustomNumberPicker(
                   shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                     side: new BorderSide(width: 3.0,color: Colors.blue),),
                   initialValue: 1, maxValue: 0031, minValue: 1, step: 1,
                   onValue: (value)
                   {dayusr = value;
                   print( "$dayusr");},
-                ),
+                ),*/
                 CustomNumberPicker(
                   shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                     side: new BorderSide(width: 3.0,color: Colors.blue),),
-                  initialValue: 02, maxValue: 02, minValue: 02, step: 1,
+                  initialValue: 01, maxValue: 01, minValue: 01, step: 1,
                   onValue: (value)
-                  {monthusr = value;
-                  print( "$monthusr");},
+                  {monthusr1 = value;
+                  print( "$monthusr1");},
                 ),
                 CustomNumberPicker(
                 shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
@@ -300,14 +215,14 @@ class MyHomeState extends State<MyHome> {
                 Row(
                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                  children: [
-                   CustomNumberPicker(
+                 /*  CustomNumberPicker(
                      shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                        side: new BorderSide(width: 3.0,color: Colors.red),),
                      initialValue: 1, maxValue: 0031, minValue: 1, step: 1,
                      onValue: (value)
                    {dayusr = value;
                      print( "$dayusr");},
-              ),
+              ),*/
                      CustomNumberPicker(
                  shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                    side: new BorderSide(width: 3.0,color: Colors.red),),
@@ -315,11 +230,11 @@ class MyHomeState extends State<MyHome> {
                  onValue: (value) {
                    if (value == 1) {
                      value = 12;
-                     monthusr = value;
-                     print("$monthusr");
+                     monthusr2 = value;
+                     print("$monthusr2");
                    } else {
-                     monthusr = value;
-                     print("$monthusr");
+                     monthusr2 = value;
+                     print("$monthusr2");
                    }
                  }),
                    CustomNumberPicker(
@@ -379,7 +294,7 @@ class MyHomeState extends State<MyHome> {
                 borderWidth: 4,
                 dataSource: <unitz>[
                   unitz('start', 0),
-                  unitz('week 1', int.parse(retrievedNama)),
+                  unitz('week 1', int.parse(retrievedNama)-int.parse(retrievedNam4)),
                   unitz('week 2', int.parse(retrievedNamb)-int.parse(retrievedNama)),
                   unitz('week 3', int.parse(retrievedNamc)-int.parse(retrievedNamb)),
                   unitz('week 4', int.parse(retrievedNamd)-int.parse(retrievedNamc)),
@@ -413,30 +328,28 @@ class unitz {
 
 
 
-/*
 
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-                  RaisedButton(
-                    onPressed: () => (context),
-                    child: Text(
-                      'Select date',
-                      style:
-                      TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                    ),
-                    color: Colors.blue,
-                  ),
-                RaisedButton(
-                  onPressed: () => (context),
-                  child: Text(
-                    'Select date',
-                    style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-                  ),
-                  color: Colors.red,
-                ),
-        ],
-    )
 
-*/
+      //  Row(
+         // mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //children: [
+          //        RaisedButton(
+           //         onPressed: () => (context),
+             //       child: Text(
+             //         'Select date',
+            //          style:
+            //          TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            //        ),
+            //        color: Colors.blue,
+             //     ),
+               // RaisedButton(
+               //   onPressed: () => (context),
+               //   child: Text(
+               //     'Select date',
+               //     style:
+               //     TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              //    ),
+             //     color: Colors.red,
+             //   ),
+      //  ],
+    //)
