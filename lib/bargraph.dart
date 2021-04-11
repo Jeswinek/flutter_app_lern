@@ -284,7 +284,7 @@ class MyHomerState extends State<MyHomer> {
               child: Row(
                 children: <Widget>[
                   Text('Linegraph'),
-                  Icon(Icons.stacked_line_chart_sharp)
+                  Icon(Icons.show_chart)
                 ],
               ),
               textColor: Colors.white,

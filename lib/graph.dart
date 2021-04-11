@@ -137,7 +137,7 @@ class _HomePageState extends State<HomePage>{
             bottom: TabBar(
               indicatorColor: Color(0xff9962D0),
               tabs: [
-                Tab(icon: Icon(Icons.stacked_line_chart)),
+                Tab(icon: Icon(Icons.multiline_chart)),
               ],
             ),
             title: Text('graphical speculation for users'),

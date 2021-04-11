@@ -162,7 +162,7 @@ class MyHomeState extends State<MyHome> {
               child: Row(
                 children: <Widget>[
                   Text('Bargraph'),
-                  Icon(Icons.bar_chart)
+                  Icon(Icons.insert_chart)
                 ],
               ),
               textColor: Colors.white,

@@ -36,7 +36,8 @@ dependencies:
   fl_chart: ^0.10.1
   syncfusion_flutter_charts: ^18.4.39
   flutter_number_picker: ^0.0.8
-
+  google_sign_in: ^4.4.4
+  flutter_svg: 0.19.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -64,6 +65,7 @@ flutter:
     - image/intruder.jpg
     - image/logo.jpg
     - image/Logoo.png
+    - assets/googleimage.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

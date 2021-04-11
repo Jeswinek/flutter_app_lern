@@ -14,7 +14,7 @@ import 'package:flutter_app_lern/energy.dart';
 import 'package:flutter_app_lern/loginpage.dart';
 import 'package:flutter_app_lern/signuppage.dart';
 //import 'Home.dart';
-import 'package:flutter_app_lern/bargraphfake.dart';
+import 'package:flutter_app_lern/google.dart';
 import 'package:flutter/services.dart';
 import 'curve.dart';
 import 'baseHome.dart';
@@ -56,13 +56,16 @@ class MyApp extends StatelessWidget {
               child:
               Stack(children:[
                 //DatePickerDemo()
-                MyHome()
+                //SignupScreen()
+                //SignInDemo()
+                Home()
+                //LoginPageWidget()
                 //MyHomer()
                 //Myomer()
                 //energy()
                 //CurvedShape(),
                //HomePage(),
-
+                //LoginScreen()
                 // Register(),
                 //Calendar()
                 //Switches()

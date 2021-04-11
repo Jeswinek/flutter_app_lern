@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_lern/signuppage.dart';
 import 'signuppage.dart';
 import 'loginpage.dart';
+import 'package:flutter_app_lern/google.dart';
+import 'package:flutter_app_lern/google.dart';
 import 'dart:async';
 import 'dart:convert';
 
@@ -37,6 +39,41 @@ class _HomeState extends State<Home> {
           ),
           padding: EdgeInsets.only(top: 80, left: 20, right: 20),
         ),
+
+       Padding(
+           child: Container(
+             child: FlatButton(
+                 shape: RoundedRectangleBorder(
+                     borderRadius: BorderRadius.circular(30.0),
+                     side: BorderSide(color: Colors.orangeAccent, width: 2.5)),
+                 color: Colors.white,
+                 textColor: Colors.green,
+                 padding: EdgeInsets.all(8.0),
+                 onPressed: () {
+                   Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                       LoginPageWidget()),);
+                 },
+              child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                  Image.asset(
+              'assets/googleimage.png',
+              height: 40.0,
+              width: 40.0,
+              ),
+               Padding(padding: EdgeInsets.only(left: 10.0),
+                   child: Text('sign in with google', style: TextStyle(fontSize: 27.0, fontWeight: FontWeight.bold),
+                )
+               )
+              ],
+                          ),
+             ),
+             width: MediaQuery.of(context).size.width,
+             height: 65,
+               ),
+                 padding: EdgeInsets.all(20),
+                ),
+
         Padding(
           child: Container(
             child: FlatButton(
@@ -57,10 +94,11 @@ class _HomeState extends State<Home> {
               ),
             ),
             width: MediaQuery.of(context).size.width,
-            height: 60,
+            height: 65,
           ),
           padding: EdgeInsets.all(20),
         ),
+
         // Padding(
         //   padding: EdgeInsets.all(20),
         //   child: new InkWell(
@@ -164,6 +202,8 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+ 
 }
 
 // class logoo extends StatelessWidget {

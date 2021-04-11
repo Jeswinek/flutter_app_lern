@@ -7,6 +7,7 @@ import 'baseHome.dart';
 import 'home_screen.dart';
 import 'loginpage.dart';
 
+
 class SignupScreen extends StatefulWidget {
   static const routeName = '/signup';
   @override
@@ -300,7 +301,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                     prefixIcon: Padding(
                                       child: IconTheme(
                                         data: IconThemeData(color: Theme.of(context).primaryColor),
-                                        child: Icon(Icons.lock_clock, size: 30,),
+                                        child: Icon(Icons.lock, size: 30,),
                                       ),
                                       padding: EdgeInsets.only(left: 30, right: 10),
                                     ),

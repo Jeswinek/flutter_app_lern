@@ -284,7 +284,7 @@ class MyomerState extends State<Myomer> {
               child: Row(
                 children: <Widget>[
                   Text('Linegraph'),
-                  Icon(Icons.stacked_line_chart_sharp)
+                  Icon(Icons.show_chart)
                 ],
               ),
               textColor: Colors.white,
