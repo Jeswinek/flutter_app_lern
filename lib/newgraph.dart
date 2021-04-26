@@ -21,6 +21,8 @@ class MyHome extends StatefulWidget {
 class MyHomeState extends State<MyHome> {
   final fb = FirebaseDatabase.instance.reference();
 
+  var _value = "1";
+  var _value2 = "2";
   String retrievedNam="5";
   String retrievedNam2="5";
   String retrievedNam3="5";
@@ -63,8 +65,65 @@ class MyHomeState extends State<MyHome> {
   int monthusr1 = 01;
   int monthusr2 =02;
   int yearusr=2021;
-
   String usrDate = "";
+
+
+  DropdownButton _normalDown() => DropdownButton<String>(
+    items: [
+      DropdownMenuItem<String>(value: "1", child: Text("January"),),
+      DropdownMenuItem<String>(value: "2", child: Text("February"),),
+      DropdownMenuItem<String>(value: "3", child: Text("March"),),
+      DropdownMenuItem<String>(value: "4", child: Text("April"),),
+      DropdownMenuItem<String>(value: "5", child: Text("May"),),
+      DropdownMenuItem<String>(value: "6", child: Text("June"),),
+      DropdownMenuItem<String>(value: "7", child: Text("July"),),
+      DropdownMenuItem<String>(value: "8", child: Text("August"),),
+      DropdownMenuItem<String>(value: "9", child: Text("September"),),
+      DropdownMenuItem<String>(value: "10", child: Text("October"),),
+      DropdownMenuItem<String>(value: "11", child: Text("November"),),
+      DropdownMenuItem<String>(value: "12", child: Text("December"),),
+    ],
+    onChanged: (value) {
+      setState(() {
+        _value = value;
+        {monthusr1 = int.parse(value);
+        print( "$monthusr1");}
+      });
+    },
+    value: _value,
+  );
+
+  DropdownButton _normal2Down() => DropdownButton<String>(
+    items: [
+      DropdownMenuItem<String>(value: "1", child: Text("January"),),
+      DropdownMenuItem<String>(value: "2", child: Text("February"),),
+      DropdownMenuItem<String>(value: "3", child: Text("March"),),
+      DropdownMenuItem<String>(value: "4", child: Text("April"),),
+      DropdownMenuItem<String>(value: "5", child: Text("May"),),
+      DropdownMenuItem<String>(value: "6", child: Text("June"),),
+      DropdownMenuItem<String>(value: "7", child: Text("July"),),
+      DropdownMenuItem<String>(value: "8", child: Text("August"),),
+      DropdownMenuItem<String>(value: "9", child: Text("September"),),
+      DropdownMenuItem<String>(value: "10", child: Text("October"),),
+      DropdownMenuItem<String>(value: "11", child: Text("November"),),
+      DropdownMenuItem<String>(value: "12", child: Text("December"),),
+    ],
+    onChanged: (value) {
+      setState(() {
+        _value2 = value;
+        if (value == 1) {
+          value = "12";
+          monthusr2 = int.parse(value);
+          print("$monthusr2");
+        } else {
+          monthusr2 = int.parse(value);
+          print("$monthusr2");
+        }
+      });
+    },
+    value: _value2,
+  );
+
   TextStyle valueTextStyle=TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 20,
@@ -77,6 +136,7 @@ class MyHomeState extends State<MyHome> {
     color: Colors.white,
     fontSize: 16,
   );
+
   samplefunction() {
     final ref = fb.reference().child("");
     DateTime now = DateTime.now();
@@ -156,7 +216,7 @@ class MyHomeState extends State<MyHome> {
 
         appBar: AppBar(
           title: const Text('Graph'),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.grey,
           actions: <Widget>[
             FlatButton(
               child: Row(
@@ -184,7 +244,7 @@ class MyHomeState extends State<MyHome> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                 Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
                /* CustomNumberPicker(
                   shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
@@ -194,6 +254,14 @@ class MyHomeState extends State<MyHome> {
                   {dayusr = value;
                   print( "$dayusr");},
                 ),*/
+
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 50),
+                color: Colors.blue,
+                child: _normalDown(),
+              ),
+                /*
                 CustomNumberPicker(
                   shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                     side: new BorderSide(width: 3.0,color: Colors.blue),),
@@ -202,7 +270,9 @@ class MyHomeState extends State<MyHome> {
                   {monthusr1 = value;
                   print( "$monthusr1");},
                 ),
-                CustomNumberPicker(
+
+                 */
+              /*  CustomNumberPicker(
                 shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                   side: new BorderSide(width: 3.0,color: Colors.blue),),
                 initialValue: 2021, maxValue: 2021, minValue: 2020, step: 1,
@@ -210,10 +280,11 @@ class MyHomeState extends State<MyHome> {
                 {yearusr = value;
                 print( "$yearusr");},
                 ),
+               */
                 ]
                 ),
                 Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                  children: [
                  /*  CustomNumberPicker(
                      shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
@@ -223,7 +294,14 @@ class MyHomeState extends State<MyHome> {
                    {dayusr = value;
                      print( "$dayusr");},
               ),*/
-                     CustomNumberPicker(
+
+                   SizedBox(height: 10),
+                   Container(
+                     padding: EdgeInsets.symmetric(horizontal: 50),
+                     color: Colors.red,
+                     child: _normal2Down(),
+                   ),
+                /*     CustomNumberPicker(
                  shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                    side: new BorderSide(width: 3.0,color: Colors.red),),
               initialValue: 02, maxValue: 02, minValue: 02, step: 1,
@@ -237,7 +315,9 @@ class MyHomeState extends State<MyHome> {
                      print("$monthusr2");
                    }
                  }),
-                   CustomNumberPicker(
+
+                 */
+              /*     CustomNumberPicker(
                  shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                    side: new BorderSide(width: 3.0,color: Colors.red),),
                   initialValue: 2021, maxValue: 2021, minValue: 2020, step: 1,
@@ -245,6 +325,7 @@ class MyHomeState extends State<MyHome> {
                 {yearusr = value;
                     print( "$yearusr");},
                 ),
+               */
                ]
               ),
                   Container(

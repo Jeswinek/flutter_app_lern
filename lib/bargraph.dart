@@ -19,6 +19,8 @@ class MyHomer extends StatefulWidget {
 }
 
 class MyHomerState extends State<MyHomer> {
+
+  var _value = "1";
   final fb = FirebaseDatabase.instance.reference();
   String retrievedNam0="5";
   String retrievedNam1="5";
@@ -107,10 +109,35 @@ class MyHomerState extends State<MyHomer> {
   int key = 2021011707;
   double units ;
   int dayusr =1;
-  int monthusr=02;
+  int monthusr=01;
   int yearusr=2021;
-
   String usrDate = "";
+
+  DropdownButton _normalDown() => DropdownButton<String>(
+    items: [
+      DropdownMenuItem<String>(value: "1", child: Text("January"),),
+      DropdownMenuItem<String>(value: "2", child: Text("February"),),
+      DropdownMenuItem<String>(value: "3", child: Text("March"),),
+      DropdownMenuItem<String>(value: "4", child: Text("April"),),
+      DropdownMenuItem<String>(value: "5", child: Text("May"),),
+      DropdownMenuItem<String>(value: "6", child: Text("June"),),
+      DropdownMenuItem<String>(value: "7", child: Text("July"),),
+      DropdownMenuItem<String>(value: "8", child: Text("August"),),
+      DropdownMenuItem<String>(value: "9", child: Text("September"),),
+      DropdownMenuItem<String>(value: "10", child: Text("October"),),
+      DropdownMenuItem<String>(value: "11", child: Text("November"),),
+      DropdownMenuItem<String>(value: "12", child: Text("December"),),
+    ],
+    onChanged: (value) {
+      setState(() {
+        _value = value;
+        {monthusr = int.parse(value);
+        print( "$monthusr");}
+      });
+    },
+    value: _value,
+  );
+
   TextStyle valueTextStyle=TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 20,
@@ -123,6 +150,8 @@ class MyHomerState extends State<MyHomer> {
     color: Colors.white,
     fontSize: 16,
   );
+
+
   samplefunction() {
     final ref = fb.reference().child("");
     DateTime now = DateTime.now();
@@ -307,29 +336,39 @@ class MyHomerState extends State<MyHomer> {
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        //CustomNumberPicker(
-                         // shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                        //    side: new BorderSide(width: 3.0,color: Colors.blue),),
-                        //  initialValue: 1, maxValue: 0031, minValue: 1, step: 1,
-                       //   onValue: (value)
-                       //   {dayusr = value;
-                        //  print( "$dayusr");},
-                       // ),
+                        /*CustomNumberPicker(
+                          shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+                            side: new BorderSide(width: 3.0,color: Colors.blue),),
+                         initialValue: 1, maxValue: 0031, minValue: 1, step: 1,
+                         onValue: (value)
+                          {dayusr = value;
+                         print( "$dayusr");},
+                        ),
+                       */
+                         /*
                         CustomNumberPicker(
                           shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                             side: new BorderSide(width: 3.0,color: Colors.blue),),
-                          initialValue: 02, maxValue: 02, minValue: 02, step: 1,
+                          initialValue: 02, maxValue: 02, minValue: 01, step: 1,
                           onValue: (value)
                           {monthusr = value;
                           print( "$monthusr");},
                         ),
-                        CustomNumberPicker(
+                      */
+                       /* CustomNumberPicker(
                           shape:RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                             side: new BorderSide(width: 3.0,color: Colors.blue),),
                           initialValue: 2021, maxValue: 2021, minValue: 2020, step: 1,
                           onValue: (value)
                           {yearusr = value;
                           print( "$yearusr");},
+                        ),
+                        */
+                        SizedBox(height: 10),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 50),
+                          color: Colors.green,
+                          child: _normalDown(),
                         ),
                       ]
                   ),
@@ -413,6 +452,7 @@ class unitz {
   final String monthz;
   final int valuez;
 }
+
 /*
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

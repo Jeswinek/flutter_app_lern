@@ -18,10 +18,11 @@ import 'package:flutter_app_lern/google.dart';
 import 'package:flutter/services.dart';
 import 'curve.dart';
 import 'baseHome.dart';
-import 'graph.dart';
+//import 'dropthree.dart';
+//import 'droptwo.dart';
 import 'dart:async';
 import 'dart:convert';
-import 'Home.dart';
+//import 'drop.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'calendar.dart';
@@ -58,11 +59,13 @@ class MyApp extends StatelessWidget {
                 //DatePickerDemo()
                 //SignupScreen()
                 //SignInDemo()
-                Home()
+                //DropDownPage()
+                //DropDownButtonPage()
                 //LoginPageWidget()
                 //MyHomer()
+                //MyHome()
                 //Myomer()
-                //energy()
+                energy()
                 //CurvedShape(),
                //HomePage(),
                 //LoginScreen()
