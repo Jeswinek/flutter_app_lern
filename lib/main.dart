@@ -63,9 +63,9 @@ class MyApp extends StatelessWidget {
                 //DropDownButtonPage()
                 //LoginPageWidget()
                 //MyHomer()
-                //MyHome()
+                MyHome()
                 //Myomer()
-                energy()
+                //energy()
                 //CurvedShape(),
                //HomePage(),
                 //LoginScreen()

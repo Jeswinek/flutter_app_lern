@@ -23,18 +23,23 @@ class MyHomeState extends State<MyHome> {
 
   var _value = "1";
   var _value2 = "2";
-  String retrievedNam="5";
+  String yesterday="5";
+  String retrievedNam0="5";
+  String retrievedNam1="5";
   String retrievedNam2="5";
   String retrievedNam3="5";
   String retrievedNam4="5";
+  String retrievedNamz="5";
   String retrievedNama="5";
   String retrievedNamb="5";
   String retrievedNamc="5";
   String retrievedNamd="5";
+  String Datte0 = "";
   String Datte1 = "";
   String Datte2 = "";
   String Datte3 = "";
   String Datte4 = "";
+  String Dattez = "";
   String Dattea = "";
   String Datteb = "";
   String Dattec = "";
@@ -62,10 +67,12 @@ class MyHomeState extends State<MyHome> {
   int key = 2021011707;
   double units ;
   int dayusr =1;
-  int monthusr1 = 01;
-  int monthusr2 =02;
+  int monthusr1 = 02;
+  int monthusr2 =01;
   int yearusr=2021;
   String usrDate = "";
+  int sub;
+  int demonth;
 
 
   DropdownButton _normalDown() => DropdownButton<String>(
@@ -86,8 +93,7 @@ class MyHomeState extends State<MyHome> {
     onChanged: (value) {
       setState(() {
         _value = value;
-        {monthusr1 = int.parse(value);
-        print( "$monthusr1");}
+        monthusr1 = int.parse(value);
       });
     },
     value: _value,
@@ -111,8 +117,10 @@ class MyHomeState extends State<MyHome> {
     onChanged: (value) {
       setState(() {
         _value2 = value;
-        if (value == 1) {
-          value = "12";
+        demonth = int.parse(value);
+       sub= monthusr1 - demonth;
+        if (sub<=0) {
+          yearusr=yearusr-1;
           monthusr2 = int.parse(value);
           print("$monthusr2");
         } else {
@@ -148,24 +156,28 @@ class MyHomeState extends State<MyHome> {
     //Time - rem;
 
     if (monthusr1 >= 10) {
+      Datte0 = "${yearusr}${monthusr1}${dayusr}$bal";
       Datte1 = "${yearusr}${monthusr1}${dayusr+7}$bal";
       Datte2 = "${yearusr}${monthusr1}${dayusr+14}$bal";
       Datte3 = "${yearusr}${monthusr1}${dayusr+21}$bal";
       Datte4 = "${yearusr}${monthusr1}${dayusr+28}$bal";
 
-      ref.child(Datte1).once().then((DataSnapshot data) {setState(() {retrievedNam = data.value;});});
+      ref.child(Datte0).once().then((DataSnapshot data) {setState(() {retrievedNam0 = data.value;});});
+      ref.child(Datte1).once().then((DataSnapshot data) {setState(() {retrievedNam1 = data.value;});});
       ref.child(Datte2).once().then((DataSnapshot data) {setState(() {retrievedNam2 = data.value;});});
       ref.child(Datte3).once().then((DataSnapshot data) {setState(() {retrievedNam3 = data.value;});});
       ref.child(Datte4).once().then((DataSnapshot data) {setState(() {retrievedNam4 = data.value;});});
     }
     else
       {
-      Datte1 = "${yearusr}0${monthusr1}${dayusr+7}$bal";
+        Datte0 = "${yearusr}0${monthusr1}${dayusr}$bal";
+        Datte1 = "${yearusr}0${monthusr1}${dayusr+7}$bal";
       Datte2 = "${yearusr}0${monthusr1}${dayusr+14}$bal";
       Datte3 = "${yearusr}0${monthusr1}${dayusr+21}$bal";
       Datte4 = "${yearusr}0${monthusr1}${dayusr+28}$bal";
 
-      ref.child(Datte1).once().then((DataSnapshot data) {setState(() {retrievedNam = data.value;});
+        ref.child(Datte0).once().then((DataSnapshot data) {setState(() {retrievedNam0 = data.value;});
+      ref.child(Datte1).once().then((DataSnapshot data) {setState(() {retrievedNam1 = data.value;});});
         ref.child(Datte2).once().then((DataSnapshot data) {setState(() {retrievedNam2 = data.value;});});
         ref.child(Datte3).once().then((DataSnapshot data) {setState(() {retrievedNam3 = data.value;});});
         ref.child(Datte4).once().then((DataSnapshot data) {setState(() {retrievedNam4 = data.value;});});
@@ -184,12 +196,13 @@ class MyHomeState extends State<MyHome> {
     //Time - rem;
 
     if (monthusr2 >= 10) {
-
+      Dattez = "${yearusr}${monthusr2}${dayusr}$bal";
       Dattea = "${yearusr}${monthusr2}${dayusr+7}$bal";
       Datteb = "${yearusr}${monthusr2}${dayusr+14}$bal";
       Dattec = "${yearusr}${monthusr2}${dayusr+21}$bal";
       Datted = "${yearusr}${monthusr2}${dayusr+28}$bal";
 
+      ref.child(Dattez).once().then((DataSnapshot data) {setState(() {retrievedNamz = data.value;});});
       ref.child(Dattea).once().then((DataSnapshot data) {setState(() {retrievedNama = data.value;});});
       ref.child(Datteb).once().then((DataSnapshot data) {setState(() {retrievedNamb = data.value;});});
       ref.child(Dattec).once().then((DataSnapshot data) {setState(() {retrievedNamc = data.value;});});
@@ -197,12 +210,14 @@ class MyHomeState extends State<MyHome> {
     }
     else
       {
-      Dattea = "${yearusr}0${monthusr2}${dayusr+7}$bal";
+        Dattez = "${yearusr}0${monthusr2}${dayusr}$bal";
+        Dattea = "${yearusr}0${monthusr2}${dayusr+7}$bal";
       Datteb = "${yearusr}0${monthusr2}${dayusr+14}$bal";
       Dattec = "${yearusr}0${monthusr2}${dayusr+21}$bal";
       Datted = "${yearusr}0${monthusr2}${dayusr+28}$bal";
 
-      ref.child(Dattea).once().then((DataSnapshot data) {setState(() {retrievedNama = data.value;});
+        ref.child(Dattez).once().then((DataSnapshot data) {setState(() {retrievedNamz = data.value;});
+      ref.child(Dattea).once().then((DataSnapshot data) {setState(() {retrievedNama = data.value;});});
         ref.child(Datteb).once().then((DataSnapshot data) {setState(() {retrievedNamb = data.value;});});
         ref.child(Dattec).once().then((DataSnapshot data) {setState(() {retrievedNamc = data.value;});});
         ref.child(Datted).once().then((DataSnapshot data) {setState(() {retrievedNamd = data.value;});});
@@ -349,14 +364,14 @@ class MyHomeState extends State<MyHome> {
           [
 
             AreaSeries<unitz, String>(
-              name: 'previous month',
+              name: 'current month',
                 opacity: 0.4,
                 borderColor: Colors.blue,
                 borderWidth: 4,
                 dataSource: <unitz>[
                   unitz('start', 0),
-                  unitz('week 1', int.parse(retrievedNam)),
-                  unitz('week 2', int.parse(retrievedNam2)-int.parse(retrievedNam)),
+                  unitz('week 1', int.parse(retrievedNam1)-int.parse(retrievedNam0)),
+                  unitz('week 2', int.parse(retrievedNam2)-int.parse(retrievedNam1)),
                   unitz('week 3', int.parse(retrievedNam3)-int.parse(retrievedNam2)),
                   unitz('week 4', int.parse(retrievedNam4)-int.parse(retrievedNam3)),
                   unitz('end', 0),
@@ -369,13 +384,13 @@ class MyHomeState extends State<MyHome> {
                 dataLabelSettings: DataLabelSettings(isVisible: true)
             ),
             AreaSeries<unitz, String>(
-              name:'current month',
+              name:'previous month',
                 opacity: 0.3,
                 borderColor: Colors.red,
                 borderWidth: 4,
                 dataSource: <unitz>[
                   unitz('start', 0),
-                  unitz('week 1', int.parse(retrievedNama)-int.parse(retrievedNam4)),
+                  unitz('week 1', int.parse(retrievedNama)-int.parse(retrievedNamz)),
                   unitz('week 2', int.parse(retrievedNamb)-int.parse(retrievedNama)),
                   unitz('week 3', int.parse(retrievedNamc)-int.parse(retrievedNamb)),
                   unitz('week 4', int.parse(retrievedNamd)-int.parse(retrievedNamc)),
