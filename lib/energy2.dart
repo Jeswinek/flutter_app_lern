@@ -45,7 +45,15 @@ class _enePageState extends State<enePage> {
   int currentunit;
   int previousunit;
   int today;
-  int tday;
+  int month;
+  String d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,
+  d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28;
+  String p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,
+  p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28;
+  static var val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,
+  val15,val16,val17,val18,val19,val20,val21,val22,val23,val24,val25,val26,val27,val28;
+  static var un1,un2,un3,un4,un5,un6,un7,un8,un9,un10,un11,un12,un13,un14,
+  un15,un16,un17,un18,un19,un20,un21,un22,un23,un24,un25,un26,un27,un28;
 
   changeText(String j) {
     setState(() {
@@ -60,23 +68,197 @@ class _enePageState extends State<enePage> {
   average(){
     DateTime now = DateTime.now();
     today = now.day;
-    if(today >=0 && today <=1 ){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
-    else if(today >=2 && today <=2){}
+    month = now.month;
+    bal = 55;
+    if(month >= 10){
+      d1 = "${now.year}${now.month}${1}$bal";d2 = "${now.year}${now.month}${2}$bal";
+      d3 = "${now.year}${now.month}${3}$bal";d4 = "${now.year}${now.month}${4}$bal";
+      d5 = "${now.year}${now.month}${5}$bal";d6 = "${now.year}${now.month}${6}$bal";
+      d7 = "${now.year}${now.month}${7}$bal";d8 = "${now.year}${now.month}${8}$bal";
+      d9 = "${now.year}${now.month}${9}$bal";d10= "${now.year}${now.month}${10}$bal";
+      d11= "${now.year}${now.month}${11}$bal";d12= "${now.year}${now.month}${12}$bal";
+      d13= "${now.year}${now.month}${13}$bal";d14= "${now.year}${now.month}${14}$bal";
+      d15= "${now.year}${now.month}${15}$bal";d16= "${now.year}${now.month}${16}$bal";
+      d17= "${now.year}${now.month}${17}$bal";d18= "${now.year}${now.month}${18}$bal";
+      d19= "${now.year}${now.month}${19}$bal";d20= "${now.year}${now.month}${20}$bal";
+      d22= "${now.year}${now.month}${22}$bal";d23= "${now.year}${now.month}${23}$bal";
+      d24= "${now.year}${now.month}${24}$bal";d25= "${now.year}${now.month}${25}$bal";
+      d26= "${now.year}${now.month}${26}$bal";d27= "${now.year}${now.month}${27}$bal";
+      d28= "${now.year}${now.month}${28}$bal";
+
+      p1 = "${now.year}${now.month-1}${1}$bal";p2 = "${now.year}${now.month-1}${2}$bal";
+      p3 = "${now.year}${now.month-1}${3}$bal";p4 = "${now.year}${now.month-1}${4}$bal";
+      p5 = "${now.year}${now.month-1}${5}$bal";p6 = "${now.year}${now.month-1}${6}$bal";
+      p7 = "${now.year}${now.month-1}${7}$bal";p8 = "${now.year}${now.month-1}${8}$bal";
+      p9 = "${now.year}${now.month-1}${9}$bal";p10= "${now.year}${now.month-1}${10}$bal";
+      p11= "${now.year}${now.month-1}${11}$bal";p12= "${now.year}${now.month-1}${12}$bal";
+      p13= "${now.year}${now.month-1}${13}$bal";p14= "${now.year}${now.month-1}${14}$bal";
+      p15= "${now.year}${now.month-1}${15}$bal";p16= "${now.year}${now.month-1}${16}$bal";
+      p17= "${now.year}${now.month-1}${17}$bal";p18= "${now.year}${now.month-1}${18}$bal";
+      p19= "${now.year}${now.month-1}${19}$bal";p20= "${now.year}${now.month-1}${20}$bal";
+      p22= "${now.year}${now.month-1}${22}$bal";p23= "${now.year}${now.month-1}${23}$bal";
+      p24= "${now.year}${now.month-1}${24}$bal";p25= "${now.year}${now.month-1}${25}$bal";
+      p26= "${now.year}${now.month-1}${26}$bal";p27= "${now.year}${now.month-1}${27}$bal";
+      p28= "${now.year}${now.month-1}${28}$bal";
+
+      ref.child(d1).once().then((DataSnapshot data){setState((){val1=data.value;});});
+      ref.child(d2).once().then((DataSnapshot data){setState((){val2=data.value;});});
+      ref.child(d3).once().then((DataSnapshot data){setState((){val3=data.value;});});
+      ref.child(d4).once().then((DataSnapshot data){setState((){val4=data.value;});});
+      ref.child(d5).once().then((DataSnapshot data){setState((){val5=data.value;});});
+      ref.child(d6).once().then((DataSnapshot data){setState((){val6=data.value;});});
+      ref.child(d7).once().then((DataSnapshot data){setState((){val7=data.value;});});
+      ref.child(d8).once().then((DataSnapshot data){setState((){val8=data.value;});});
+      ref.child(d9).once().then((DataSnapshot data){setState((){val9=data.value;});});
+      ref.child(d10).once().then((DataSnapshot data){setState((){val10=data.value;});});
+      ref.child(d11).once().then((DataSnapshot data){setState((){val11=data.value;});});
+      ref.child(d12).once().then((DataSnapshot data){setState((){val12=data.value;});});
+      ref.child(d13).once().then((DataSnapshot data){setState((){val13=data.value;});});
+      ref.child(d14).once().then((DataSnapshot data){setState((){val14=data.value;});});
+      ref.child(d15).once().then((DataSnapshot data){setState((){val15=data.value;});});
+      ref.child(d16).once().then((DataSnapshot data){setState((){val16=data.value;});});
+      ref.child(d17).once().then((DataSnapshot data){setState((){val17=data.value;});});
+      ref.child(d18).once().then((DataSnapshot data){setState((){val18=data.value;});});
+      ref.child(d19).once().then((DataSnapshot data){setState((){val19=data.value;});});
+      ref.child(d20).once().then((DataSnapshot data){setState((){val20=data.value;});});
+      ref.child(d21).once().then((DataSnapshot data){setState((){val21=data.value;});});
+      ref.child(d22).once().then((DataSnapshot data){setState((){val22=data.value;});});
+      ref.child(d23).once().then((DataSnapshot data){setState((){val23=data.value;});});
+      ref.child(d24).once().then((DataSnapshot data){setState((){val24=data.value;});});
+      ref.child(d25).once().then((DataSnapshot data){setState((){val25=data.value;});});
+      ref.child(d26).once().then((DataSnapshot data){setState((){val26=data.value;});});
+      ref.child(d27).once().then((DataSnapshot data){setState((){val27=data.value;});});
+      ref.child(d28).once().then((DataSnapshot data){setState((){val28=data.value;});});
+
+      ref.child(p1).once().then((DataSnapshot data){setState((){un1=data.value;});});
+      ref.child(p2).once().then((DataSnapshot data){setState((){un2=data.value;});});
+      ref.child(p3).once().then((DataSnapshot data){setState((){un3=data.value;});});
+      ref.child(p4).once().then((DataSnapshot data){setState((){un4=data.value;});});
+      ref.child(p5).once().then((DataSnapshot data){setState((){un5=data.value;});});
+      ref.child(p6).once().then((DataSnapshot data){setState((){un6=data.value;});});
+      ref.child(p7).once().then((DataSnapshot data){setState((){un7=data.value;});});
+      ref.child(p8).once().then((DataSnapshot data){setState((){un8=data.value;});});
+      ref.child(p9).once().then((DataSnapshot data){setState((){un9=data.value;});});
+      ref.child(p10).once().then((DataSnapshot data){setState((){un10=data.value;});});
+      ref.child(p11).once().then((DataSnapshot data){setState((){un11=data.value;});});
+      ref.child(p12).once().then((DataSnapshot data){setState((){un12=data.value;});});
+      ref.child(p13).once().then((DataSnapshot data){setState((){un13=data.value;});});
+      ref.child(p14).once().then((DataSnapshot data){setState((){un14=data.value;});});
+      ref.child(p15).once().then((DataSnapshot data){setState((){un15=data.value;});});
+      ref.child(p16).once().then((DataSnapshot data){setState((){un16=data.value;});});
+      ref.child(p17).once().then((DataSnapshot data){setState((){un17=data.value;});});
+      ref.child(p18).once().then((DataSnapshot data){setState((){un18=data.value;});});
+      ref.child(p19).once().then((DataSnapshot data){setState((){un19=data.value;});});
+      ref.child(p20).once().then((DataSnapshot data){setState((){un20=data.value;});});
+      ref.child(p21).once().then((DataSnapshot data){setState((){un21=data.value;});});
+      ref.child(p22).once().then((DataSnapshot data){setState((){un22=data.value;});});
+      ref.child(p23).once().then((DataSnapshot data){setState((){un23=data.value;});});
+      ref.child(p24).once().then((DataSnapshot data){setState((){un24=data.value;});});
+      ref.child(p25).once().then((DataSnapshot data){setState((){un25=data.value;});});
+      ref.child(p26).once().then((DataSnapshot data){setState((){un26=data.value;});});
+      ref.child(p27).once().then((DataSnapshot data){setState((){un27=data.value;});});
+      ref.child(p28).once().then((DataSnapshot data){setState((){un28=data.value;});});
+
+    }
+    else{
+
+      d1 = "${now.year}${now.month}${1}$bal";d2 = "${now.year}${now.month}${2}$bal";
+      d3 = "${now.year}${now.month}${3}$bal";d4 = "${now.year}${now.month}${4}$bal";
+      d5 = "${now.year}${now.month}${5}$bal";d6 = "${now.year}${now.month}${6}$bal";
+      d7 = "${now.year}${now.month}${7}$bal";d8 = "${now.year}${now.month}${8}$bal";
+      d9 = "${now.year}${now.month}${9}$bal";d10= "${now.year}${now.month}${10}$bal";
+      d11= "${now.year}${now.month}${11}$bal";d12= "${now.year}${now.month}${12}$bal";
+      d13= "${now.year}${now.month}${13}$bal";d14= "${now.year}${now.month}${14}$bal";
+      d15= "${now.year}${now.month}${15}$bal";d16= "${now.year}${now.month}${16}$bal";
+      d17= "${now.year}${now.month}${17}$bal";d18= "${now.year}${now.month}${18}$bal";
+      d19= "${now.year}${now.month}${19}$bal";d20= "${now.year}${now.month}${20}$bal";
+      d22= "${now.year}${now.month}${22}$bal";d23= "${now.year}${now.month}${23}$bal";
+      d24= "${now.year}${now.month}${24}$bal";d25= "${now.year}${now.month}${25}$bal";
+      d26= "${now.year}${now.month}${26}$bal";d27= "${now.year}${now.month}${27}$bal";
+      d28= "${now.year}${now.month}${28}$bal";
+
+      p1 = "${now.year}${now.month-1}${1}$bal";p2 = "${now.year}${now.month-1}${2}$bal";
+      p3 = "${now.year}${now.month-1}${3}$bal";p4 = "${now.year}${now.month-1}${4}$bal";
+      p5 = "${now.year}${now.month-1}${5}$bal";p6 = "${now.year}${now.month-1}${6}$bal";
+      p7 = "${now.year}${now.month-1}${7}$bal";p8 = "${now.year}${now.month-1}${8}$bal";
+      p9 = "${now.year}${now.month-1}${9}$bal";p10= "${now.year}${now.month-1}${10}$bal";
+      p11= "${now.year}${now.month-1}${11}$bal";p12= "${now.year}${now.month-1}${12}$bal";
+      p13= "${now.year}${now.month-1}${13}$bal";p14= "${now.year}${now.month-1}${14}$bal";
+      p15= "${now.year}${now.month-1}${15}$bal";p16= "${now.year}${now.month-1}${16}$bal";
+      p17= "${now.year}${now.month-1}${17}$bal";p18= "${now.year}${now.month-1}${18}$bal";
+      p19= "${now.year}${now.month-1}${19}$bal";p20= "${now.year}${now.month-1}${20}$bal";
+      p22= "${now.year}${now.month-1}${22}$bal";p23= "${now.year}${now.month-1}${23}$bal";
+      p24= "${now.year}${now.month-1}${24}$bal";p25= "${now.year}${now.month-1}${25}$bal";
+      p26= "${now.year}${now.month-1}${26}$bal";p27= "${now.year}${now.month-1}${27}$bal";
+      p28= "${now.year}${now.month-1}${28}$bal";
+
+
+      ref.child(d1).once().then((DataSnapshot data){setState((){val1=data.value;});});
+      ref.child(d2).once().then((DataSnapshot data){setState((){val2=data.value;});});
+      ref.child(d3).once().then((DataSnapshot data){setState((){val3=data.value;});});
+      ref.child(d4).once().then((DataSnapshot data){setState((){val4=data.value;});});
+      ref.child(d5).once().then((DataSnapshot data){setState((){val5=data.value;});});
+      ref.child(d6).once().then((DataSnapshot data){setState((){val6=data.value;});});
+      ref.child(d7).once().then((DataSnapshot data){setState((){val7=data.value;});});
+      ref.child(d8).once().then((DataSnapshot data){setState((){val8=data.value;});});
+      ref.child(d9).once().then((DataSnapshot data){setState((){val9=data.value;});});
+      ref.child(d10).once().then((DataSnapshot data){setState((){val10=data.value;});});
+      ref.child(d11).once().then((DataSnapshot data){setState((){val11=data.value;});});
+      ref.child(d12).once().then((DataSnapshot data){setState((){val12=data.value;});});
+      ref.child(d13).once().then((DataSnapshot data){setState((){val13=data.value;});});
+      ref.child(d14).once().then((DataSnapshot data){setState((){val14=data.value;});});
+      ref.child(d15).once().then((DataSnapshot data){setState((){val15=data.value;});});
+      ref.child(d16).once().then((DataSnapshot data){setState((){val16=data.value;});});
+      ref.child(d17).once().then((DataSnapshot data){setState((){val17=data.value;});});
+      ref.child(d18).once().then((DataSnapshot data){setState((){val18=data.value;});});
+      ref.child(d19).once().then((DataSnapshot data){setState((){val19=data.value;});});
+      ref.child(d20).once().then((DataSnapshot data){setState((){val20=data.value;});});
+      ref.child(d21).once().then((DataSnapshot data){setState((){val21=data.value;});});
+      ref.child(d22).once().then((DataSnapshot data){setState((){val22=data.value;});});
+      ref.child(d23).once().then((DataSnapshot data){setState((){val23=data.value;});});
+      ref.child(d24).once().then((DataSnapshot data){setState((){val24=data.value;});});
+      ref.child(d25).once().then((DataSnapshot data){setState((){val25=data.value;});});
+      ref.child(d26).once().then((DataSnapshot data){setState((){val26=data.value;});});
+      ref.child(d27).once().then((DataSnapshot data){setState((){val27=data.value;});});
+      ref.child(d28).once().then((DataSnapshot data){setState((){val28=data.value;});});
+
+      ref.child(p1).once().then((DataSnapshot data){setState((){un1=data.value;});});
+      ref.child(p2).once().then((DataSnapshot data){setState((){un2=data.value;});});
+      ref.child(p3).once().then((DataSnapshot data){setState((){un3=data.value;});});
+      ref.child(p4).once().then((DataSnapshot data){setState((){un4=data.value;});});
+      ref.child(p5).once().then((DataSnapshot data){setState((){un5=data.value;});});
+      ref.child(p6).once().then((DataSnapshot data){setState((){un6=data.value;});});
+      ref.child(p7).once().then((DataSnapshot data){setState((){un7=data.value;});});
+      ref.child(p8).once().then((DataSnapshot data){setState((){un8=data.value;});});
+      ref.child(p9).once().then((DataSnapshot data){setState((){un9=data.value;});});
+      ref.child(p10).once().then((DataSnapshot data){setState((){un10=data.value;});});
+      ref.child(p11).once().then((DataSnapshot data){setState((){un11=data.value;});});
+      ref.child(p12).once().then((DataSnapshot data){setState((){un12=data.value;});});
+      ref.child(p13).once().then((DataSnapshot data){setState((){un13=data.value;});});
+      ref.child(p14).once().then((DataSnapshot data){setState((){un14=data.value;});});
+      ref.child(p15).once().then((DataSnapshot data){setState((){un15=data.value;});});
+      ref.child(p16).once().then((DataSnapshot data){setState((){un16=data.value;});});
+      ref.child(p17).once().then((DataSnapshot data){setState((){un17=data.value;});});
+      ref.child(p18).once().then((DataSnapshot data){setState((){un18=data.value;});});
+      ref.child(p19).once().then((DataSnapshot data){setState((){un19=data.value;});});
+      ref.child(p20).once().then((DataSnapshot data){setState((){un20=data.value;});});
+      ref.child(p21).once().then((DataSnapshot data){setState((){un21=data.value;});});
+      ref.child(p22).once().then((DataSnapshot data){setState((){un22=data.value;});});
+      ref.child(p23).once().then((DataSnapshot data){setState((){un23=data.value;});});
+      ref.child(p24).once().then((DataSnapshot data){setState((){un24=data.value;});});
+      ref.child(p25).once().then((DataSnapshot data){setState((){un25=data.value;});});
+      ref.child(p26).once().then((DataSnapshot data){setState((){un26=data.value;});});
+      ref.child(p27).once().then((DataSnapshot data){setState((){un27=data.value;});});
+      ref.child(p28).once().then((DataSnapshot data){setState((){un28=data.value;});});
+
+    }
+
+
+  switch (today){
+    case 1:
+     ((un2-un1)+(un3-un2))/28;
+
+  }
   }
   monthlyprice() {
     if (currentunit >= 0 && currentunit <= 50) {
