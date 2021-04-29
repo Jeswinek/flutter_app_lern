@@ -60,12 +60,23 @@ class _enePageState extends State<enePage> {
   average(){
     DateTime now = DateTime.now();
     today = now.day;
-    if(today >=0 && today <=1 ){
-
-  }else if(today >=2 && today <=2){
-
-    }
-
+    if(today >=0 && today <=1 ){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
+    else if(today >=2 && today <=2){}
   }
   monthlyprice() {
     if (currentunit >= 0 && currentunit <= 50) {
