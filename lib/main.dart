@@ -28,6 +28,8 @@ import 'package:http/http.dart' as http;
 import 'calendar.dart';
 import 'package:flutter_app_lern/newgraph.dart';
 import 'package:flutter_app_lern/bargraph.dart';
+import 'package:flutter_app_lern/energy2.dart';
+import 'package:flutter_app_lern/newhome.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
@@ -63,7 +65,9 @@ class MyApp extends StatelessWidget {
                 //DropDownButtonPage()
                 //LoginPageWidget()
                 //MyHomer()
-                MyHome()
+                //MyHome()
+                //omescreen()
+                enePage()
                 //Myomer()
                 //energy()
                 //CurvedShape(),

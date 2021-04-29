@@ -108,17 +108,22 @@ class energy extends StatefulWidget {
 class _energyState extends State<energy> {
   final fb = FirebaseDatabase.instance.reference();
   static var retrievedName = "";
+  static var retrievedName2 = "";
+  static var retrievedName3 = "";
   double units;
   String name = "";
   String Times = "";
   String k = "";
   String Datte = "";
+  String Datte2 ="";
+  String Datte3 ="";
   int Time; //its poornesh created time
   String y = "";
   String p = "";
   String seconds = "";
   var ref;
   String costs = "";
+  String costs2 = "";
   double unit = 180;
   String textHolder = 'Old Sample Text...!!!';
   int bal;
@@ -129,6 +134,8 @@ class _energyState extends State<energy> {
   int retrieve;
   int values;
   int key = 2021011707;
+  int currentunit;
+  int previousunit;
 
   changeText(String j) {
     setState(() {
@@ -189,21 +196,21 @@ class _energyState extends State<energy> {
   }
 
   monthlyprice() {
-    if (unit >= 0 && unit <= 50) {
+    if (currentunit >= 0 && currentunit <= 50) {
       monthlypriceElectricity = unit * 2.90;
     }
-    else if (unit >= 51 && unit <= 100) {
+    else if (currentunit >= 51 && currentunit <= 100) {
       monthlypriceElectricity = (50 * 2.90) + (unit - 50) * 3.70;
-    } else if (unit >= 101 && unit <= 150) {
+    } else if (currentunit >= 101 && currentunit <= 150) {
       monthlypriceElectricity =
-          (50 * 2.90) + (100 * 3.70) + (unit - 100) * 4.80;
-    } else if (unit >= 151 && unit <= 200) {
+          (50 * 2.90) + (100 * 3.70) + (currentunit - 100) * 4.80;
+    } else if (currentunit >= 151 && currentunit <= 200) {
       monthlypriceElectricity =
-          (50 * 2.90) + (100 * 3.70) + (150 * 4.80) + (unit - 150) * 6.40;
-    } else if (unit >= 201) {
+          (50 * 2.90) + (100 * 3.70) + (150 * 4.80) + (currentunit - 150) * 6.40;
+    } else if (currentunit >= 201) {
       monthlypriceElectricity =
           (50 * 2.90) + (100 * 3.70) + (150 * 4.80) + (250 * 6.40) +
-              (unit - 250) * 7.50;
+              (currentunit - 250) * 7.50;
     }
     else
       print("unit doesnot calculated");
@@ -213,6 +220,32 @@ class _energyState extends State<energy> {
     });
   }
 
+  monthlyprice2(){
+    if (previousunit >= 0 && previousunit <= 50) {
+      monthlypriceElectricity = unit * 2.90;
+    }
+    else if (previousunit >= 51 && previousunit <= 100) {
+      monthlypriceElectricity = (50 * 2.90) + (unit - 50) * 3.70;
+    } else if (previousunit >= 101 && previousunit <= 150) {
+      monthlypriceElectricity =
+          (50 * 2.90) + (100 * 3.70) + (previousunit - 100) * 4.80;
+    } else if (previousunit >= 151 && previousunit <= 200) {
+      monthlypriceElectricity =
+          (50 * 2.90) + (100 * 3.70) + (150 * 4.80) + (previousunit - 150) * 6.40;
+    } else if (previousunit >= 201) {
+      monthlypriceElectricity =
+          (50 * 2.90) + (100 * 3.70) + (150 * 4.80) + (250 * 6.40) +
+              (previousunit - 250) * 7.50;
+    }
+    else
+      print("unit doesnot calculated");
+    setState(() {
+      costs2 = "$monthlypriceElectricity";
+
+    });
+
+
+  }
   samplefunction() {
     final ref = fb.reference().child("");
     DateTime now = DateTime.now();
@@ -220,10 +253,11 @@ class _energyState extends State<energy> {
     seconds = "${now.second}";
     Time = int.parse(seconds);
     rem = Time % 5;
-    bal =10;
+    bal =55;
         //Time - rem;
     if (now.month >= 10) {
       Datte = "${now.year}${now.month}${now.day}$bal";
+      Datte2 = "${now.year}${now.month-1}${31}$bal";
       print(Datte);
       ref.child(Datte).once().then((DataSnapshot data) {
         setState(() {
@@ -231,8 +265,16 @@ class _energyState extends State<energy> {
         });
         // cost(retrievedName);
       });
+      ref.child(Datte2).once().then((DataSnapshot data) {
+        setState(() {
+          retrievedName2 = data.value;
+        });
+        // cost(retrievedName);
+      });
+      currentunit=int.parse(retrievedName) -int.parse(retrievedName2);
     } else {
       Datte = "${now.year}0${now.month}${now.day}$bal";
+      Datte2 = "${now.year}0${now.month-1}${31}$bal";
       print(Datte);
       ref.child(Datte).once().then((DataSnapshot data) {
         setState(() {
@@ -240,9 +282,58 @@ class _energyState extends State<energy> {
         });
         // cost(retrievedName);
       });
+      ref.child(Datte2).once().then((DataSnapshot data) {
+        setState(() {
+          retrievedName2 = data.value;
+        });
+        // cost(retrievedName);
+      });
+      currentunit=int.parse(retrievedName) -int.parse(retrievedName2);
     }
   }
-
+  previousfuntion(){
+    final ref = fb.reference().child("");
+    DateTime now = DateTime.now();
+    print("${now.second}:${now.microsecond}");
+    seconds = "${now.second}";
+    Time = int.parse(seconds);
+    rem = Time % 5;
+    bal =55;
+    //Time - rem;
+    if (now.month >= 10) {
+      Datte2 = "${now.year}${now.month-1}${31}$bal";
+      Datte3 = "${now.year}${now.month-2}${31}$bal";
+      ref.child(Datte2).once().then((DataSnapshot data) {
+        setState(() {
+          retrievedName2 = data.value;
+        });
+        // cost(retrievedName);
+      });
+      ref.child(Datte3).once().then((DataSnapshot data) {
+        setState(() {
+          retrievedName3 = data.value;
+        });
+        // cost(retrievedName);
+      });
+      previousunit=int.parse(retrievedName2) -int.parse(retrievedName3);
+    } else {
+      Datte2 = "${now.year}0${now.month-1}${31}$bal";
+      Datte3 = "${now.year}0${now.month-2}${31}$bal";
+      ref.child(Datte2).once().then((DataSnapshot data) {
+        setState(() {
+          retrievedName2 = data.value;
+        });
+        // cost(retrievedName);
+      });
+      ref.child(Datte3).once().then((DataSnapshot data) {
+        setState(() {
+          retrievedName3 = data.value;
+        });
+        // cost(retrievedName);
+      });
+      previousunit=int.parse(retrievedName2) -int.parse(retrievedName3);
+    }
+  }
   samplefunction2() {
     final ref = fb.reference().child("energy-meter-project-c13ac").child(
         "$Datte");
@@ -358,7 +449,11 @@ class _energyState extends State<energy> {
                           // changeText();
                           // })
                           samplefunction(),
-                          changeText(retrievedName),
+                          previousfuntion(),
+                          monthlyprice(),
+                          monthlyprice2(),
+                         // changeText("$previousunit"),
+                          changeText(costs2)
                           // samplefunction5()
                         }
                       },
