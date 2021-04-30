@@ -30,6 +30,7 @@ class _enePageState extends State<enePage> {
   var ref;
   String costs = "";
   String costs2 = "";
+  String costs3 = "";
   double unit = 180;
   String textHolder = 'unit';
   String textHolder2 = 'rs';
@@ -39,6 +40,7 @@ class _enePageState extends State<enePage> {
   double priceElectricity = 0;
   double monthlypriceElectricity = 0;
   double monthlypriceElectricity2 = 0;
+  double monthlypriceElectricity3 = 0;
   int retrieve;
   int values;
   int key = 2021011707;
@@ -54,7 +56,7 @@ class _enePageState extends State<enePage> {
   val15,val16,val17,val18,val19,val20,val21,val22,val23,val24,val25,val26,val27,val28;
   static var un1,un2,un3,un4,un5,un6,un7,un8,un9,un10,un11,un12,un13,un14,
   un15,un16,un17,un18,un19,un20,un21,un22,un23,un24,un25,un26,un27,un28;
-
+ double day;
   changeText(String j) {
     setState(() {
       textHolder = j;
@@ -162,35 +164,35 @@ class _enePageState extends State<enePage> {
     }
     else{
 
-      d1 = "${now.year}${now.month}${1}$bal";d2 = "${now.year}${now.month}${2}$bal";
-      d3 = "${now.year}${now.month}${3}$bal";d4 = "${now.year}${now.month}${4}$bal";
-      d5 = "${now.year}${now.month}${5}$bal";d6 = "${now.year}${now.month}${6}$bal";
-      d7 = "${now.year}${now.month}${7}$bal";d8 = "${now.year}${now.month}${8}$bal";
-      d9 = "${now.year}${now.month}${9}$bal";d10= "${now.year}${now.month}${10}$bal";
-      d11= "${now.year}${now.month}${11}$bal";d12= "${now.year}${now.month}${12}$bal";
-      d13= "${now.year}${now.month}${13}$bal";d14= "${now.year}${now.month}${14}$bal";
-      d15= "${now.year}${now.month}${15}$bal";d16= "${now.year}${now.month}${16}$bal";
-      d17= "${now.year}${now.month}${17}$bal";d18= "${now.year}${now.month}${18}$bal";
-      d19= "${now.year}${now.month}${19}$bal";d20= "${now.year}${now.month}${20}$bal";
-      d22= "${now.year}${now.month}${22}$bal";d23= "${now.year}${now.month}${23}$bal";
-      d24= "${now.year}${now.month}${24}$bal";d25= "${now.year}${now.month}${25}$bal";
-      d26= "${now.year}${now.month}${26}$bal";d27= "${now.year}${now.month}${27}$bal";
-      d28= "${now.year}${now.month}${28}$bal";
+      d1 = "${now.year}0${now.month}${1}$bal";d2 = "${now.year}0${now.month}${2}$bal";
+      d3 = "${now.year}0${now.month}${3}$bal";d4 = "${now.year}0${now.month}${4}$bal";
+      d5 = "${now.year}0${now.month}${5}$bal";d6 = "${now.year}0${now.month}${6}$bal";
+      d7 = "${now.year}0${now.month}${7}$bal";d8 = "${now.year}0${now.month}${8}$bal";
+      d9 = "${now.year}0${now.month}${9}$bal";d10= "${now.year}0${now.month}${10}$bal";
+      d11= "${now.year}0${now.month}${11}$bal";d12= "${now.year}0${now.month}${12}$bal";
+      d13= "${now.year}0${now.month}${13}$bal";d14= "${now.year}0${now.month}${14}$bal";
+      d15= "${now.year}0${now.month}${15}$bal";d16= "${now.year}0${now.month}${16}$bal";
+      d17= "${now.year}0${now.month}${17}$bal";d18= "${now.year}0${now.month}${18}$bal";
+      d19= "${now.year}0${now.month}${19}$bal";d20= "${now.year}0${now.month}${20}$bal";
+      d22= "${now.year}0${now.month}${22}$bal";d23= "${now.year}0${now.month}${23}$bal";
+      d24= "${now.year}0${now.month}${24}$bal";d25= "${now.year}0${now.month}${25}$bal";
+      d26= "${now.year}0${now.month}${26}$bal";d27= "${now.year}0${now.month}${27}$bal";
+      d28= "${now.year}0${now.month}${28}$bal";
 
-      p1 = "${now.year}${now.month-1}${1}$bal";p2 = "${now.year}${now.month-1}${2}$bal";
-      p3 = "${now.year}${now.month-1}${3}$bal";p4 = "${now.year}${now.month-1}${4}$bal";
-      p5 = "${now.year}${now.month-1}${5}$bal";p6 = "${now.year}${now.month-1}${6}$bal";
-      p7 = "${now.year}${now.month-1}${7}$bal";p8 = "${now.year}${now.month-1}${8}$bal";
-      p9 = "${now.year}${now.month-1}${9}$bal";p10= "${now.year}${now.month-1}${10}$bal";
-      p11= "${now.year}${now.month-1}${11}$bal";p12= "${now.year}${now.month-1}${12}$bal";
-      p13= "${now.year}${now.month-1}${13}$bal";p14= "${now.year}${now.month-1}${14}$bal";
-      p15= "${now.year}${now.month-1}${15}$bal";p16= "${now.year}${now.month-1}${16}$bal";
-      p17= "${now.year}${now.month-1}${17}$bal";p18= "${now.year}${now.month-1}${18}$bal";
-      p19= "${now.year}${now.month-1}${19}$bal";p20= "${now.year}${now.month-1}${20}$bal";
-      p22= "${now.year}${now.month-1}${22}$bal";p23= "${now.year}${now.month-1}${23}$bal";
-      p24= "${now.year}${now.month-1}${24}$bal";p25= "${now.year}${now.month-1}${25}$bal";
-      p26= "${now.year}${now.month-1}${26}$bal";p27= "${now.year}${now.month-1}${27}$bal";
-      p28= "${now.year}${now.month-1}${28}$bal";
+      p1 = "${now.year}0${now.month-1}${1}$bal";p2 = "${now.year}0${now.month-1}${2}$bal";
+      p3 = "${now.year}0${now.month-1}${3}$bal";p4 = "${now.year}0${now.month-1}${4}$bal";
+      p5 = "${now.year}0${now.month-1}${5}$bal";p6 = "${now.year}0${now.month-1}${6}$bal";
+      p7 = "${now.year}0${now.month-1}${7}$bal";p8 = "${now.year}0${now.month-1}${8}$bal";
+      p9 = "${now.year}0${now.month-1}${9}$bal";p10= "${now.year}0${now.month-1}${10}$bal";
+      p11= "${now.year}0${now.month-1}${11}$bal";p12= "${now.year}0${now.month-1}${12}$bal";
+      p13= "${now.year}0${now.month-1}${13}$bal";p14= "${now.year}0${now.month-1}${14}$bal";
+      p15= "${now.year}0${now.month-1}${15}$bal";p16= "${now.year}0${now.month-1}${16}$bal";
+      p17= "${now.year}0${now.month-1}${17}$bal";p18= "${now.year}0${now.month-1}${18}$bal";
+      p19= "${now.year}0${now.month-1}${19}$bal";p20= "${now.year}0${now.month-1}${20}$bal";
+      p22= "${now.year}0${now.month-1}${22}$bal";p23= "${now.year}0${now.month-1}${23}$bal";
+      p24= "${now.year}0${now.month-1}${24}$bal";p25= "${now.year}0${now.month-1}${25}$bal";
+      p26= "${now.year}0${now.month-1}${26}$bal";p27= "${now.year}0${now.month-1}${27}$bal";
+      p28= "${now.year}0${now.month-1}${28}$bal";
 
 
       ref.child(d1).once().then((DataSnapshot data){setState((){val1=data.value;});});
@@ -255,17 +257,183 @@ class _enePageState extends State<enePage> {
 
 
   switch (today){
-    case 1:
-     ((un2-un1)+(un3-un2))/28;
+    case 1:day= ((un2-un1)+(un3-un2)+(un4-un3)+(un5-un4)+(un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
+        +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+         +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27))/27;break;
+
+    case 2:day= ((un2-un1)+(un3-un2)+(un4-un3)+(un5-un4)+(un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
+          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27))/27;break;
+
+    case 3:day= ((un3-un2)+(un4-un3)+(un5-un4)+(un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
+          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val2-val1))/27;break;
+    case 4:day= ((un4-un3)+(un5-un4)+(un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
+          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val3-val2)+(val2-val1))/27;break;
+    case 5:day= ((un5-un4)+(un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
+          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 6:day= ((un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
+          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 7:day= ((un7-un6)+(un8-un7)+(un9-un8)
+          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 8:day= ((un8-un7)+(un9-un8) +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+ (un24-un23) +(un25-un24)+(un26-un25)
+        +(un27-un26)+(un28-un27)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 9:day= ((un9-un8)
+          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 10:day= ((un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val9-val8)+(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 11:day= ((un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 12:day= ((un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 13:day= ((un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
+        +(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 14:day= ((un14-un13)+(un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
+        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 15:day= ((un15-un14)+(un16-un15)
+          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
+        +(val14-val13)+(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
+        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 16:day= ((un16-un15)
+        +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
+        +(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
+        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 17:day= ((un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27) +
+        (val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
+        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 18:day= ((un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+
+        (val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
+        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 19:day= ((un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+
+        (val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
+        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 20:day= ((un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
+        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
+        +(val19-val18)+(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
+        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 21:day= ((un21-un20)+(un22-un21)+ (un23-un22)+
+        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+
+        (val20-val19)+(val19-val18)+(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
+        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 22:day= ((un22-un21)+ (un23-un22)+
+        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+
+        (val21-val20)+(val20-val19)+(val19-val18)
+        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
+        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 23:day= ((un23-un22)+ (un24-un23) +(un25-un24)+(un26-un25)
+        +(un27-un26)+(un28-un27)
+        +(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
+        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
+        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 24:day= ((un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
+        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
+        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
+        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 25:day= ((un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+
+        (val24-val23)+(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
+        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
+        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 26:day= ((un26-un25)+(un27-un26)+(un28-un27)
+        +(val25-val24)+(val24-val23)+(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
+        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
+        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 27:day= ((un27-un26)+(un28-un27) +(val26-val25)+(val25-val24)+(val24-val23)
+        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
+        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
+        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 28:day= ((un28-un27)+(val27-val26)+(val26-val25)+(val25-val24)+(val24-val23)
+        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
+        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
+        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 29:day= ((val28-val27)+(val27-val26)+(val26-val25)+(val25-val24)+(val24-val23)
+        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
+        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
+        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 30:day= ((val28-val27)+(val27-val26)+(val26-val25)+(val25-val24)+(val24-val23)
+        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
+        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
+        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+
+    case 31:day= ((val28-val27)+(val27-val26)+(val26-val25)+(val25-val24)+(val24-val23)
+        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
+        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
+        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
+        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
 
   }
   }
-  monthlyprice() {
+  currentprice() {
     if (currentunit >= 0 && currentunit <= 50) {
-      monthlypriceElectricity = unit * 2.90;
+      monthlypriceElectricity = currentunit * 2.90;
     }
     else if (currentunit >= 51 && currentunit <= 100) {
-      monthlypriceElectricity = (50 * 2.90) + (unit - 50) * 3.70;
+      monthlypriceElectricity = (50 * 2.90) + (currentunit - 50) * 3.70;
     } else if (currentunit >= 101 && currentunit <= 150) {
       monthlypriceElectricity =
           (50 * 2.90) + (100 * 3.70) + (currentunit - 100) * 4.80;
@@ -284,12 +452,12 @@ class _enePageState extends State<enePage> {
 
     });
   }
-  monthlyprice2(){
+  previousprice(){
     if (previousunit >= 0 && previousunit <= 50) {
-      monthlypriceElectricity2 = unit * 2.90;
+      monthlypriceElectricity2 = previousunit * 2.90;
     }
     else if (previousunit >= 51 && previousunit <= 100) {
-      monthlypriceElectricity2 = (50 * 2.90) + (unit - 50) * 3.70;
+      monthlypriceElectricity2 = (50 * 2.90) + (previousunit - 50) * 3.70;
     } else if (previousunit >= 101 && previousunit <= 150) {
       monthlypriceElectricity2 =
           (50 * 2.90) + (100 * 3.70) + (previousunit - 100) * 4.80;
@@ -310,7 +478,35 @@ class _enePageState extends State<enePage> {
 
 
   }
-  samplefunction() {
+  estimatedprice(){
+    if (day >= 0 && day <= 50) {
+      monthlypriceElectricity3 = day * 2.90;
+    }
+    else if (day >= 51 && day <= 100) {
+      monthlypriceElectricity3 = (50 * 2.90) + (day - 50) * 3.70;
+    } else if (day >= 101 && day <= 150) {
+      monthlypriceElectricity3 =
+          (50 * 2.90) + (100 * 3.70) + (day - 100) * 4.80;
+    } else if (day >= 151 && day <= 200) {
+      monthlypriceElectricity3 =
+          (50 * 2.90) + (100 * 3.70) + (150 * 4.80) + (day - 150) * 6.40;
+    } else if (day >= 201) {
+      monthlypriceElectricity3 =
+          (50 * 2.90) + (100 * 3.70) + (150 * 4.80) + (250 * 6.40) +
+              (day - 250) * 7.50;
+    }
+    else
+      print("unit doesnot calculated");
+    setState(() {
+      costs3 = "$monthlypriceElectricity3";
+
+    });
+
+
+
+
+  }
+  currentfunction() {
     final ref = fb.reference().child("");
     DateTime now = DateTime.now();
     print("${now.second}:${now.microsecond}");
@@ -566,11 +762,8 @@ class _enePageState extends State<enePage> {
                                     // top: 10, left: 30.0, right: 30.0, bottom: 10),
                                     child: GestureDetector(
                                          onTap: () =>{
-                                         average(),
-                                          // samplefunction(),
                                            previousfuntion(),
-                                           //monthlyprice(),
-                                           monthlyprice2(),
+                                           previousprice(),
                                            changeText('$previousunit'),
                                            changeText2(costs2)
 
@@ -617,10 +810,8 @@ class _enePageState extends State<enePage> {
                                     child: GestureDetector(
                                        onTap: () =>
                                        {
-                                         samplefunction(),
-                                         //previousfuntion(),
-                                         monthlyprice(),
-                                        // monthlyprice2(),
+                                         currentfunction(),
+                                         currentprice(),
                                          changeText('$currentunit'),
                                          changeText2(costs)
                                     },
@@ -666,8 +857,10 @@ class _enePageState extends State<enePage> {
                                     child: GestureDetector(
                         onTap: () =>
                        {
-                       samplefunction(),
-                       changeText(costs),
+                         estimatedprice(),
+                       average(),
+                       changeText("$day"),
+                         changeText(costs3)
                                },
                                       //   SwitchOne(),
                                       //  ushafan();
