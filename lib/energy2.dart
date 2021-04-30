@@ -57,6 +57,11 @@ class _enePageState extends State<enePage> {
   static var un1,un2,un3,un4,un5,un6,un7,un8,un9,un10,un11,un12,un13,un14,
   un15,un16,un17,un18,un19,un20,un21,un22,un23,un24,un25,un26,un27,un28;
  double day;
+ double k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,k11,k12,k13,k14,
+ k15,k16,k17,k18,k19,k20,k21,k22,k23,k24,k25,k26,k27,k28;
+ double l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,
+ l15,l16,l17,l18,l19,l20,l21,l22,l23,l24,l25,l26,l27,l28;
+
   changeText(String j) {
     setState(() {
       textHolder = j;
@@ -254,177 +259,99 @@ class _enePageState extends State<enePage> {
       ref.child(p28).once().then((DataSnapshot data){setState((){un28=data.value;});});
 
     }
+    k1=un2-un1;k2=un3-un2;
+    k3=un4-un3;k4=un5-un4;
+    k5=un6-un5;k6=un7-un6;
+    k7=un8-un7;k8=un9-un8;
+    k9=un10-un9;k10=un11-un10;
+    k11=un12-un11;k12=un13-un12;
+    k13=un14-un13;k14=un15-un14;
+    k15=un16-un15;k16=un17-un16;
+    k17=un18-un17;k18=un19-un18;
+    k19=un20-un19;k20=un21-un20;
+    k21=un22-un21;k22=un23-un22;
+    k23=un24-un23;k24=un25-un24;
+    k25=un26-un25;k26=un27-un26;
+    k27=un28-un27;
 
+
+    l27=val28-val27;l26=val27-val26;
+    l25=val26-val25;l24=val25-val24;
+    l23=val24-val23;l22=val23-val22;
+    l21=val22-val21;l20=val21-val20;
+    l19=val20-val19;l18=val19-val18;
+    l17=val18-val17;l16=val17-val16;
+    l15=val16-val15;l14=val15-val14;
+    l13=val14-val13;l12=val13-val12;
+    l11=val12-val11;l10=val11-val10;
+    l9=val10-val9;l8=val9-val8;
+    l7=val8-val7;l6=val7-val6;
+    l5=val6-val5;l4=val5-val4;
+    l3=val4-val3;l2=val3-val2;
+    l1=val2-val1;
 
   switch (today){
-    case 1:day= ((un2-un1)+(un3-un2)+(un4-un3)+(un5-un4)+(un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
-        +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-         +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27))/27;break;
+    case 1:day= (k1+k2+k3+k4+k5+k6+k7+k8+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27)/27;break;
 
-    case 2:day= ((un2-un1)+(un3-un2)+(un4-un3)+(un5-un4)+(un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
-          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27))/27;break;
+    case 2:day= (k1+k2+k3+k4+k5+k6+k7+k8+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27)/27;break;
 
-    case 3:day= ((un3-un2)+(un4-un3)+(un5-un4)+(un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
-          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val2-val1))/27;break;
-    case 4:day= ((un4-un3)+(un5-un4)+(un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
-          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val3-val2)+(val2-val1))/27;break;
-    case 5:day= ((un5-un4)+(un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
-          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
-    case 6:day= ((un6-un5)+(un7-un6)+(un8-un7)+(un9-un8)
-          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 3:day= (k2+k3+k4+k5+k6+k7+k8+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1)/27;break;
 
-    case 7:day= ((un7-un6)+(un8-un7)+(un9-un8)
-          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 4:day= (k3+k4+k5+k6+k7+k8+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2)/27;break;
 
-    case 8:day= ((un8-un7)+(un9-un8) +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+ (un24-un23) +(un25-un24)+(un26-un25)
-        +(un27-un26)+(un28-un27)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 5:day= (k4+k5+k6+k7+k8+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3)/27;break;
 
-    case 9:day= ((un9-un8)
-          +(un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 6:day= (k5+k6+k7+k8+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4)/27;break;
 
-    case 10:day= ((un10-un9) +(un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val9-val8)+(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 7:day= (k6+k7+k8+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5)/27;break;
 
-    case 11:day= ((un11-un10)+(un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 8:day= (k7+k8+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6)/27;break;
 
-    case 12:day= ((un12-un11)+(un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 9:day= (k8+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7)/27;break;
 
-    case 13:day= ((un13-un12)+(un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
-        +(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 10:day= (k9+k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8)/27;break;
 
-    case 14:day= ((un14-un13)+(un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
-        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 11:day= (k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9)/27;break;
 
-    case 15:day= ((un15-un14)+(un16-un15)
-          +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-          (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
-        +(val14-val13)+(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
-        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 12:day= (k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10)/27;break;
 
-    case 16:day= ((un16-un15)
-        +(un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
-        +(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
-        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 13:day= (k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11)/27;break;
 
-    case 17:day= ((un17-un16)+(un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27) +
-        (val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
-        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 14:day= (k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12)/27;break;
 
-    case 18:day= ((un18-un17)+(un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+
-        (val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
-        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 15:day= (k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13)/27;break;
 
-    case 19:day= ((un19-un18)+(un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+
-        (val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
-        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 16:day= (k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14)/27;break;
 
-    case 20:day= ((un20-un19)+(un21-un20)+(un22-un21)+ (un23-un22)+
-        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
-        +(val19-val18)+(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
-        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 17:day= (k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15)/27;break;
 
-    case 21:day= ((un21-un20)+(un22-un21)+ (un23-un22)+
-        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+
-        (val20-val19)+(val19-val18)+(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
-        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 18:day= (k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16)/27;break;
 
-    case 22:day= ((un22-un21)+ (un23-un22)+
-        (un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+
-        (val21-val20)+(val20-val19)+(val19-val18)
-        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)+(val8-val7)+(val7-val6)+
-        (val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 19:day= (k18+k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17)/27;break;
 
-    case 23:day= ((un23-un22)+ (un24-un23) +(un25-un24)+(un26-un25)
-        +(un27-un26)+(un28-un27)
-        +(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
-        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
-        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 20:day= (k19+k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18)/27;break;
 
-    case 24:day= ((un24-un23) +(un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)
-        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
-        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
-        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 21:day= (k20+k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19)/27;break;
 
-    case 25:day= ((un25-un24)+(un26-un25)+(un27-un26)+(un28-un27)+
-        (val24-val23)+(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
-        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
-        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 22:day= (k21+k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19+l20)/27;break;
 
-    case 26:day= ((un26-un25)+(un27-un26)+(un28-un27)
-        +(val25-val24)+(val24-val23)+(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
-        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
-        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 23:day= (k22+k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19+l20+l21)/27;break;
 
-    case 27:day= ((un27-un26)+(un28-un27) +(val26-val25)+(val25-val24)+(val24-val23)
-        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
-        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
-        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 24:day= (k23+k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19+l20+l21+l22)/27;break;
 
-    case 28:day= ((un28-un27)+(val27-val26)+(val26-val25)+(val25-val24)+(val24-val23)
-        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
-        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
-        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 25:day= (k24+k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19+l20+l21+l22+l23)/27;break;
 
-    case 29:day= ((val28-val27)+(val27-val26)+(val26-val25)+(val25-val24)+(val24-val23)
-        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
-        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
-        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 26:day= (k25+k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19+l20+l21+l22+l23+l24)/27;break;
 
-    case 30:day= ((val28-val27)+(val27-val26)+(val26-val25)+(val25-val24)+(val24-val23)
-        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
-        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
-        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 27:day= (k26+k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19+l20+l21+l22+l23+l24+l25)/27;break;
 
-    case 31:day= ((val28-val27)+(val27-val26)+(val26-val25)+(val25-val24)+(val24-val23)
-        +(val23-val22)+(val22-val21)+(val21-val20)+(val20-val19)+(val19-val18)
-        +(val18-val17)+(val17-val16)+(val16-val15)+(val15-val14)+(val14-val13)
-        +(val13-val12)+(val12-val11)+(val11-val10)+(val10-val9)+(val9-val8)
-        +(val8-val7)+(val7-val6)+(val6-val5)+(val5-val4)+(val4-val3)+(val3-val2)+(val2-val1))/27;break;
+    case 28:day= (k27+l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19+l20+l21+l22+l23+l24+l25+l26)/27;break;
+
+    case 29:day= (l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19+l20+l21+l22+l23+l24+l25+l26+l27)/27;break;
+
+    case 30:day= (l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19+l20+l21+l22+l23+l24+l25+l26+l27)/27;break;
+
+    case 31:day= (l1+l2+l3+l4+l5+l6+l7+l8+l9+l10+l11+l12+l13+l14+l15+l16+l17+l18+l19+l20+l21+l22+l23+l24+l25+l26+l27)/27;break;
 
   }
   }
