@@ -382,6 +382,7 @@ class MyHomerState extends State<MyHomer> {
                       plotAreaBorderColor: Colors.grey,
                       primaryXAxis: CategoryAxis(),
                       title: samplefunction(),
+
                       //primaryYAxis: samplefunction2(),
                       // Chart title
                       //title: ChartTitle(text: 'comparison between two months'),

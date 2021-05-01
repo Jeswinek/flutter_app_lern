@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
                 //LoginPageWidget()
                 //MyHomer()
                 //MyHome()
-                //omescreen()
+                //Homescreenk()
                 enePage()
                 //Myomer()
                 //energy()

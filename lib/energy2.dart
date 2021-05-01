@@ -1,4 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:provider/provider.dart';
+import 'models/authentication.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_lern/newgraph.dart';
@@ -12,42 +15,46 @@ class enePage extends StatefulWidget {
 }
 
 class _enePageState extends State<enePage> {
+
+
+
+
   final fb = FirebaseDatabase.instance.reference();
-  static var retrievedName = "";
-  static var retrievedName2 = "";
-  static var retrievedName3 = "";
-  double units;
-  String name = "";
-  String Times = "";
-  String k = "";
-  String Datte = "";
-  String Datte2 ="";
-  String Datte3 ="";
-  int Time; //its poornesh created time
-  String y = "";
-  String p = "";
-  String seconds = "";
+  static var retrievedName = "0";
+  static var retrievedName2 = "0";
+  static var retrievedName3 = "0";
+  double units=0;
+  String name = "0";
+  String Times = "0";
+  String k = "0";
+  String Datte = "0";
+  String Datte2 ="0";
+  String Datte3 ="0";
+  int Time =0; //its poornesh created time
+  String y = "0";
+  String p = "0";
+  String seconds = "0";
   var ref;
-  String costs = "";
-  String costs2 = "";
-  String costs3 = "";
+  String costs = "0";
+  String costs2 = "0";
+  String costs3 = "0";
   double unit = 180;
   String textHolder = 'unit';
   String textHolder2 = 'rs';
-  int bal;
-  int rem;
+  int bal =55;
+  int rem =0;
   double readingUnit = 0;
   double priceElectricity = 0;
   double monthlypriceElectricity = 0;
   double monthlypriceElectricity2 = 0;
   double monthlypriceElectricity3 = 0;
-  int retrieve;
-  int values;
+  int retrieve =0;
+  int values=0;
   int key = 2021011707;
-  int currentunit;
-  int previousunit;
-  int today;
-  int month;
+  int currentunit=0;
+  int previousunit=0;
+  int today=0;
+  int month=0;
   String d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,
   d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28;
   String p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,
@@ -56,22 +63,26 @@ class _enePageState extends State<enePage> {
   val15,val16,val17,val18,val19,val20,val21,val22,val23,val24,val25,val26,val27,val28;
   static var un1,un2,un3,un4,un5,un6,un7,un8,un9,un10,un11,un12,un13,un14,
   un15,un16,un17,un18,un19,un20,un21,un22,un23,un24,un25,un26,un27,un28;
- double day;
- double k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,k11,k12,k13,k14,
- k15,k16,k17,k18,k19,k20,k21,k22,k23,k24,k25,k26,k27,k28;
- double l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,
- l15,l16,l17,l18,l19,l20,l21,l22,l23,l24,l25,l26,l27,l28;
+  double day=1;
+  double k1,k2,k3,k4,k5,k6,k7,k8,k9,k10,k11,k12,k13,k14,
+  k15,k16,k17,k18,k19,k20,k21,k22,k23,k24,k25,k26,k27,k28;
+  double l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,
+  l15,l16,l17,l18,l19,l20,l21,l22,l23,l24,l25,l26,l27,l28;
+
+
 
   changeText(String j) {
     setState(() {
       textHolder = j;
     });
   }
+
   changeText2(String i){
     setState(() {
       textHolder2 = i;
     });
   }
+
   average(){
     DateTime now = DateTime.now();
     today = now.day;
@@ -166,6 +177,37 @@ class _enePageState extends State<enePage> {
       ref.child(p27).once().then((DataSnapshot data){setState((){un27=data.value;});});
       ref.child(p28).once().then((DataSnapshot data){setState((){un28=data.value;});});
 
+      k1=un2-un1;k2=un3-un2;
+      k3=un4-un3;k4=un5-un4;
+      k5=un6-un5;k6=un7-un6;
+      k7=un8-un7;k8=un9-un8;
+      k9=un10-un9;k10=un11-un10;
+      k11=un12-un11;k12=un13-un12;
+      k13=un14-un13;k14=un15-un14;
+      k15=un16-un15;k16=un17-un16;
+      k17=un18-un17;k18=un19-un18;
+      k19=un20-un19;k20=un21-un20;
+      k21=un22-un21;k22=un23-un22;
+      k23=un24-un23;k24=un25-un24;
+      k25=un26-un25;k26=un27-un26;
+      k27=un28-un27;
+
+
+      l27=val28-val27;l26=val27-val26;
+      l25=val26-val25;l24=val25-val24;
+      l23=val24-val23;l22=val23-val22;
+      l21=val22-val21;l20=val21-val20;
+      l19=val20-val19;l18=val19-val18;
+      l17=val18-val17;l16=val17-val16;
+      l15=val16-val15;l14=val15-val14;
+      l13=val14-val13;l12=val13-val12;
+      l11=val12-val11;l10=val11-val10;
+      l9=val10-val9;l8=val9-val8;
+      l7=val8-val7;l6=val7-val6;
+      l5=val6-val5;l4=val5-val4;
+      l3=val4-val3;l2=val3-val2;
+      l1=val2-val1;
+
     }
     else{
 
@@ -258,37 +300,39 @@ class _enePageState extends State<enePage> {
       ref.child(p27).once().then((DataSnapshot data){setState((){un27=data.value;});});
       ref.child(p28).once().then((DataSnapshot data){setState((){un28=data.value;});});
 
+      k1=un2-un1;k2=un3-un2;
+      k3=un4-un3;k4=un5-un4;
+      k5=un6-un5;k6=un7-un6;
+      k7=un8-un7;k8=un9-un8;
+      k9=un10-un9;k10=un11-un10;
+      k11=un12-un11;k12=un13-un12;
+      k13=un14-un13;k14=un15-un14;
+      k15=un16-un15;k16=un17-un16;
+      k17=un18-un17;k18=un19-un18;
+      k19=un20-un19;k20=un21-un20;
+      k21=un22-un21;k22=un23-un22;
+      k23=un24-un23;k24=un25-un24;
+      k25=un26-un25;k26=un27-un26;
+      k27=un28-un27;
+
+
+      l27=val28-val27;l26=val27-val26;
+      l25=val26-val25;l24=val25-val24;
+      l23=val24-val23;l22=val23-val22;
+      l21=val22-val21;l20=val21-val20;
+      l19=val20-val19;l18=val19-val18;
+      l17=val18-val17;l16=val17-val16;
+      l15=val16-val15;l14=val15-val14;
+      l13=val14-val13;l12=val13-val12;
+      l11=val12-val11;l10=val11-val10;
+      l9=val10-val9;l8=val9-val8;
+      l7=val8-val7;l6=val7-val6;
+      l5=val6-val5;l4=val5-val4;
+      l3=val4-val3;l2=val3-val2;
+      l1=val2-val1;
+
     }
-    k1=un2-un1;k2=un3-un2;
-    k3=un4-un3;k4=un5-un4;
-    k5=un6-un5;k6=un7-un6;
-    k7=un8-un7;k8=un9-un8;
-    k9=un10-un9;k10=un11-un10;
-    k11=un12-un11;k12=un13-un12;
-    k13=un14-un13;k14=un15-un14;
-    k15=un16-un15;k16=un17-un16;
-    k17=un18-un17;k18=un19-un18;
-    k19=un20-un19;k20=un21-un20;
-    k21=un22-un21;k22=un23-un22;
-    k23=un24-un23;k24=un25-un24;
-    k25=un26-un25;k26=un27-un26;
-    k27=un28-un27;
 
-
-    l27=val28-val27;l26=val27-val26;
-    l25=val26-val25;l24=val25-val24;
-    l23=val24-val23;l22=val23-val22;
-    l21=val22-val21;l20=val21-val20;
-    l19=val20-val19;l18=val19-val18;
-    l17=val18-val17;l16=val17-val16;
-    l15=val16-val15;l14=val15-val14;
-    l13=val14-val13;l12=val13-val12;
-    l11=val12-val11;l10=val11-val10;
-    l9=val10-val9;l8=val9-val8;
-    l7=val8-val7;l6=val7-val6;
-    l5=val6-val5;l4=val5-val4;
-    l3=val4-val3;l2=val3-val2;
-    l1=val2-val1;
 
   switch (today){
     case 1:day= (k1+k2+k3+k4+k5+k6+k7+k8+k9+k10+k11+k12+k13+k14+k15+k16+k17+k18+k19+k20+k21+k22+k23+k24+k25+k26+k27)/27;break;
@@ -442,6 +486,8 @@ class _enePageState extends State<enePage> {
     rem = Time % 5;
     bal =55;
     //Time - rem;
+
+
     if (now.month >= 10) {
       Datte = "${now.year}${now.month}${now.day}$bal";
       Datte2 = "${now.year}${now.month-1}${31}$bal";
@@ -521,6 +567,11 @@ class _enePageState extends State<enePage> {
       previousunit=int.parse(retrievedName2) -int.parse(retrievedName3);
     }
   }
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -530,6 +581,7 @@ class _enePageState extends State<enePage> {
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () => Navigator.pop(context),
+
           ),
           title: Text('home'),
         ),
@@ -990,4 +1042,15 @@ class _enePageState extends State<enePage> {
       ),
     );
   }
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      currentfunction();
+      currentprice();
+      changeText('$currentunit');
+      changeText2(costs);
+    });
+  }
+
 }
